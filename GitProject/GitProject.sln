@@ -1,18 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitProject", "Assembly-CSharp.csproj", "{6AB7E1B1-12F7-494B-A6F3-9FD272A95A05}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AB7E1B1-12F7-494B-A6F3-9FD272A95A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AB7E1B1-12F7-494B-A6F3-9FD272A95A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AB7E1B1-12F7-494B-A6F3-9FD272A95A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AB7E1B1-12F7-494B-A6F3-9FD272A95A05}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
