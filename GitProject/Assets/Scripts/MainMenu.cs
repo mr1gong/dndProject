@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject Buttons;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Disable()
     {
-        
+        Buttons.GetComponent<GameObject>();
+        Buttons.SetActive(false);
+    }
+
+    public void Enable()
+    {
+        Buttons.GetComponent<GameObject>();
+        Buttons.SetActive(true);
     }
 }
