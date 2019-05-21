@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject Buttons;
     public GameObject SettingsMenu;
     public Dropdown resolutionDropdown;
+    public Text ProgressionPoints;
     public Text Strength;
     public Text Dexterity;
     public Text Constitution;
@@ -98,130 +99,96 @@ public class MainMenu : MonoBehaviour
     public void IncrementStrength()
     {
         Debug.Log("Strength Button Pressed");
-        Debug.Log(Strength.GetComponent<Text>().text);
-        int value = int.Parse(Strength.GetComponent<Text>().text);
-        Debug.Log(value);
-        value++;
-        Debug.Log(value);
-        Strength.GetComponent<Text>().text = value.ToString();
+
+        Increment(Strength.GetComponent<Text>());
     }
 
     public void IncrementDexterity()
     {
-        Debug.Log("Dexterity Button Pressed");
-        Debug.Log(Dexterity.GetComponent<Text>().text);
-        int value = int.Parse(Dexterity.GetComponent<Text>().text);
-        Debug.Log(value);
-        value++;
-        Debug.Log(value);
-        Dexterity.GetComponent<Text>().text = value.ToString();
+        Increment(Dexterity.GetComponent<Text>());
     }
 
     public void IncrementConstitution()
     {
         Debug.Log("Constitution Button Pressed");
-        Debug.Log(Constitution.GetComponent<Text>().text);
-        int value = int.Parse(Constitution.GetComponent<Text>().text);
-        Debug.Log(value);
-        value++;
-        Debug.Log(value);
-        Constitution.GetComponent<Text>().text = value.ToString();
+        Increment(Constitution.GetComponent<Text>());
     }
 
     public void IncrementIntelligence()
     {
         Debug.Log("Intelligence Button Pressed");
-        Debug.Log(Intelligence.GetComponent<Text>().text);
-        int value = int.Parse(Intelligence.GetComponent<Text>().text);
-        Debug.Log(value);
-        value++;
-        Debug.Log(value);
-        Intelligence.GetComponent<Text>().text = value.ToString();
+        Increment(Intelligence.GetComponent<Text>());
     }
     public void IncrementWisdom()
     {
         Debug.Log("Wisdom Button Pressed");
-        Debug.Log(Wisdom.GetComponent<Text>().text);
-        int value = int.Parse(Wisdom.GetComponent<Text>().text);
-        Debug.Log(value);
-        value++;
-        Debug.Log(value);
-        Wisdom.GetComponent<Text>().text = value.ToString();
+        Increment(Wisdom.GetComponent<Text>());
     }
 
     public void IncrementCharisma()
     {
         Debug.Log("Charisma Button Pressed");
-        Debug.Log(Charisma.GetComponent<Text>().text);
-        int value = int.Parse(Charisma.GetComponent<Text>().text);
-        Debug.Log(value);
-        value++;
-        Debug.Log(value);
-        Charisma.GetComponent<Text>().text = value.ToString();
+        Increment(Charisma.GetComponent<Text>());
     }
 
     public void DecrementStrength()
     {
         Debug.Log("Strength Button Pressed");
-        Debug.Log(Strength.GetComponent<Text>().text);
-        int value = int.Parse(Strength.GetComponent<Text>().text);
-        Debug.Log(value);
-        value--;
-        Debug.Log(value);
-        Strength.GetComponent<Text>().text = value.ToString();
+        Decrement(Strength.GetComponent<Text>());
     }
 
     public void DecrementDexterity()
     {
         Debug.Log("Dexterity Button Pressed");
-        Debug.Log(Dexterity.GetComponent<Text>().text);
-        int value = int.Parse(Dexterity.GetComponent<Text>().text);
-        Debug.Log(value);
-        value--;
-        Debug.Log(value);
-        Dexterity.GetComponent<Text>().text = value.ToString();
+        Decrement(Dexterity.GetComponent<Text>());
     }
 
     public void DecrementConstitution()
     {
         Debug.Log("Constitution Button Pressed");
-        Debug.Log(Constitution.GetComponent<Text>().text);
-        int value = int.Parse(Constitution.GetComponent<Text>().text);
-        Debug.Log(value);
-        value--;
-        Debug.Log(value);
-        Constitution.GetComponent<Text>().text = value.ToString();
+        Decrement(Constitution.GetComponent<Text>());
     }
 
     public void DecrementIntelligence()
     {
         Debug.Log("Intelligence Button Pressed");
-        Debug.Log(Intelligence.GetComponent<Text>().text);
-        int value = int.Parse(Intelligence.GetComponent<Text>().text);
-        Debug.Log(value);
-        value--;
-        Debug.Log(value);
-        Intelligence.GetComponent<Text>().text = value.ToString();
+        Decrement(Intelligence.GetComponent<Text>());
     }
     public void DecrementWisdom()
     {
         Debug.Log("Wisdom Button Pressed");
-        Debug.Log(Wisdom.GetComponent<Text>().text);
-        int value = int.Parse(Wisdom.GetComponent<Text>().text);
-        Debug.Log(value);
-        value--;
-        Debug.Log(value);
-        Wisdom.GetComponent<Text>().text = value.ToString();
+        Decrement(Wisdom.GetComponent<Text>());
     }
 
     public void DecrementCharisma()
     {
         Debug.Log("Charisma Button Pressed");
-        Debug.Log(Charisma.GetComponent<Text>().text);
-        int value = int.Parse(Charisma.GetComponent<Text>().text);
-        Debug.Log(value);
+        Decrement(Charisma.GetComponent<Text>());
+    }
+
+    private void Decrement(Text input)
+    {
+        int value = int.Parse(input.text);
         value--;
-        Debug.Log(value);
-        Charisma.GetComponent<Text>().text = value.ToString();
+        input.text = value.ToString();
+    }
+
+    private void Increment(Text input)
+    {
+        int value = int.Parse(input.text);
+        value++;
+        input.text = value.ToString();
+    }
+
+    private void SpendPoint()
+    {
+        if (int.Parse(ProgressionPoints.text) <= 0) return;
+        Decrement(ProgressionPoints);
+    }
+
+    private void GainPoint()
+    {
+        if (int.Parse(ProgressionPoints.text) <= 8) return;
+        Increment(ProgressionPoints);
     }
 }
