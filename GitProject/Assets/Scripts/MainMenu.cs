@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public AudioMixer MainMenuMixer;
+    public GameObject CharacterCreation;
     public GameObject Buttons;
     public GameObject SettingsMenu;
     public Dropdown resolutionDropdown;
@@ -56,6 +57,18 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void EnableCharacterCreation()
+    {
+        CharacterCreation.GetComponent<GameObject>();
+        CharacterCreation.SetActive(true);
+    }
+
+    public void DisableCharacterCreation()
+    {
+        CharacterCreation.GetComponent<GameObject>();
+        CharacterCreation.SetActive(false);
+    }
+
     public void DisableButtons()
     {
         Buttons.GetComponent<GameObject>();
@@ -99,71 +112,101 @@ public class MainMenu : MonoBehaviour
     public void IncrementStrength()
     {
         Debug.Log("Strength Button Pressed");
-
-        Increment(Strength.GetComponent<Text>());
+        if (SpendPoint())
+            Increment(Strength.GetComponent<Text>());
     }
 
     public void IncrementDexterity()
     {
-        Increment(Dexterity.GetComponent<Text>());
+        Debug.Log("Dexterity Button Pressed");
+        if (SpendPoint())
+            Increment(Dexterity.GetComponent<Text>());
     }
 
     public void IncrementConstitution()
     {
         Debug.Log("Constitution Button Pressed");
-        Increment(Constitution.GetComponent<Text>());
+        if (SpendPoint())
+            Increment(Constitution.GetComponent<Text>());
     }
 
     public void IncrementIntelligence()
     {
         Debug.Log("Intelligence Button Pressed");
-        Increment(Intelligence.GetComponent<Text>());
+        if (SpendPoint())
+            Increment(Intelligence.GetComponent<Text>());
     }
     public void IncrementWisdom()
     {
         Debug.Log("Wisdom Button Pressed");
-        Increment(Wisdom.GetComponent<Text>());
+        if (SpendPoint())
+            Increment(Wisdom.GetComponent<Text>());
     }
 
     public void IncrementCharisma()
     {
         Debug.Log("Charisma Button Pressed");
-        Increment(Charisma.GetComponent<Text>());
+        if (SpendPoint())
+            Increment(Charisma.GetComponent<Text>());
     }
 
     public void DecrementStrength()
     {
         Debug.Log("Strength Button Pressed");
-        Decrement(Strength.GetComponent<Text>());
+        if (int.Parse(Strength.GetComponent<Text>().text) <= 10)
+            return;
+
+        if (GainPoint())
+            Decrement(Strength.GetComponent<Text>());
     }
 
     public void DecrementDexterity()
     {
         Debug.Log("Dexterity Button Pressed");
-        Decrement(Dexterity.GetComponent<Text>());
+        if (int.Parse(Dexterity.GetComponent<Text>().text) <= 10)
+            return;
+
+        if (GainPoint())
+            Decrement(Dexterity.GetComponent<Text>());
     }
 
     public void DecrementConstitution()
     {
         Debug.Log("Constitution Button Pressed");
-        Decrement(Constitution.GetComponent<Text>());
+        if (int.Parse(Constitution.GetComponent<Text>().text) <= 10)
+            return;
+
+        if (GainPoint())
+            Decrement(Constitution.GetComponent<Text>());
     }
 
     public void DecrementIntelligence()
     {
         Debug.Log("Intelligence Button Pressed");
-        Decrement(Intelligence.GetComponent<Text>());
+        if (int.Parse(Intelligence.GetComponent<Text>().text) <= 10)
+            return;
+
+        if (GainPoint())
+            Decrement(Intelligence.GetComponent<Text>());
     }
     public void DecrementWisdom()
     {
         Debug.Log("Wisdom Button Pressed");
-        Decrement(Wisdom.GetComponent<Text>());
+        if (int.Parse(Wisdom.GetComponent<Text>().text) <= 10)
+            return;
+
+        if (GainPoint())
+            Decrement(Wisdom.GetComponent<Text>());
     }
 
     public void DecrementCharisma()
     {
         Debug.Log("Charisma Button Pressed");
-        Decrement(Charisma.GetComponent<Text>());
+        if (int.Parse(Charisma.GetComponent<Text>().text) <= 10)
+            return;
+
+        if (GainPoint())
+            Decrement(Charisma.GetComponent<Text>());
     }
 
     private void Decrement(Text input)
@@ -180,15 +223,17 @@ public class MainMenu : MonoBehaviour
         input.text = value.ToString();
     }
 
-    private void SpendPoint()
+    private bool SpendPoint()
     {
-        if (int.Parse(ProgressionPoints.text) <= 0) return;
+        if (int.Parse(ProgressionPoints.text) <= 0) return false;
         Decrement(ProgressionPoints);
+        return true;
     }
 
-    private void GainPoint()
+    private bool GainPoint()
     {
-        if (int.Parse(ProgressionPoints.text) <= 8) return;
+        if (int.Parse(ProgressionPoints.text) >= 8) return false;
         Increment(ProgressionPoints);
+        return true;
     }
 }
