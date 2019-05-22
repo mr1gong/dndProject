@@ -209,6 +209,20 @@ public class MainMenu : MonoBehaviour
             Decrement(Charisma.GetComponent<Text>());
     }
 
+    public void SaveCharacter()
+    {
+        string output = null;
+        output = Strength.GetComponent<Text>().text +
+            "," + Dexterity.GetComponent<Text>().text +
+            "," + Constitution.GetComponent<Text>().text +
+            "," + Intelligence.GetComponent<Text>().text +
+            "," + Wisdom.GetComponent<Text>().text +
+            "," + Charisma.GetComponent<Text>().text;
+
+        System.IO.File.WriteAllText("CharacterData.txt", output);
+        Debug.Log("Character Saved!");
+    }
+
     private void Decrement(Text input)
     {
         int value = int.Parse(input.text);
