@@ -3,7 +3,18 @@ guid: 3c013dea99a3936448730b7a11eaa1ae
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MainMenuMixer: {instanceID: 0}
+  - Buttons: {instanceID: 0}
+  - SettingsMenu: {instanceID: 0}
+  - resolutionDropdown: {instanceID: 0}
+  - ProgressionPoints: {instanceID: 0}
+  - Strength: {instanceID: 0}
+  - Dexterity: {instanceID: 0}
+  - Constitution: {instanceID: 0}
+  - Intelligence: {instanceID: 0}
+  - Wisdom: {instanceID: 0}
+  - Charisma: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

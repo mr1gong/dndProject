@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Imports/UltraMare/Fantastic UI Starter Pack/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Prison/Prison.unity
+    guid: d44606099795f6f4fa02ef3386d8f640
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c1848071011b4b04c822d2c0b254724d
   m_configObjects: {}
