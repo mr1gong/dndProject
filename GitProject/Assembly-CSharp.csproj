@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Imports\MedievalRoom\Settings\Note.txt" />
     <Reference Include="Unity.Timeline.Editor">
