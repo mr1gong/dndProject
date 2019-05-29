@@ -8,4 +8,13 @@ public class Item : MonoBehaviour
     public string Name;
     public string Description;
     public Image ItemImage;
+
+
+
+
+
+    public Item GetPickedUp()
+    {
+        return this;
+    }
 }

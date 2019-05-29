@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorScript : MonoBehaviour
+public class DoorScript : Lockable
 {
 
     //DO TIME OFFSET
@@ -25,23 +25,23 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        try
-        {
-            target = DoorPositions[index];
-            float step = Speed * Time.deltaTime;
-
-            if (Quaternion.Angle(transform.rotation, Quaternion.Euler(target)) == 0)
+        if (lockState == 0) {
+            try
             {
+                target = DoorPositions[index];
+                float step = Speed * Time.deltaTime;
 
-            }
-            else
-            {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target), step);
-            }
-            //For some reason Unity doesn't know Exceptions... truly exceptional programming skills
-        } catch(System.Exception e) { }
-        
+                if (Quaternion.Angle(transform.rotation, Quaternion.Euler(target)) == 0)
+                {
+
+                }
+                else
+                {
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target), step);
+                }
+                //For some reason Unity doesn't know Exceptions... truly exceptional programming skills
+            } catch (System.Exception e) { }
+        }
     }
 
    
