@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ZoneMode
+{
+    GiveMainObjective,
+    GiveCurrentObjective,
+    RemoveMainObjective,
+    RemoveCurrentObjective
+
+    
+}
 public class QuestZone : MonoBehaviour
 {
+    
+
     public bool enter = true;
     //0: Give Main Objective; 1: Give Current Objective; 2: Remove Main Objective; 3: Remove Current Objective
-    public int ZoneFunction;
+    public ZoneMode ZoneFunction;
     public Text MainObjective;
     public Text CurrentObjective;
     public string Quest = "Hello, knight!";
@@ -27,16 +38,16 @@ public class QuestZone : MonoBehaviour
 
         switch (ZoneFunction)
         {
-            case 0:
+            case ZoneMode.GiveMainObjective:
                 ChangeMainObjective(Quest);
                 return;
-            case 1:
+            case ZoneMode.GiveCurrentObjective:
                 ChangeSecondaryObjective(Quest);
                 return;
-            case 2:
+            case ZoneMode.RemoveMainObjective:
                 ClearText(MainObjective);
                 return;
-            case 3:
+            case ZoneMode.RemoveCurrentObjective:
                 ClearText(CurrentObjective);
                 return;
             default:

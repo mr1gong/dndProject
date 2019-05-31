@@ -84,34 +84,68 @@ public class UI : MonoBehaviour
         {
             Windows.Add(index, UiList[index]);
         }
+        if (Item0 != null) QuestSlot0Image.sprite = Item0.ItemImage;
+        if (Item1 != null) QuestSlot1Image.sprite = Item1.ItemImage;
+        if (Item2 != null) QuestSlot2Image.sprite = Item2.ItemImage;
+
+
+
+
         Debug.Log("Initialisation Successful!");
     }
     
     public void GiveItem(int itemIndex)
     {
-        if (Item0 = null)
+        if (Item0 == null)
         {
             Item0 = Items[itemIndex];
-            QuestSlot0Image = Item0.ItemImage;
+            QuestSlot0Image.sprite = Item0.ItemImage;
             return;
         }
 
-        if (Item1 = null)
+        if (Item1 == null)
         {
             Item1 = Items[itemIndex];
-            QuestSlot1Image = Item1.ItemImage;
+            QuestSlot1Image.sprite = Item1.ItemImage;
             return;
         }
 
-        if (Item2 = null)
+        if (Item2 == null)
         {
             Item2 = Items[itemIndex];
-            QuestSlot2Image = Item2.ItemImage;
+            QuestSlot2Image.sprite = Item2.ItemImage;
             return;
         }
 
         throw new System.Exception("Inventory Overload!");
     }
+    public bool GiveItem(Item item)
+    {
+        if (Item0 == null)
+        {
+            Item0 = item;
+            QuestSlot0Image.sprite = Item0.ItemImage;
+            return true;
+        }
+
+        if (Item1 == null)
+        {
+            Item1 = item;
+            QuestSlot1Image.sprite = Item1.ItemImage;
+            return true;
+        }
+
+        if (Item2 == null)
+        {
+            Item2 = item;
+            QuestSlot2Image.sprite = Item2.ItemImage;
+            return true;
+        }
+        return false;
+        throw new System.Exception("Inventory Overload!");
+    }
+
+
 
     public void RemoveItem(int slotIndex)
     {
@@ -164,6 +198,13 @@ public class UI : MonoBehaviour
             }
         }
     }
+    //by Makovec
+    public bool CheckInventorySpace()
+    {
+        bool slot0 = Item0 == null; bool slot1 = Item1 == null; bool slot2 = Item2 == null;
+        return slot0 || slot1 || slot2;
+    }
+
 
     private void EnableDisableWindow(int index)
     {
@@ -184,4 +225,7 @@ public class UI : MonoBehaviour
             EnableDisableWindow(1);
         }
     }
+
+
+    
 }

@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
     public string Name;
     public string Description;
-    public Image ItemImage;
+    public Sprite ItemImage;
 
 
 
@@ -15,6 +15,8 @@ public class Item : MonoBehaviour
 
     public Item GetPickedUp()
     {
+
+        
         return this;
     }
 }
