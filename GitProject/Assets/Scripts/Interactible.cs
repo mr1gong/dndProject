@@ -46,8 +46,6 @@ public class Interactible : MonoBehaviour
                 }
             }
         }
-        //???
-        else { } 
     }
     
     public virtual bool GetItemUsedOn(Item item, out string textResult)
@@ -60,10 +58,4 @@ public class Interactible : MonoBehaviour
     {
         return ExamineText;
     }
-    
-    /*public void Inspect()
-    {
-        InspectionWindow.SetActive(!InspectionWindow.activeSelf);
-        InspectionDetails.text = GetExamined();
-    }*/
 }
