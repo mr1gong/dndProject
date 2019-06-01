@@ -9,8 +9,6 @@ public enum ZoneMode
     GiveCurrentObjective,
     RemoveMainObjective,
     RemoveCurrentObjective
-
-    
 }
 public class QuestZone : MonoBehaviour
 {

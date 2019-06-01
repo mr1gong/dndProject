@@ -9,14 +9,8 @@ public class Item : MonoBehaviour
     public string Description;
     public Sprite ItemImage;
 
-
-
-
-
     public Item GetPickedUp()
-    {
-
-        
+    {       
         return this;
     }
 }
