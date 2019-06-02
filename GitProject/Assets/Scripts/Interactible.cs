@@ -10,52 +10,20 @@ using UnityEngine.UI;
 public class Interactible : MonoBehaviour
 {
     public Shader alwaysOnTop;
-    protected float Timer;
+    protected float timer;
     public Canvas interactibleUISet;
     public string ExamineText = "";
     // Start is called before the first frame update
     void Start()
     {
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
-        Timer = 10;
+        timer = 10000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        interactibleUISet.transform.LookAt(Camera.main.transform);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-           
-        if (Physics.Raycast(ray, out hit))
-        {
-                       
-            if (hit.collider.gameObject == this.gameObject)
-            {
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Timer = 0;
-                    
-                    interactibleUISet.enabled = true;
-                }
-
-                
-            }
-            else
-            {
-
-                Timer += Time.deltaTime;
-                if (Timer > 2000)
-                {
-                    interactibleUISet.enabled = false;
-                }
-            }
-        }
-
-        //Reserved for future versions
-        else { } 
-
+        UIUpdate();
 
     }
     
@@ -69,4 +37,51 @@ public class Interactible : MonoBehaviour
     {
         return ExamineText;
     }
+
+    protected void UIUpdate()
+    {
+        interactibleUISet.transform.LookAt(Camera.main.transform);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+
+            if (hit.collider.gameObject == this.gameObject)
+            {
+                Debug.Log("EQUALS");
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("CLICK");
+
+                    timer = 0;
+
+
+                }
+
+
+            }
+            else
+            {
+
+                timer += Time.deltaTime;
+
+            }
+            
+        }
+
+        //Reserved for future versions
+        else { }
+
+        if (timer > 2)
+        {
+            interactibleUISet.enabled = false;
+        }
+        else
+        {
+            interactibleUISet.enabled = true;
+
+        }
+    }
+
 }

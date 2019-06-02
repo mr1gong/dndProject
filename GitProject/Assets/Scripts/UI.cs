@@ -54,13 +54,15 @@ public class UI : MonoBehaviour
         Reinitialise();
         CheckInput();
         TackleResolutions();
-        
+
         //DisableInspectionWindow();
 
 
         //Use Selected Item on Interactible
-        if(selectedItemForUse != null || true)
+
+        if(selectedItemForUse != null)
         {
+            Debug.Log("passedSelectionItem");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -69,8 +71,7 @@ public class UI : MonoBehaviour
                 {
                     Debug.Log(hit.collider.name);
                     Interactible interactible = hit.collider.gameObject.GetComponent<Interactible>();
-                    if (interactible == null) { interactible = hit.collider.gameObject.GetComponent<Lockable>(); }
-                    if (interactible == null) { interactible = hit.collider.gameObject.GetComponent<DoorScript>(); }
+                   
                     string temp = "";
 
                     if (interactible.GetItemUsedOn(selectedItemForUse, out temp)) Debug.Log("Success");
@@ -383,7 +384,7 @@ public class UI : MonoBehaviour
     }
     public void TryUseItem(int itemSlotIndex)
     {
-        Debug.Log("1");
+       
         switch(itemSlotIndex)
         {
             //Set selected item

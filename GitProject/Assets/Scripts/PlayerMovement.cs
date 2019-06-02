@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("PickingUpItem");
         Debug.Log(item.gameObject);
 
-        Destroy(item.gameObject);            
+        item.gameObject.SetActive(false);            
         return; 
     }
 }

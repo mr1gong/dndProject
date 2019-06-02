@@ -17,31 +17,7 @@ public class DoorScript : Lockable
     // Update is called once per frame
     void Update()
     {
-        interactibleUISet.transform.LookAt(Camera.main.transform);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    Timer = 0;
-
-                    interactibleUISet.enabled = true;
-                }
-
-                else
-                {
-
-                    Timer += Time.deltaTime;
-                    if (Timer > 2)
-                    {
-                        interactibleUISet.enabled = false;
-                    }
-                }
-            }
+        base.UIUpdate();
 
             if (lockState == 0)
             {
@@ -63,8 +39,9 @@ public class DoorScript : Lockable
                 }
                 catch (System.Exception e) { }
             }
-        }
+
     }
+    
     public void SetDoorState(int i)
     {
         index = i;
