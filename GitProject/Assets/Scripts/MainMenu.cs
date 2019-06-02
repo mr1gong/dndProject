@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject Buttons;
     public GameObject SettingsMenu;
     public GameObject CharacterCreationMenu;
+    public GameObject Credits;
+    public GameObject Help;
     public Dropdown resolutionDropdown;
     public Text ProgressionPoints;
     public Text Strength;
@@ -53,10 +55,30 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            Credits.SetActive(false);
+        }
+    }
+
     public void SetVolume(float inputVolume)
     {
         MainMenuMixer.SetFloat("MasterVolume", inputVolume);
 
+    }
+
+    public void EnableHelp()
+    {
+        Help.GetComponent<GameObject>();
+        Help.SetActive(true);
+    }
+
+    public void DisableHelp()
+    {
+        Help.GetComponent<GameObject>();
+        Help.SetActive(false);
     }
 
     public void DisableButtons()
@@ -93,6 +115,17 @@ public class MainMenu : MonoBehaviour
     {
         CharacterCreationMenu.GetComponent<GameObject>();
         CharacterCreationMenu.SetActive(false);
+    }
+
+    public void EnableCredits()
+    {
+        Credits.GetComponent<GameObject>();
+        Credits.SetActive(true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public void SetGraphicsQuality(int index)

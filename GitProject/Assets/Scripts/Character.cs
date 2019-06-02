@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,12 +30,66 @@ public class Character : MonoBehaviour
     void Start()
     {
         Debug.Log("Character Initialised");
+        LoadCharacter();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void LoadCharacter()
+    {
+        string input;
+        try
+        {
+            input = File.ReadAllText("CharacterSave");
+        }
+        catch(Exception)
+        {
+            throw new Exception("Failed to Load Player Data!");
+        }
+
+        string[] rawData = input.Split(',');
+        int[] data = new int[rawData.Length];
+
+        for (int index = 0; index < rawData.Length; index++)
+        {
+            try
+            {
+                int item = int.Parse(rawData[index]);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Data Corrupted!");
+            }
+        }
+
+        strength = data[0]; dexterity = data[1]; constitution = data[2]; intelligence = data[3]; wisdom = data[4]; charisma = data[5];
+        UpdateMods();
+    }
+
+    public void SaveCharacter()
+    {
+        File.WriteAllText("CharacterSave.txt", getParameters());
+        string getParameters()
+        {
+            string output = null;
+            output += strength;
+            output += ",";
+            output += dexterity;
+            output += ",";
+            output += constitution;
+            output += ",";
+            output += intelligence;
+            output += ",";
+            output += wisdom;
+            output += ",";
+            output += charisma;
+            Debug.Log("Saving: '" + output + "'");
+            return output;
+        }
     }
 
     public int StrengthCheck()
