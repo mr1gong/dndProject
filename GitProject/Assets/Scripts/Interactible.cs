@@ -21,6 +21,7 @@ public class Interactible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        interactibleUISet.transform.LookAt(Camera.main.transform);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
            
@@ -46,7 +47,7 @@ public class Interactible : MonoBehaviour
                 }
             }
         }
-        //???
+        //Reserved for future versions
         else { } 
     }
     
