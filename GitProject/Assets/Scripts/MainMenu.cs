@@ -238,6 +238,16 @@ public class MainMenu : MonoBehaviour
         value--;
         input.text = value.ToString();
     }
+    //DODELEJ TO JINDRO
+    /*
+    public void DecrementX()
+    {
+        Debug.Log("X Button Pressed");
+        if (GainPoint() && X >= 10)
+            Decrement(Strength.GetComponent<Text>());
+    }
+    */
+
 
     private void Increment(Text input)
     {

@@ -30,6 +30,9 @@ public class UI : MonoBehaviour
     public GameObject InspectionWindow;
     public Text InspectionDetails;
 
+    private Item selectedItemForUse;
+
+
     //List of all available resolutions
     private Resolution[] resolutions;
     //List of all UI components indexed with an integer
@@ -51,7 +54,33 @@ public class UI : MonoBehaviour
         Reinitialise();
         CheckInput();
         TackleResolutions();
+        
         //DisableInspectionWindow();
+
+
+        //Use Selected Item on Interactible
+        if(selectedItemForUse != null || true)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Input.GetMouseButtonDown(0)) {
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.Log(hit.collider.name);
+                    Interactible interactible = hit.collider.gameObject.GetComponent<Interactible>();
+                    if (interactible == null) { interactible = hit.collider.gameObject.GetComponent<Lockable>(); }
+                    if (interactible == null) { interactible = hit.collider.gameObject.GetComponent<DoorScript>(); }
+                    string temp = "";
+
+                    if (interactible.GetItemUsedOn(selectedItemForUse, out temp)) Debug.Log("Success");
+                    Debug.Log(temp);
+                    selectedItemForUse = null;
+                }
+            }
+
+        }
+
     }
 
     public void Inspect(int index)
@@ -352,4 +381,23 @@ public class UI : MonoBehaviour
             return output;
         }
     }
+    public void TryUseItem(int itemSlotIndex)
+    {
+        Debug.Log("1");
+        switch(itemSlotIndex)
+        {
+            //Set selected item
+            case 0: selectedItemForUse = Item0; break;
+            case 1: selectedItemForUse = Item1; break;
+            case 2: selectedItemForUse = Item2; break;
+            default: throw new System.NotImplementedException();
+        }
+        ToggleWindow(1);
+
+
+
+         
+    }
+    private void CheckInventoryButtons() { } 
+
 }

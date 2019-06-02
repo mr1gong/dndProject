@@ -9,12 +9,14 @@ using UnityEngine.UI;
 
 public class Interactible : MonoBehaviour
 {
-    private float Timer;
+    public Shader alwaysOnTop;
+    protected float Timer;
     public Canvas interactibleUISet;
     public string ExamineText = "";
     // Start is called before the first frame update
     void Start()
     {
+        Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         Timer = 10;
     }
 
@@ -27,23 +29,26 @@ public class Interactible : MonoBehaviour
            
         if (Physics.Raycast(ray, out hit))
         {
-            if (Input.GetMouseButtonDown(0))
+                       
+            if (hit.collider.gameObject == this.gameObject)
             {
-                if (hit.collider.gameObject == gameObject)
+
+                if (Input.GetMouseButtonDown(0))
                 {
                     Timer = 0;
                     
                     interactibleUISet.enabled = true;
                 }
 
-                else
+                
+            }
+            else
+            {
+
+                Timer += Time.deltaTime;
+                if (Timer > 2000)
                 {
-                    
-                    Timer += Time.deltaTime;
-                    if (Timer > 2)
-                    {
-                        interactibleUISet.enabled = false;
-                    }
+                    interactibleUISet.enabled = false;
                 }
             }
         }
