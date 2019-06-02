@@ -47,11 +47,11 @@ public class Interactible : MonoBehaviour
                 }
             }
         }
-<<<<<<< HEAD
+
         //Reserved for future versions
         else { } 
-=======
->>>>>>> refs/remotes/origin/master
+
+
     }
     
     public virtual bool GetItemUsedOn(Item item, out string textResult)
