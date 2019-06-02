@@ -213,7 +213,7 @@ public class UI : MonoBehaviour
     public void ResumeGame()
     {
         ToggleWindow(2);
-        TogglePause();
+        //TogglePause();
     }
 
     public void QuitToMainMenu()
@@ -303,25 +303,25 @@ public class UI : MonoBehaviour
         if (Input.GetButtonDown("Journal"))
         {
             ToggleWindow(0);
-            TogglePause();
+            //TogglePause();
         }
 
         if (Input.GetButtonDown("Inventory"))
         {
             ToggleWindow(1);
-            TogglePause();
+            //TogglePause();
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
             ToggleWindow(2);
-            TogglePause();
+            //TogglePause();
         }
 
         if (Input.GetKeyDown(KeyCode.N))
         {
             ToggleWindow(3);
-            TogglePause();
+            //TogglePause();
         }
     }
     

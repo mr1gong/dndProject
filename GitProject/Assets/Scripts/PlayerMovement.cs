@@ -25,33 +25,23 @@ public class PlayerMovement : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit, 50, Clickable))
             {
-                
                     navAgent.SetDestination(hit.point);
-                
             }
             
         }
         
     }
     public void TryPickupObject(Item item)
-    {
-       
+    { 
         navAgent.SetDestination(item.transform.position);
+        PlayerUI.GiveItem(item.GetPickedUp());    
+        Debug.Log("PickingUpItem");
+        Debug.Log(item.gameObject);
 
-
-
-        PlayerUI.GiveItem(item.GetPickedUp());
-            
-                Debug.Log("PickingUpItem");
-                Debug.Log(item.gameObject);
-                Destroy(item.gameObject);
-                
-            
-             return;
-       
-
-        
+        Destroy(item.gameObject);            
+        return; 
     }
 }
