@@ -57,7 +57,6 @@ public class UI : MonoBehaviour
 
         //DisableInspectionWindow();
 
-
         //Use Selected Item on Interactible
 
         if(selectedItemForUse != null)
