@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorScript : Lockable
 {
 
     //DO TIME OFFSET
     public List<Vector3> DoorPositions;
+    public List<DoorScript> linkedDoors;
     private Vector3 target;
     public float Speed = 1.0f;
     public int index = 0;
     private bool beingHandled = false;
     private float timer;
-
+    public UnityEvent OnUnlock;
   
     // Update is called once per frame
     void Update()
@@ -39,18 +41,52 @@ public class DoorScript : Lockable
                 }
                 catch (System.Exception e) { }
             }
-
+            else { }
+       
     }
     
     public void SetDoorState(int i)
     {
         index = i;
+        foreach (var door in linkedDoors)
+        {
+            
+            door.index = index;
+        }
     }
     public void IncrementDoorState()
     {
         if (index + 1 >= DoorPositions.Count) { index = 0; }
         else { index++; }
+        foreach (var door in linkedDoors)
+        {
+            
+            door.index = index;
+        }
+
     }
+    public void Unlock()
+    {
+        
+
+
+        if (lockState == 1)
+        {
+            lockState = 0;
+            OnUnlock.Invoke();
+
+            foreach (var door in linkedDoors)
+            {
+                door.lockState = lockState;
+
+            }
+
+        }
+        
+
+
+    }
+
 }
 
    
