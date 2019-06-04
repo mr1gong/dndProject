@@ -9,10 +9,17 @@ using UnityEngine.UI;
 
 public class Interactible : MonoBehaviour
 {
+    //Jindrich Code Intrusion Alert
+    public Texture2D IdleMode;
+    public Texture2D Interaction;
+    private CursorMode CursorMode = CursorMode.Auto;
+    private Vector2 CursorOffset = new Vector2(0, 0);
+
     public Shader alwaysOnTop;
     protected float timer;
     public Canvas interactibleUISet;
     public string ExamineText = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +33,12 @@ public class Interactible : MonoBehaviour
         UIUpdate();
 
     }
-    
+
+    private void OnMouseEnter()
+    {
+        Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
+    }
+
     public virtual bool GetItemUsedOn(Item item, out string textResult)
     {
         textResult = "Nothing Happened.";
@@ -53,24 +65,18 @@ public class Interactible : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.Log("CLICK");
-
                     timer = 0;
-
-
                 }
-
-
             }
+
             else
             {
-
                 timer += Time.deltaTime;
-
-            }
-            
+            }      
         }
 
-        //Reserved for future versions
+        //Reserved for future versions.
+        //Like in Intel processors?
         else { }
 
         if (timer > 2)
