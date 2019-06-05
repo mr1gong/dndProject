@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.Animations;
 
 public class MainMenu : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
     public GameObject CharacterCreationMenu;
     public GameObject Credits;
     public GameObject Help;
+    public Animator Animation;
     public Dropdown resolutionDropdown;
     public Text ProgressionPoints;
     public Text Strength;
@@ -120,6 +122,7 @@ public class MainMenu : MonoBehaviour
     public void EnableCredits()
     {
         Credits.GetComponent<GameObject>();
+        Animation.SetTrigger("StartCredits");
         Credits.SetActive(true);
     }
 

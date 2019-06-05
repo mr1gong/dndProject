@@ -12,10 +12,7 @@ public enum ZoneMode
 }
 public class QuestZone : MonoBehaviour
 {
-    
-
     public bool enter = true;
-    //0: Give Main Objective; 1: Give Current Objective; 2: Remove Main Objective; 3: Remove Current Objective
     public ZoneMode ZoneFunction;
     public Text MainObjective;
     public Text CurrentObjective;
