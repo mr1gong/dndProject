@@ -36,7 +36,7 @@ public class Interactible : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
+        //Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
     }
 
     public virtual bool GetItemUsedOn(Item item, out string textResult)
