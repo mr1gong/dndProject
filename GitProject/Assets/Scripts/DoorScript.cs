@@ -13,13 +13,13 @@ public class DoorScript : Lockable
     public float Speed = 1.0f;
     public int index = 0;
     private bool beingHandled = false;
-    private float timer;
-    public UnityEvent OnUnlock;
+    
+    
   
     // Update is called once per frame
     void Update()
     {
-        base.UIUpdate();
+        UIUpdate();
 
             if (lockState == 0)
             {
@@ -42,13 +42,17 @@ public class DoorScript : Lockable
                 catch (System.Exception e) { }
             }
             else { }
-       
+        foreach (DoorScript door in linkedDoors)
+        {
+            door.lockState = lockState;
+
+        }
     }
     
     public void SetDoorState(int i)
     {
         index = i;
-        foreach (var door in linkedDoors)
+        foreach (DoorScript door in linkedDoors)
         {
             
             door.index = index;
@@ -58,34 +62,14 @@ public class DoorScript : Lockable
     {
         if (index + 1 >= DoorPositions.Count) { index = 0; }
         else { index++; }
-        foreach (var door in linkedDoors)
+        foreach (DoorScript door in linkedDoors)
         {
             
             door.index = index;
         }
 
     }
-    public void Unlock()
-    {
-        
-
-
-        if (lockState == 1)
-        {
-            lockState = 0;
-            OnUnlock.Invoke();
-
-            foreach (var door in linkedDoors)
-            {
-                door.lockState = lockState;
-
-            }
-
-        }
-        
-
-
-    }
+   
 
 }
 

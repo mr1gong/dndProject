@@ -36,7 +36,7 @@ public class Interactible : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
+       // Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
     }
 
     public virtual bool GetItemUsedOn(Item item, out string textResult)
@@ -59,13 +59,15 @@ public class Interactible : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
 
-            if (hit.collider.gameObject == this.gameObject)
+            if (hit.collider.gameObject == gameObject)
             {
                 Debug.Log("EQUALS");
                 if (Input.GetMouseButtonDown(0))
                 {
+
                     Debug.Log("CLICK");
                     timer = 0;
+                    interactibleUISet.enabled = true;
                 }
             }
 
@@ -85,7 +87,7 @@ public class Interactible : MonoBehaviour
         }
         else
         {
-            interactibleUISet.enabled = true;
+           
 
         }
     }
