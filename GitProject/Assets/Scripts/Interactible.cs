@@ -36,11 +36,7 @@ public class Interactible : MonoBehaviour
 
     private void OnMouseEnter()
     {
-<<<<<<< HEAD
-       // Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
-=======
-        //Cursor.SetCursor(Interaction, CursorOffset, CursorMode);
->>>>>>> refs/remotes/origin/master
+
     }
 
     public virtual bool GetItemUsedOn(Item item, out string textResult)
@@ -56,7 +52,8 @@ public class Interactible : MonoBehaviour
 
     protected void UIUpdate()
     {
-        interactibleUISet.transform.LookAt(Camera.main.transform);
+        if(interactibleUISet != null) interactibleUISet.transform.LookAt(Camera.main.transform);
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -87,7 +84,8 @@ public class Interactible : MonoBehaviour
 
         if (timer > 2)
         {
-            interactibleUISet.enabled = false;
+            if (interactibleUISet != null)
+                interactibleUISet.enabled = false;
         }
         else
         {

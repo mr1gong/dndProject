@@ -13,7 +13,7 @@ public class UI : MonoBehaviour
 {
     public GameObject Inventory;   private List<GameObject> SlotList = new List<GameObject>();
     public Text CurrentObjective;  private List<GameObject> UiList = new List<GameObject>();
-
+    public Sprite defaultItemImage;
     public GameObject QuestSlot0;  public Item Item0;      private Image QuestSlot0Image;
     public GameObject QuestSlot1;  public Item Item1;      private Image QuestSlot1Image;
     public GameObject QuestSlot2;  public Item Item2;      private Image QuestSlot2Image;
@@ -220,6 +220,7 @@ public class UI : MonoBehaviour
         {
             case 0:
                 Item0 = null;
+
                 break;
             case 1:
                 Item1 = null;
@@ -230,6 +231,11 @@ public class UI : MonoBehaviour
             default:
                 throw new System.Exception("Invalid Input");
         }
+
+        if (Item0 == null) QuestSlot0Image.sprite = defaultItemImage;
+        if (Item1 == null) QuestSlot1Image.sprite = defaultItemImage;
+        if (Item2 == null) QuestSlot2Image.sprite = defaultItemImage;
+
     }
 
     //By Makovec

@@ -21,7 +21,7 @@ public class EndLevel : MonoBehaviour
         ChangeLevel();
     }
 
-    private void ChangeLevel()
+    public void ChangeLevel()
     {
         StartCoroutine(LoadScene());
     }

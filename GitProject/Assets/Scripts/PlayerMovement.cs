@@ -26,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 50, Clickable))
+            if (Physics.Raycast(ray, out hit, 50))
             {
+                if(Input.GetAxis("LockMovement") == 0) {
+                    navAgent.velocity = new Vector3(0, 0, 0);
                     navAgent.SetDestination(hit.point);
+                }
+                
             }
             
         }

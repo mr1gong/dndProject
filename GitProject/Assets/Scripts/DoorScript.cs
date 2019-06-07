@@ -41,7 +41,10 @@ public class DoorScript : Lockable
                 }
                 catch (System.Exception e) { }
             }
-            else { }
+            else
+        {
+            
+        }
         foreach (DoorScript door in linkedDoors)
         {
             door.lockState = lockState;
@@ -51,21 +54,37 @@ public class DoorScript : Lockable
     
     public void SetDoorState(int i)
     {
-        index = i;
-        foreach (DoorScript door in linkedDoors)
+        if (lockState == 0)
         {
-            
-            door.index = index;
+            index = i;
+            foreach (DoorScript door in linkedDoors)
+            {
+
+                door.index = index;
+            }
+        }
+        else
+        {
+            if (MessageUIScript.getInstance() != null)
+            { MessageUIScript.getInstance().DisplayText("Locked!"); }
         }
     }
     public void IncrementDoorState()
     {
-        if (index + 1 >= DoorPositions.Count) { index = 0; }
+        if (lockState == 0)
+        {
+            if (index + 1 >= DoorPositions.Count) { index = 0; }
         else { index++; }
         foreach (DoorScript door in linkedDoors)
         {
             
             door.index = index;
+        }
+        }
+        else
+        {
+            if (MessageUIScript.getInstance() != null)
+            { MessageUIScript.getInstance().DisplayText("Locked!"); }
         }
 
     }

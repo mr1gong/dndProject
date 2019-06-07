@@ -7,18 +7,23 @@ public class TriggerScript : MonoBehaviour
 {
     public bool Multiple = false;
     public UnityEvent Trigger;
-    private bool triggered = false;
+    public bool triggered = false;
 
 
     // Start is called before the first frame update
-    
+
 
     // Update is called once per frame
-    
-    private void OnCollisionEnter(Collision collision)
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (!triggered || Multiple) {
+
+       
+        if ((!triggered) || Multiple)
+        {
             Trigger.Invoke();
+            triggered = true;
         }
     }
 }
