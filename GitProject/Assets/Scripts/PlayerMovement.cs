@@ -31,13 +31,11 @@ public class PlayerMovement : MonoBehaviour
                 if(Input.GetAxis("LockMovement") == 0) {
                     navAgent.velocity = new Vector3(0, 0, 0);
                     navAgent.SetDestination(hit.point);
-                }
-                
-            }
-            
-        }
-        
+                }     
+            }           
+        }   
     }
+
     public void TryPickupObject(Item item)
     { 
         navAgent.SetDestination(item.transform.position);

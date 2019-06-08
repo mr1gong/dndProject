@@ -78,9 +78,7 @@ public class UI : MonoBehaviour
                     selectedItemForUse = null;
                 }
             }
-
         }
-
     }
 
     public void Inspect(int index)
@@ -398,12 +396,7 @@ public class UI : MonoBehaviour
             case 2: selectedItemForUse = Item2; break;
             default: throw new System.NotImplementedException();
         }
-        ToggleWindow(1);
-
-
-
-         
+        ToggleWindow(1);  
     }
     private void CheckInventoryButtons() { } 
-
 }

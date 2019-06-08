@@ -14,7 +14,7 @@ public class MessageUIScript : MonoBehaviour
     {
         //constantly decrease alpha level;
         if (alpha > 0) { alpha -= 0.001f; }
-       if(alpha < 0) { alpha = 0; }
+        if(alpha < 0) { alpha = 0; }
     }
 
     public static MessageUIScript getInstance()
@@ -24,14 +24,14 @@ public class MessageUIScript : MonoBehaviour
             instance = new MessageUIScript();
         }
         return instance;
-       
-
     }
+
     public void DisplayText(string message)
     {
         alpha = 1;
         text = message;
     }
+
     private void OnGUI()
     {
         //Display Text
@@ -40,5 +40,4 @@ public class MessageUIScript : MonoBehaviour
         GUI.Label(new Rect(10, 0, 500, 50), text);
          
     }
-
 }

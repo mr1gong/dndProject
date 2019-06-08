@@ -630,6 +630,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6467737612651993180, guid: 2321bbe5037d02b41b902f1615afb4e9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2076628258}
+    - target: {fileID: 6467737612651993180, guid: 2321bbe5037d02b41b902f1615afb4e9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryPickupObject
+      objectReference: {fileID: 0}
     - target: {fileID: 6467737612386719762, guid: 2321bbe5037d02b41b902f1615afb4e9,
         type: 3}
       propertyPath: Name
@@ -11779,6 +11789,18 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3cf1b3a5f4b75db4b8dbcc72e1eff51c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e62fd919d7622ee49a068b09e2f6504c, type: 3}
+--- !u!114 &2076628258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5035527742609452986, guid: e62fd919d7622ee49a068b09e2f6504c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2076628257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf54bdb299e0814d835b87cf326969f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2085163853
 PrefabInstance:
   m_ObjectHideFlags: 0

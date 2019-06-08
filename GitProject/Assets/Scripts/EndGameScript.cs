@@ -17,6 +17,7 @@ public class EndGameScript : MonoBehaviour
     {
         
     }
+
     private void OnGUI()
     {
         if (Endgame)
@@ -24,6 +25,7 @@ public class EndGameScript : MonoBehaviour
             GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 25, Screen.width / 2, Screen.height / 2), "The End");
         }
     }
+
     public void End()
     {
         Endgame = true;

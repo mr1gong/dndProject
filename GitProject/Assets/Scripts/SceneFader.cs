@@ -1,7 +1,8 @@
 ﻿/**
  * Author: https://gamedevelopertips.com/unity-how-fade-between-scenes/
+ * SCRIPT UNUSED!
  **/
-
+/*
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -64,3 +65,4 @@ public class SceneFader : MonoBehaviour
     }
     #endregion
 }
+*/

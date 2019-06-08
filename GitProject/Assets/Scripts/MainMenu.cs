@@ -241,6 +241,7 @@ public class MainMenu : MonoBehaviour
         value--;
         input.text = value.ToString();
     }
+
     //DODELEJ TO JINDRO
     /*
     public void DecrementX()

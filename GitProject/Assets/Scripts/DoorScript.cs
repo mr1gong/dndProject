@@ -14,8 +14,6 @@ public class DoorScript : Lockable
     public int index = 0;
     private bool beingHandled = false;
     
-    
-  
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +43,7 @@ public class DoorScript : Lockable
         {
             
         }
+
         foreach (DoorScript door in linkedDoors)
         {
             door.lockState = lockState;
@@ -80,16 +79,14 @@ public class DoorScript : Lockable
             
             door.index = index;
         }
+
         }
         else
         {
             if (MessageUIScript.getInstance() != null)
             { MessageUIScript.getInstance().DisplayText("Locked!"); }
         }
-
     }
-   
-
 }
 
    

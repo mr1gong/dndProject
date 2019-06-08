@@ -52,7 +52,7 @@ public class Interactible : MonoBehaviour
 
     protected void UIUpdate()
     {
-        if(interactibleUISet != null) interactibleUISet.transform.LookAt(Camera.main.transform);
+        if (interactibleUISet != null) interactibleUISet.transform.LookAt(Camera.main.transform);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -75,7 +75,7 @@ public class Interactible : MonoBehaviour
             else
             {
                 timer += Time.deltaTime;
-            }      
+            }
         }
 
         //Reserved for future versions.
@@ -89,9 +89,8 @@ public class Interactible : MonoBehaviour
         }
         else
         {
-           
+
 
         }
     }
-
 }
