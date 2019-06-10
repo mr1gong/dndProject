@@ -251,7 +251,7 @@ public class UI : MonoBehaviour
 
     public void QuitToMainMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     public void Test()

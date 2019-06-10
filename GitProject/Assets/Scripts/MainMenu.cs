@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
+
 
 public class MainMenu : MonoBehaviour
 {

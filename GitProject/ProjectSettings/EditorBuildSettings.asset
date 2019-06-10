@@ -17,13 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Library.unity
     guid: 1c6d6faa1b7470b4c8b506f075aee0d9
-  - enabled: 0
-    path: Assets/Scenes/BasicMechanics/BasicMechanics.unity
-    guid: d663e0d974eaa3f4ab43a2733776b739
-  - enabled: 0
-    path: Assets/Imports/UltraMare/Fantastic UI Starter Pack/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Prison/Prison.unity
-    guid: d44606099795f6f4fa02ef3386d8f640
   m_configObjects: {}

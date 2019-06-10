@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Animations;
+
 
 public class EndLevel : MonoBehaviour
 {
