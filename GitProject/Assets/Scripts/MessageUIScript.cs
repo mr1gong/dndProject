@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[Author("Makovec","V1.1")]
 public class MessageUIScript : MonoBehaviour
 {
     //Trochu Fucked up singleton
