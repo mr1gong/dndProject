@@ -321,6 +321,7 @@ public class UI : MonoBehaviour
         Debug.Log($"UI Item Number {index} Toggled");
     }
 
+    //Implemented
     private void TogglePause()
     {
         if (Time.timeScale == 0)
