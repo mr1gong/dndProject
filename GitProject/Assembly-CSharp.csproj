@@ -84,8 +84,11 @@
     <Compile Include="Assets\Scripts\TriggerScript.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\User Interface\IUIElement.cs" />
-    <Compile Include="Assets\Scripts\User Interface\MainMenu.cs" />
     <Compile Include="Assets\Scripts\User Interface\UIController.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\Inventory.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\Journal.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\Settings.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Imports\Laterns and candles\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Scripts\AlwaysOnTop.shader" />

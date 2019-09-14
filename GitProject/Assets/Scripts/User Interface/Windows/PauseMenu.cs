@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 #endregion
 
-public class MainMenu : MonoBehaviour, IUIElement
+public class PauseMenu : MonoBehaviour, IUIElement
 {
     #region Fields
     //The three interactable buttons on the menu window
-    public GameObject MainMenuWindow;
+    public GameObject Window;
     public Button Resume;
     public Button Settings;
     public Button Quit;
@@ -18,11 +18,11 @@ public class MainMenu : MonoBehaviour, IUIElement
     private bool isActive;
     #endregion
 
-    #region Shared Part
+    #region Window-Unspecific Bloc
     // Start is called before the first frame update
     void Start()
     {
-        MainMenuWindow.GetComponent<GameObject>();
+        Window.GetComponent<GameObject>();
         isActive = false;
     }
 
@@ -34,18 +34,38 @@ public class MainMenu : MonoBehaviour, IUIElement
 
     public void Reset()
     {
-        throw new System.NotImplementedException();
+        //Sets the timeflow to normal speed; unpauses
+        Time.timeScale = 1;
+        //Deactivates the window
+        Window.SetActive(false);
     }
 
     //Negates the activity boolean
     public void SwitchState()
     {
         isActive ^= true;
-        MainMenuWindow.SetActive(isActive);
+        Window.SetActive(isActive);
+        TogglePause();
 
+    }
+
+    public void Test()
+    {
+        Debug.Log("Test Successful");
+    }
+
+    private void TogglePause()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+            return;
+        }
+        Time.timeScale = 0;
     }
     #endregion
 
+    #region Window-Specific Bloc
     //Loads the main menu scene
     public void QuitToMainMenu()
     {
@@ -58,4 +78,11 @@ public class MainMenu : MonoBehaviour, IUIElement
     {
         UIController.Manager.OpenWindow("Settings");
     }
+
+    //Closes the window and unpauses the game
+    public void ResumeGame()
+    {
+        SwitchState();
+    }
+    #endregion
 }

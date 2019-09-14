@@ -27,14 +27,4 @@ public class UIController : MonoBehaviour
         Windows[index].SetActive(!Windows[index].activeSelf);
         Debug.Log($"UI Item Number {index} Toggled");
     }*/
-
-    private void TogglePause()
-    {
-        if (Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
-            return;
-        }
-        Time.timeScale = 0;
-    }
 }
