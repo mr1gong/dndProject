@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Lockable.cs" />
     <Compile Include="Assets\Scripts\MainMenuDepracated.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\Roll.cs" />
     <Compile Include="Assets\Scripts\MessageUIScript.cs" />
     <Compile Include="Assets\Scripts\Misc\Author.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
@@ -85,8 +86,11 @@
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\User Interface\IUIElement.cs" />
     <Compile Include="Assets\Scripts\User Interface\UIController.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\CharacterCreation.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\InspectItem.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\Inventory.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\Journal.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\MainMenu.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\Settings.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
