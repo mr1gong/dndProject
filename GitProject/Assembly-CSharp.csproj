@@ -76,7 +76,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Lockable.cs" />
     <Compile Include="Assets\Scripts\MainMenuDepracated.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Roll.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\Roller.cs" />
     <Compile Include="Assets\Scripts\MessageUIScript.cs" />
     <Compile Include="Assets\Scripts\Misc\Author.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />

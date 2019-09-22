@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Initialise();
     }
 
     //Opens UI elements based on the string input (the element's name)
@@ -20,11 +20,16 @@ public class UIController : MonoBehaviour
         window.SwitchState();
     }
 
-    /*private void ToggleWindow(int index)
+    private void Initialise()
     {
-        Windows[index].GetComponent<GameObject>();
-        //Inverts the enabled-disabled status
-        Windows[index].SetActive(!Windows[index].activeSelf);
-        Debug.Log($"UI Item Number {index} Toggled");
-    }*/
+        //Adds the static 'instances' contained in each UI Element class to the WindowResolver Dictionary
+        WindowResolver.Add("CharacterCreation", CharacterCreation.CharacterCreationInstance);
+        WindowResolver.Add("InspectItem", InspectItem.InspectItemInstance);
+        WindowResolver.Add("Inventory", Inventory.InventoryInstance);
+        WindowResolver.Add("Journal", Journal.JournalInstance);
+        WindowResolver.Add("MainMenu", MainMenu.MainMenuInstance);
+        WindowResolver.Add("PauseMenu", PauseMenu.PauseMenuInstance);
+        WindowResolver.Add("Settings", Settings.SettingsInstance);
+    }
+
 }

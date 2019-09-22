@@ -7,9 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 #endregion
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IUIElement
 {
     #region Fields
+    public static Inventory InventoryInstance;
+
     public GameObject Window;
     public Sprite DefaultItemImage;
 

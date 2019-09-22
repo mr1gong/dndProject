@@ -6,9 +6,11 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 #endregion
 
-public class Settings : MonoBehaviour
+public class Settings : MonoBehaviour, IUIElement
 {
     #region Fields
+    public static Settings SettingsInstance;
+
     public GameObject Window;
     public AudioMixer Mixer;
     public Dropdown ResolutionDropdown;

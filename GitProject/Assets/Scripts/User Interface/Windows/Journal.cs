@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 #endregion
 
-public class Journal : MonoBehaviour
+public class Journal : MonoBehaviour, IUIElement
 {
     #region Fields
+    public static Journal JournalInstance;
+
     public GameObject Window;
     public Text MainObjective;
     public Text CurrentObjective;

@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour, IUIElement
 {
     #region Fields
     //The three interactable buttons on the menu window
+    public static PauseMenu PauseMenuInstance;
+
     public GameObject Window;
     public Button Resume;
     public Button Settings;
