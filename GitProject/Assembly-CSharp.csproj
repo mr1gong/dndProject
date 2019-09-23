@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\User Interface\IUIElement.cs" />
     <Compile Include="Assets\Scripts\User Interface\UIController.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\CharacterCreation.cs" />
+    <Compile Include="Assets\Scripts\User Interface\Windows\Help.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\InspectItem.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\Inventory.cs" />
     <Compile Include="Assets\Scripts\User Interface\Windows\Journal.cs" />

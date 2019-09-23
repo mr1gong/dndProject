@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour, IUIElement
     //Opens the settings window
     public void LaunchSettings()
     {
-        UIController.Manager.OpenWindow("Settings");
+        UIController.Manager.OpenWindow("SettingsInstance");
     }
 
     //Closes the window and unpauses the game
