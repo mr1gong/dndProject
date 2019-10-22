@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IUIElement
+public class AttackType : MonoBehaviour
 {
-    void SwitchState();
-    void Reset();
+    public Animation animation;
 }

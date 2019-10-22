@@ -3,8 +3,10 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Character : MonoBehaviour
+/// <summary>
+/// DEPRECATED DO NOT USE EVER FUKK OFF no
+/// </summary>
+public class DepressedCharacter : MonoBehaviour
 {
     public int Level;
     public int HitPoints;

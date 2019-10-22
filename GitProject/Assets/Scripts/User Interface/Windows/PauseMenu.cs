@@ -1,4 +1,5 @@
 ﻿#region Implementations
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,66 +7,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 #endregion
 
-public class PauseMenu : MonoBehaviour, IUIElement
+public class PauseMenu : UIElement
 {
     #region Fields
     //The three interactable buttons on the menu window
-    public static PauseMenu PauseMenuInstance;
-
-    public GameObject Window;
+   
     public Button Resume;
     public Button Settings;
     public Button Quit;
 
-    private bool isActive;
-    #endregion
-
-    #region Window-Unspecific Bloc
-    // Start is called before the first frame update
-    void Start()
-    {
-        Window.GetComponent<GameObject>();
-        isActive = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
-
-    public void Reset()
-    {
-        //Sets the timeflow to normal speed; unpauses
-        Time.timeScale = 1;
-        //Deactivates the window
-        Window.SetActive(false);
-    }
-
-    //Negates the activity boolean
-    public void SwitchState()
-    {
-        isActive ^= true;
-        Window.SetActive(isActive);
-        TogglePause();
-
-    }
-
-    public void Test()
-    {
-        Debug.Log("Test Successful");
-    }
-
-    private void TogglePause()
-    {
-        if (Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
-            return;
-        }
-        Time.timeScale = 0;
-    }
-    #endregion
+    #endregion   
 
     #region Window-Specific Bloc
     //Loads the main menu scene
@@ -76,15 +27,27 @@ public class PauseMenu : MonoBehaviour, IUIElement
     }
 
     //Opens the settings window
+
     public void LaunchSettings()
     {
-        UIController.Manager.OpenWindow("SettingsInstance");
+        UIController.GetInstance().OpenWindow("SettingsInstance");
     }
 
     //Closes the window and unpauses the game
     public void ResumeGame()
     {
         SwitchState();
+    }
+    #endregion
+
+    #region Singleton
+    private static PauseMenu instance;
+
+    public static PauseMenu GetInstance()
+    {
+        if (instance == null)
+            instance = FindObjectOfType<PauseMenu>();
+        return instance;
     }
     #endregion
 }

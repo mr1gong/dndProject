@@ -13,12 +13,14 @@ public class Weapon
     public int Hit()
     {
         if (hit == null) return 0;
-        return Character.Roll(hit);
+        //  return Character.Roll(hit);
+        return 0;
     }
 
     public int Damage()
     {
         if (damage == null) return 0;
-        return Character.Roll(damage);
+        //return Character.Roll(damage);
+        return 0;
     }
 }
