@@ -15,9 +15,6 @@ public class Journal : UIElement
 
     #endregion
 
-
-
-    #region Window-Specific Bloc
     //Overrides the body of the Text Object with the string input; changes the primary objective in the journal
     public void ChangeMainObjective(string input)
     {
@@ -37,7 +34,4 @@ public class Journal : UIElement
     {
         input = null;
     }
-
-    
-    #endregion
 }

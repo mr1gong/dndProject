@@ -25,7 +25,7 @@ public class Lockable : Interactible
                 }
                 textResult = "Unlocked!";
                 return true;
-            }
+             }  
         }
         
         textResult = "Nothing happened.";

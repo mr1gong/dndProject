@@ -5,7 +5,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Interactible : MonoBehaviour
 {
@@ -80,6 +79,7 @@ public class Interactible : MonoBehaviour
 
         //Reserved for future versions.
         //Like in Intel processors?
+        //Hrazky would be proud *sob, sob*
         else { }
 
         if (timer > 2)
