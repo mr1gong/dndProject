@@ -1,0 +1,96 @@
+﻿/**
+ * Author: Marek Makovec
+ **/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Interactible : MonoBehaviour
+{
+    //Jindrich Code Intrusion Alert
+    public Texture2D IdleMode;
+    public Texture2D Interaction;
+    private CursorMode CursorMode = CursorMode.Auto;
+    private Vector2 CursorOffset = new Vector2(0, 0);
+
+    public Shader alwaysOnTop;
+    protected float timer;
+    public Canvas interactibleUISet;
+    public string ExamineText = "";
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
+        timer = 10000;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UIUpdate();
+
+    }
+
+    private void OnMouseEnter()
+    {
+
+    }
+
+    public virtual bool GetItemUsedOn(Item item, out string textResult)
+    {
+        textResult = "Nothing Happened.";
+        return false;
+    }
+
+    public string GetExamined()
+    {
+        return ExamineText;
+    }
+
+    protected void UIUpdate()
+    {
+        if (interactibleUISet != null) interactibleUISet.transform.LookAt(Camera.main.transform);
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+
+            if (hit.collider.gameObject == gameObject)
+            {
+                Debug.Log("EQUALS");
+                if (Input.GetMouseButtonDown(0))
+                {
+
+                    Debug.Log("CLICK");
+                    timer = 0;
+                    interactibleUISet.enabled = true;
+                }
+            }
+
+            else
+            {
+                timer += Time.deltaTime;
+            }
+        }
+
+        //Reserved for future versions.
+        //Like in Intel processors?
+        //Hrazky would be proud *sob, sob*
+        else { }
+
+        if (timer > 2)
+        {
+            if (interactibleUISet != null)
+                interactibleUISet.enabled = false;
+        }
+        else
+        {
+
+
+        }
+    }
+}
