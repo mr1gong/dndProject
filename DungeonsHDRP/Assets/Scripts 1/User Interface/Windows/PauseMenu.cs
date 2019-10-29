@@ -18,7 +18,6 @@ public class PauseMenu : UIElement
 
     #endregion   
 
-    #region Window-Specific Bloc
     //Loads the main menu scene
     public void QuitToMainMenu()
     {
@@ -38,7 +37,6 @@ public class PauseMenu : UIElement
     {
         SwitchState();
     }
-    #endregion
 
     #region Singleton
     private static PauseMenu instance;

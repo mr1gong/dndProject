@@ -53,6 +53,22 @@ public abstract class Character : MonoBehaviour
     {
         return Roller.d20() + GetModifier(attribute);
     }
+
+    //This method is called whenever the character sustains damage
+    public void ReceiveDamange(int damageSustained)
+    {
+        HitPoints -= damageSustained;
+        if (HitPoints <= 0)
+        {
+            InitiateDeathSequence();
+        }
+    }
+
+    //The following code is run when the character dies
+    protected virtual void InitiateDeathSequence()
+    {
+
+    }
 }
 
 #region Temporary

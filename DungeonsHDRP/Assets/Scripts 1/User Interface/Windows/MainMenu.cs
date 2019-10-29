@@ -19,7 +19,6 @@ public class MainMenu : UIElement
 
     #endregion
 
-    #region Window-Unspecific Bloc
     public void ResumeGame()
     {
         throw new System.Exception("Unimplemented Method!");
@@ -48,6 +47,23 @@ public class MainMenu : UIElement
     public void Quit()
     {
         Application.Quit();
-    }   
+    }
+
+    #region Singleton
+    public static Settings SettingsInstance;
+
+    public static Settings GetInstance()
+    {
+        if (SettingsInstance == null)
+        {
+            SettingsInstance = FindObjectOfType<Settings>();
+        }
+        return SettingsInstance;
+    }
+
+    private Settings()
+    {
+        SettingsInstance = this;
+    }
     #endregion
 }

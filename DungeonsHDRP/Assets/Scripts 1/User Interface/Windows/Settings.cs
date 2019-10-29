@@ -15,7 +15,7 @@ public class Settings : UIElement
 
     private Resolution[] resolutions;
     #endregion
-    #region Window-Specific Bloc
+
     //Handles the dropdown window-element presenting the available resolutions
     private void TackleResolutions()
     {
@@ -67,7 +67,7 @@ public class Settings : UIElement
     {
         Screen.fullScreen = input;
     }
-    #endregion
+
     #region Singleton
     public static Settings SettingsInstance;
 

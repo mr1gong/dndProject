@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Protagonist : MonoBehaviour
+public class Protagonist : Combatant
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void InitiateDeathSequence()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Time.timeScale = 0;
     }
 }
