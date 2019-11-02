@@ -4,17 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 #endregion
-
+//UNFINISHED CLASS
 public class InspectItem : UIElement
 {
     #region Fields
-    public static InspectItem InspectItemInstance;
+    private static InspectItem _InspectItemInstance;
 
     public Text InspectionDetails;
-
     #endregion
 
-    #region Window-Specific Bloc
-    //NOTHING YET
-    #endregion
+    //Singleton-guarantee method
+    public static InspectItem GetInstance()
+    {
+        if (_InspectItemInstance == null)
+        {
+            _InspectItemInstance = FindObjectOfType<InspectItem>();
+        }
+        return _InspectItemInstance;
+    }
 }

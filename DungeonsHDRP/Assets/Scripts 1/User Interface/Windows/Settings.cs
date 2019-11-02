@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class Settings : UIElement
 {
-    #region Field
+    #region Fields
+    private static Settings _SettingsInstance;
 
     public AudioMixer Mixer;
     public Dropdown ResolutionDropdown;
@@ -73,16 +74,11 @@ public class Settings : UIElement
 
     public static Settings GetInstance()
     {
-        if (SettingsInstance == null)
+        if (_SettingsInstance == null)
         {
-            SettingsInstance = FindObjectOfType<Settings>();
+            _SettingsInstance = FindObjectOfType<Settings>();
         }
-        return SettingsInstance;
-    }
-
-    private Settings()
-    {
-        SettingsInstance = this;
+        return _SettingsInstance;
     }
     #endregion
 }

@@ -11,7 +11,8 @@ public class PauseMenu : UIElement
 {
     #region Fields
     //The three interactable buttons on the menu window
-   
+    private static PauseMenu _PauseMenuInstance;
+
     public Button Resume;
     public Button Settings;
     public Button Quit;
@@ -38,14 +39,11 @@ public class PauseMenu : UIElement
         SwitchState();
     }
 
-    #region Singleton
-    private static PauseMenu instance;
-
+    //Singleton-guarantee method
     public static PauseMenu GetInstance()
     {
-        if (instance == null)
-            instance = FindObjectOfType<PauseMenu>();
-        return instance;
+        if (_PauseMenuInstance == null)
+            _PauseMenuInstance = FindObjectOfType<PauseMenu>();
+        return _PauseMenuInstance;
     }
-    #endregion
 }

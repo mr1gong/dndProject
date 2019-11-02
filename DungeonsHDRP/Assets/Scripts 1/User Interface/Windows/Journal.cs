@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Journal : UIElement
 {
     #region Fields
-    public static Journal JournalInstance;
+    private static Journal _JournalInstance;
 
     public Text MainObjective;
     public Text CurrentObjective;
@@ -33,5 +33,15 @@ public class Journal : UIElement
     public void ClearText(Text input)
     {
         input = null;
+    }
+
+    //Singleton-guarantee method
+    public static Journal GetInstance()
+    {
+        if (_JournalInstance == null)
+        {
+            _JournalInstance = FindObjectOfType<Journal>();
+        }
+        return _JournalInstance;
     }
 }

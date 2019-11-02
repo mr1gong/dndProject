@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class CharacterCreation : UIElement
 {
     #region Fields
-    public static CharacterCreation CharacterCreationInstance;
+    private static CharacterCreation _CharacterCreationInstance;
 
     public Text AbilityPoints;
     public Text Strength;
@@ -18,4 +18,13 @@ public class CharacterCreation : UIElement
     public Text Intelligence;
     public Text Charisma;
     #endregion
+
+    public static CharacterCreation GetInstance()
+    {
+        if (_CharacterCreationInstance == null)
+        {
+            _CharacterCreationInstance = FindObjectOfType<CharacterCreation>();
+        }
+        return _CharacterCreationInstance;
+    }
 }

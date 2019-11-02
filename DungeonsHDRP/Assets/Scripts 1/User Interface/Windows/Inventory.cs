@@ -1,16 +1,14 @@
-﻿//UNFINISHED!
-
-#region Implementations
+﻿#region Implementations
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 #endregion
-
+//UNFINISHED CLASS
 public class Inventory : UIElement
 {
     #region Fields
-    public static Inventory InventoryInstance;
+    private static Inventory _InventoryInstance;
 
     public Sprite DefaultItemImage;
 
@@ -44,7 +42,13 @@ public class Inventory : UIElement
     private Item selectedItemForUse;
     #endregion
 
-    #region Window-Specific Bloc
-
-    #endregion
+    //Singleton-guarantee method
+    public static Inventory GetInstance()
+    {
+        if (_InventoryInstance == null)
+        {
+            _InventoryInstance = FindObjectOfType<Inventory>();
+        }
+        return _InventoryInstance;
+    }
 }

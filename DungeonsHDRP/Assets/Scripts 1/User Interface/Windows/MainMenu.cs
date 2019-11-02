@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MainMenu : UIElement
 {
     #region Fields
-    public static MainMenu MainMenuInstance;
+    private static MainMenu _MainMenuInstance;
 
     public Button ResumeButton;
     public Button NewGameButton;
@@ -26,17 +26,17 @@ public class MainMenu : UIElement
 
     public void NewGame()
     {
-        UIController.GetInstance().OpenWindow("CharacterCreationInstance");
+        UIController.GetInstance().OpenWindow("CharacterCreation");
     }
 
     public void LaunchSettings()
     {
-        UIController.GetInstance().OpenWindow("SettingsInstance");
+        UIController.GetInstance().OpenWindow("Settings");
     }
 
     public void LaunchHelp()
     {
-        UIController.GetInstance().OpenWindow("HelpInstance");
+        UIController.GetInstance().OpenWindow("Help");
     }
 
     public void LaunchCredits()
@@ -49,21 +49,13 @@ public class MainMenu : UIElement
         Application.Quit();
     }
 
-    #region Singleton
-    public static Settings SettingsInstance;
-
-    public static Settings GetInstance()
+    //Singleton-guarantee method
+    public static MainMenu GetInstance()
     {
-        if (SettingsInstance == null)
+        if (_MainMenuInstance == null)
         {
-            SettingsInstance = FindObjectOfType<Settings>();
+            _MainMenuInstance = FindObjectOfType<MainMenu>();
         }
-        return SettingsInstance;
+        return _MainMenuInstance;
     }
-
-    private Settings()
-    {
-        SettingsInstance = this;
-    }
-    #endregion
 }

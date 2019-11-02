@@ -5,17 +5,6 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    #region Constants
-    //Window name constants
-    public const string CharacterCreationWindowName = "CharacterCreation";
-    public const string InspectItemWindowName = "InspectItem";
-    public const string InventoryWindowName = "Inventory";
-    public const string JournalWindowName = "Journal";
-    public const string MainMenuWindowName = "MainMenu";
-    public const string PauseMenuWindowName = "PauseMenu";
-    public const string SettingsWindowName = "Settings";
-    #endregion
-
     private static UIController manager;
     private Dictionary<string, UIElement> WindowResolver = new Dictionary<string, UIElement>();
     // Start is called before the first frame update
@@ -72,12 +61,25 @@ public class UIController : MonoBehaviour
     private void Initialise()
     {
         //Adds the static 'instances' contained in each UI Element class to the WindowResolver Dictionary
-        WindowResolver.Add("CharacterCreation", CharacterCreation.CharacterCreationInstance);
-        WindowResolver.Add("InspectItem", InspectItem.InspectItemInstance);
-        WindowResolver.Add("Inventory", Inventory.InventoryInstance);
-        WindowResolver.Add("Journal", Journal.JournalInstance);
-        WindowResolver.Add("MainMenu", MainMenu.MainMenuInstance);
+        WindowResolver.Add("CharacterCreation", CharacterCreation.GetInstance());
+        WindowResolver.Add("DeathSequence", DeathSequence.GetInstance());
+        WindowResolver.Add("InspectItem", InspectItem.GetInstance());
         WindowResolver.Add("PauseMenu", PauseMenu.GetInstance());
+        WindowResolver.Add("Inventory", Inventory.GetInstance());
+        WindowResolver.Add("MainMenu", MainMenu.GetInstance());
         WindowResolver.Add("Settings", Settings.GetInstance());
+        WindowResolver.Add("Journal", Journal.GetInstance());
+        WindowResolver.Add("Help", Help.GetInstance());
     }
 }
+
+#region Unimplemented
+//Window name constants
+/*public const string CharacterCreationWindowName = "CharacterCreation";
+public const string InspectItemWindowName = "InspectItem";
+public const string InventoryWindowName = "Inventory";
+public const string JournalWindowName = "Journal";
+public const string MainMenuWindowName = "MainMenu";
+public const string PauseMenuWindowName = "PauseMenu";
+public const string SettingsWindowName = "Settings";*/
+#endregion

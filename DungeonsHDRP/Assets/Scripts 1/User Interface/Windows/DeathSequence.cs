@@ -1,9 +1,15 @@
-﻿using UnityEngine.UI;
+﻿#region Implementations
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+#endregion
 
 public class DeathSequence : UIElement
 {
     #region Fields
-    public static DeathSequence DeathSequenceInstance;
+    private static DeathSequence _DeathSequenceInstance;
+
+    public GameObject Player;
     public Text Score;
     public Button Button;
 
@@ -24,6 +30,8 @@ public class DeathSequence : UIElement
 
     private int _FailIterator;
     private int _SuccessIterator;
+
+    private Rigidbody _Rigidbody;
     #endregion
 
     void Start()
@@ -31,6 +39,7 @@ public class DeathSequence : UIElement
         InitiateToggles();
         _FailIterator = 0;
         _SuccessIterator = 0;
+        _Rigidbody = Player.GetComponent<Rigidbody>();
     }
 
     //Based on the d20 result, either the number of successes or failures rises up to the maximum of three
@@ -54,8 +63,32 @@ public class DeathSequence : UIElement
 
         if (_SuccessIterator >= 3)
         {
-
+            _Rigidbody.constraints = RigidbodyConstraints.None;
+            UIController.GetInstance().SwitchWindow("DeathSequence");
         }
+
+        if (_FailIterator >= 3)
+        {
+            //RESET PLAYER LOAD-DATA
+            UIController.GetInstance().SwitchWindow("DeathSequence");
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    public void InitiateDeathSequence()
+    {
+        UIController.GetInstance().SwitchWindow("DeathSequence");
+        _Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    //Singleton-guarantee method
+    public static DeathSequence GetInstance()
+    {
+        if (_DeathSequenceInstance == null)
+        {
+            _DeathSequenceInstance = FindObjectOfType<DeathSequence>();
+        }
+        return _DeathSequenceInstance;
     }
 
     private void InitiateToggles()

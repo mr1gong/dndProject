@@ -4,25 +4,10 @@ using UnityEngine;
 public abstract class UIElement: MonoBehaviour
 {
     #region Fields
-
     public GameObject Window;
     
-    protected bool isActive;
+    protected bool isActive = false;
     #endregion   
-
-    #region Window-Unspecific Bloc
-    // Start is called before the first frame update
-    void Start()
-    {
-        Window.GetComponent<GameObject>();
-        isActive = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Reset()
     {
@@ -38,9 +23,9 @@ public abstract class UIElement: MonoBehaviour
         isActive ^= true;
         Window.SetActive(isActive);
         TogglePause();
-
     }
 
+    //Opens or closes the window based on the user input
     public void SwitchState(bool state)
     {
         isActive = state;
@@ -48,11 +33,13 @@ public abstract class UIElement: MonoBehaviour
         TogglePause(state);
     }
 
+    //Testing method
     public void Test()
     {
         Debug.Log("Test Successful");
     }
 
+    //Pauses the game if a window is opened
     private void TogglePause()
     {
         if (Time.timeScale == 0)
@@ -60,8 +47,9 @@ public abstract class UIElement: MonoBehaviour
             Time.timeScale = 1;
             return;
         }
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
     }
+
     //If state is true, pause, else unpause.
     private void TogglePause(bool state)
     {
@@ -70,8 +58,6 @@ public abstract class UIElement: MonoBehaviour
             Time.timeScale = 1;
             return;
         }
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
     }
-
-    #endregion
 }

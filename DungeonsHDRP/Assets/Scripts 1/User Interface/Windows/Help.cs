@@ -1,58 +1,21 @@
-﻿using System.Collections;
+﻿#region Implementations
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Help : MonoBehaviour
+#endregion
+//UNFINISHED CLASS!
+public class Help : UIElement
 {
     #region Fields
-    public GameObject Window;
-
-    private bool isActive;
+    private static Help _HelpInstance;
     #endregion
-    #region Window-Unspecific Bloc
-    // Start is called before the first frame update
-    void Start()
+
+    public static Help GetInstance()
     {
-        Window.GetComponent<GameObject>();
-        isActive = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void Reset()
-    {
-        //Sets the timeflow to normal speed; unpauses
-        Time.timeScale = 1;
-        //Deactivates the window
-        Window.SetActive(false);
-    }
-
-    //Negates the activity boolean
-    public void SwitchState()
-    {
-        isActive ^= true;
-        Window.SetActive(isActive);
-        TogglePause();
-
-    }
-
-    public void Test()
-    {
-        Debug.Log("Test Successful");
-    }
-
-    private void TogglePause()
-    {
-        if (Time.timeScale == 0)
+        if (_HelpInstance == null)
         {
-            Time.timeScale = 1;
-            return;
+            _HelpInstance = FindObjectOfType<Help>();
         }
-        Time.timeScale = 0;
+        return _HelpInstance;
     }
-    #endregion
 }
