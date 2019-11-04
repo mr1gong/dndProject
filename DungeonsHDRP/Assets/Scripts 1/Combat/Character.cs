@@ -31,48 +31,7 @@ public abstract class Character : MonoBehaviour
     //Calculates and returns the modifier value from the selected ability score
     public int GetModifier(Ability attribute)
     {
-        return attribute switch
-        {
-            Ability.Strength     => Modifier(Strength),
-            Ability.Dexterity    => Modifier(Dexterity),
-            Ability.Constitution => Modifier(Constitution),
-            Ability.Intelligence => Modifier(Intelligence),
-            Ability.Wisdom       => Modifier(Wisdom),
-            Ability.Charisma     => Modifier(Charisma),
-            _ => throw new Exception("Invalid Input"),
-        };
-
-        int Modifier(int attributeValue)
-        {
-            int modifierValue = (attributeValue - 10) / 2;
-            return modifierValue;
-        }
-    }
-
-    public int MakeAbilityCheck(Ability attribute)
-    {
-        return Roller.d20() + GetModifier(attribute);
-    }
-
-    //This method is called whenever the character sustains damage
-    public void ReceiveDamange(int damageSustained)
-    {
-        HitPoints -= damageSustained;
-        if (HitPoints <= 0)
-        {
-            InitiateDeathSequence();
-        }
-    }
-
-    //The following code is run when the character dies
-    protected virtual void InitiateDeathSequence()
-    {
-
-    }
-}
-
-#region Temporary
-/*switch (attribute)
+        switch (attribute)
         {
             case Ability.Strength:
                 return Modifier(Strength);
@@ -95,5 +54,41 @@ public abstract class Character : MonoBehaviour
             default:
                 throw new Exception("Invalid Input");
         }
-*/
-#endregion
+
+        int Modifier(int attributeValue)
+        {
+            int modifierValue = (attributeValue - 10) / 2;
+            return modifierValue;
+        }
+    }
+
+    public int MakeAbilityCheck(Ability attribute)
+    {
+        return Roller.d20() + GetModifier(attribute);
+    }
+
+    //This method is called whenever the character sustains damage
+    public void ReceiveDamange(int damageSustained)
+    {
+        if(HitPoints - damageSustained >= 0)
+        {
+            HitPoints -= damageSustained;
+        }
+        else
+        {
+            HitPoints = 0;
+        }
+        if (HitPoints <= 0)
+        {
+            InitiateDeathSequence();
+        }
+    }
+
+    //The following code is run when the character dies
+    protected virtual void InitiateDeathSequence()
+    {
+
+
+    }
+}
+

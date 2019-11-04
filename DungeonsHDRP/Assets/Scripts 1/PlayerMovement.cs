@@ -28,9 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 50))
             {
-                if(Input.GetAxis("LockMovement") == 0) {
-                    navAgent.velocity = new Vector3(0, 0, 0);
-                    navAgent.SetDestination(hit.point);
+                // if(Input.GetAxis("LockMovement") == 0) {
+                {                     navAgent.SetDestination(hit.point);
                 }     
             }           
         }   

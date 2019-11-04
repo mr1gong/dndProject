@@ -5,25 +5,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class Interactible : MonoBehaviour
 {
+    
+
     //Jindrich Code Intrusion Alert
-    public Texture2D IdleMode;
-    public Texture2D Interaction;
+    public Texture2DArray IdleMode;
+    public Texture2DArray Interaction;
     private CursorMode CursorMode = CursorMode.Auto;
     private Vector2 CursorOffset = new Vector2(0, 0);
-
+    [HideInInspector]
+    public List<MiniUIAction> UIActionButtons = new List<MiniUIAction>();
     public Shader alwaysOnTop;
     protected float timer;
     public Canvas interactibleUISet;
     public string ExamineText = "";
+    
+    public MiniUIController MiniUI;
 
     // Start is called before the first frame update
     void Start()
     {
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
+        
+        if (MiniUI != null && UIActionButtons != null)
+        {
+        MiniUI.LoadUIActions(UIActionButtons);
+        }
     }
 
     // Update is called once per frame

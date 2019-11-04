@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,19 +21,19 @@ public class GeneralFunctionManager : MonoBehaviour
         #region UI 
         //Checks Keyboard Input
         //Menu
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UIController.GetInstance().OpenWindow(UIController.PauseMenuWindowName);
+            UIController.GetInstance().OpenWindow(WindowNameResource.PauseMenu);
         }
         //Journal
-        if (Input.GetAxis("Journal") != 0)
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            UIController.GetInstance().OpenWindow(UIController.JournalWindowName);
+            UIController.GetInstance().OpenWindow(WindowNameResource.Journal);
         }
         //Inventory
-        if (Input.GetAxis("Inventory") != 0)
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            UIController.GetInstance().OpenWindow(UIController.InventoryWindowName);
+            UIController.GetInstance().OpenWindow(WindowNameResource.Inventory);
         }
         //TODO: Settings
         //if (Input.GetAxis("Inventory") != 0) { }

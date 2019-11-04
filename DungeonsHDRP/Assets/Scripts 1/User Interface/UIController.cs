@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -61,15 +62,15 @@ public class UIController : MonoBehaviour
     private void Initialise()
     {
         //Adds the static 'instances' contained in each UI Element class to the WindowResolver Dictionary
-        WindowResolver.Add("CharacterCreation", CharacterCreation.GetInstance());
-        WindowResolver.Add("DeathSequence", DeathSequence.GetInstance());
-        WindowResolver.Add("InspectItem", InspectItem.GetInstance());
-        WindowResolver.Add("PauseMenu", PauseMenu.GetInstance());
-        WindowResolver.Add("Inventory", Inventory.GetInstance());
-        WindowResolver.Add("MainMenu", MainMenu.GetInstance());
-        WindowResolver.Add("Settings", Settings.GetInstance());
-        WindowResolver.Add("Journal", Journal.GetInstance());
-        WindowResolver.Add("Help", Help.GetInstance());
+        WindowResolver.Add(WindowNameResource.CharacterCreation, CharacterCreation.GetInstance());
+        WindowResolver.Add(WindowNameResource.DeathSequence, DeathSequence.GetInstance());
+        WindowResolver.Add(WindowNameResource.InspectItem, InspectItem.GetInstance());
+        WindowResolver.Add(WindowNameResource.PauseMenu, PauseMenu.GetInstance());
+        WindowResolver.Add(WindowNameResource.Inventory, Inventory.GetInstance());
+        WindowResolver.Add(WindowNameResource.MainMenu, MainMenu.GetInstance());
+        WindowResolver.Add(WindowNameResource.Settings, Settings.GetInstance());
+        WindowResolver.Add(WindowNameResource.Journal, Journal.GetInstance());
+        WindowResolver.Add(WindowNameResource.Help, Help.GetInstance());
     }
 }
 

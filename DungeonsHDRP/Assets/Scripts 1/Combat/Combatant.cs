@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Combatant : Character
 {
-    public Attack Attack;
+    public List<Attack> Attacks;
 }
