@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Author("Makovec","preAlpha-V0.2")]
 public class GeneralFunctionManager : MonoBehaviour
 {
     public GameObject UICanvasPrefab;

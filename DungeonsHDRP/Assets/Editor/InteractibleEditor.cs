@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-[CustomEditor(typeof(Interactible))]
+[CustomEditor(typeof(Interactible),true)]
 public class InteractibleEditor : Editor
 {
     private SerializedProperty YourList;
@@ -32,7 +32,7 @@ public class InteractibleEditor : Editor
             // Make a header for the list
             drawHeaderCallback = rect =>
             {
-                EditorGUI.LabelField(rect, "This are your Elements");
+                EditorGUI.LabelField(rect, "Mini UI Elements");
             },
 
             // Now to the interesting part: Here you setup how elements look like

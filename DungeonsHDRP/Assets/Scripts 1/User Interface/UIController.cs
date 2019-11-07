@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Author("Novák", "preAlpha-V0.2")]
 public class UIController : MonoBehaviour
 {
     private static UIController manager;

@@ -19,21 +19,25 @@ public class Interactible : MonoBehaviour
     public List<MiniUIAction> UIActionButtons = new List<MiniUIAction>();
     public Shader alwaysOnTop;
     protected float timer;
-    public Canvas interactibleUISet;
     public string ExamineText = "";
-    
-    public MiniUIController MiniUI;
+    public GameObject MiniUIPrefab;
+    private MiniUIController MiniUI;
 
     // Start is called before the first frame update
     void Start()
     {
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
-        
+
+        GameObject MiniUiPrefabObject = Instantiate(MiniUIPrefab, gameObject.transform);
+        MiniUI = MiniUiPrefabObject.GetComponent<MiniUIController>();
+
         if (MiniUI != null && UIActionButtons != null)
         {
         MiniUI.LoadUIActions(UIActionButtons);
         }
+
+        MiniUI.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,7 +65,7 @@ public class Interactible : MonoBehaviour
 
     protected void UIUpdate()
     {
-        if (interactibleUISet != null) interactibleUISet.transform.LookAt(Camera.main.transform);
+        if (MiniUI != null) MiniUI.transform.LookAt(Camera.main.transform);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -77,7 +81,7 @@ public class Interactible : MonoBehaviour
 
                     Debug.Log("CLICK");
                     timer = 0;
-                    interactibleUISet.enabled = true;
+                    MiniUI.gameObject.SetActive(true);
                 }
             }
 
@@ -94,13 +98,8 @@ public class Interactible : MonoBehaviour
 
         if (timer > 2)
         {
-            if (interactibleUISet != null)
-                interactibleUISet.enabled = false;
-        }
-        else
-        {
-
-
+            if (MiniUI != null)
+                MiniUI.gameObject.SetActive(false);
         }
     }
 }

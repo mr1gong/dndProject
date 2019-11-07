@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+[Author("Makovec","preAlpha-V0.2")]
 public class MiniUIController : MonoBehaviour
 {
     public GameObject buttonPrefab;
@@ -11,7 +11,8 @@ public class MiniUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GetComponent<Canvas>();
+        canvas = gameObject.GetComponent<Canvas>();
+        Debug.Log(canvas);
         if(canvas == null)
         {
             Debug.Log("Canvas Not Found");
@@ -26,15 +27,15 @@ public class MiniUIController : MonoBehaviour
     {
         foreach (MiniUIAction miniUIAction in miniUIActions)
         {
-            GameObject b = Instantiate(buttonPrefab);
-            b.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            Button button = b.GetComponent<Button>();
-            RawImage rw = b.gameObject.GetComponentInChildren<RawImage>(true);
+            GameObject buttonPrefabObject = Instantiate(buttonPrefab);
+            buttonPrefabObject.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+            Button button = buttonPrefabObject.GetComponent<Button>();
+            RawImage rawImage = buttonPrefabObject.gameObject.GetComponentInChildren<RawImage>(true);
 
             button.onClick.AddListener(delegate() { miniUIAction.Event.Invoke(); });
-            rw.texture = miniUIAction.TextureImage;
+            rawImage.texture = miniUIAction.TextureImage;
 
-            b.transform.SetParent(canvas.gameObject.transform);
+            buttonPrefabObject.transform.SetParent(transform);
         }
     }
 

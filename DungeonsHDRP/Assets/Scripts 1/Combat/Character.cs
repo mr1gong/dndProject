@@ -5,7 +5,7 @@
 using UnityEngine;
 using System;
 
-public abstract class Character : MonoBehaviour
+public abstract class Character : Interactible
 {
     #region Fields
     public string Name;
