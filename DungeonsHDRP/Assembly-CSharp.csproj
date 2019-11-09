@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.3.0b8\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -54,6 +52,9 @@
     <UnityVersion>2019.3.0b8</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.0b8\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts 1\Mechanics\Roller.cs" />
     <Compile Include="Assets\Scripts 1\MessageUIScript.cs" />
     <Compile Include="Assets\Scripts 1\Misc\Author.cs" />
+    <Compile Include="Assets\Scripts 1\Misc\Branching.cs" />
     <Compile Include="Assets\Scripts 1\Misc\Quest.cs" />
     <Compile Include="Assets\Scripts 1\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts 1\QuestZone.cs" />
@@ -119,70 +121,70 @@
     <None Include="Assets\Imports\RiverWater\Shaders\RiverWater.shader" />
     <None Include="Assets\Scripts 1\AlwaysOnTop.shader" />
     <Reference Include="Unity.XR.Management">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualEffectGraph.Runtime">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualEffectGraph.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>J:/GitDungeons/dndProject/DungeonsHDRP/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/kostl/Documents/Unity Projects/Unbound/DungeonsHDRP/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0b8/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

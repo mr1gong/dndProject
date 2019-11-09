@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class NPC : Character
 {
-    public List<Quest> Quests;
-    
+    public Stack<Quest> Quests;
+    private Quest _CurrentQuest;
+
+    public void Talk()
+    {
+        if (_CurrentQuest == null)
+        {
+            _CurrentQuest = Quests.Pop();
+        }
+        
+    }    
 }
