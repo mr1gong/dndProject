@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Branching xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DepthLevel>0</DepthLevel>
+  <NpcLine>Hello, adventurer!</NpcLine>
+  <PlayerLine>whatever</PlayerLine>
+  <Options>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>Certainly</NpcLine>
+      <PlayerLine>I'd like to buy some salt.</PlayerLine>
+      <Options>
+        <Branching>
+          <DepthLevel>1</DepthLevel>
+          <NpcLine>1/2 of Jindrich then.</NpcLine>
+          <PlayerLine>I'll have 50 pounds of it</PlayerLine>
+          <Options />
+        </Branching>
+      </Options>
+    </Branching>
+  </Options>
+</Branching>

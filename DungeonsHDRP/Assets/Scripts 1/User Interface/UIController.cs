@@ -71,6 +71,7 @@ public class UIController : MonoBehaviour
         WindowResolver.Add(WindowNameResource.Settings, Settings.GetInstance());
         WindowResolver.Add(WindowNameResource.Journal, Journal.GetInstance());
         WindowResolver.Add(WindowNameResource.Help, Help.GetInstance());
+        WindowResolver.Add(WindowNameResource.Dialogue, Dialogue.GetInstance());
     }
 }
 

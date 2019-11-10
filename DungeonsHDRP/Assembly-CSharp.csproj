@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts 1\User Interface\UIElement.cs" />
     <Compile Include="Assets\Scripts 1\User Interface\Windows\CharacterCreation.cs" />
     <Compile Include="Assets\Scripts 1\User Interface\Windows\DeathSequence.cs" />
+    <Compile Include="Assets\Scripts 1\User Interface\Windows\Dialogue.cs" />
     <Compile Include="Assets\Scripts 1\User Interface\Windows\Help.cs" />
     <Compile Include="Assets\Scripts 1\User Interface\Windows\InspectItem.cs" />
     <Compile Include="Assets\Scripts 1\User Interface\Windows\Inventory.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\WindowNameResource1.Designer.cs" />
     <None Include="Assets\Imports\MedievalRoom\Settings\Note.txt" />
     <None Include="Assets\UIWorldNoZTest.shader" />
+    <None Include="Assets\Resources\Dialogues\TestDialogue.txt" />
     <None Include="Assets\Materials\CustomThingShader.shader" />
     <None Include="Assets\Imports\Laterns and candles\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Imports\RiverWater\Shaders\RiverWater.shader" />

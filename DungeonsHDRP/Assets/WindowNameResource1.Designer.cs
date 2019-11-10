@@ -68,7 +68,14 @@ namespace Assets {
                 return ResourceManager.GetString("CharacterCreation", resourceCulture);
             }
         }
-        
+        public static string Dialogue
+        {
+            get
+            {
+                return ResourceManager.GetString("Dialogue", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
