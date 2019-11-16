@@ -75,11 +75,8 @@ public class Interactible : MonoBehaviour
 
             if (hit.collider.gameObject == gameObject)
             {
-                Debug.Log("EQUALS");
                 if (Input.GetMouseButtonDown(0))
                 {
-
-                    Debug.Log("CLICK");
                     timer = 0;
                     MiniUI.gameObject.SetActive(true);
                 }

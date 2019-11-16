@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,17 +30,19 @@ public class Quest : MonoBehaviour
     {
         if (_IsFinished)
         {
-            _ClosingDialogue.StartDialogue(LastLine);
+            Debug.Log("IsFinished");
+            Task.Run(() => _ClosingDialogue.StartDialogue(LastLine));
             return;
         }
 
         if (_IsOngoing)
         {
-            _OngoingDialogue.StartDialogue(LastLine);
+            Debug.Log("IsOngoing");
+            Task.Run(() => _OngoingDialogue.StartDialogue(LastLine));
             return;
         }
-
-        _OpeningDialogue.StartDialogue(LastLine);
+        Debug.Log("IsNormal");
+        Task.Run(() => _OpeningDialogue.StartDialogue(LastLine));
     }
 
     private void InitialiseBranchings()

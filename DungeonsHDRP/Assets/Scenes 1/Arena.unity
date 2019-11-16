@@ -320,9 +320,9 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1662658975}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1557,6 +1557,12 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
+--- !u!20 &1662658975 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5035527742151670670, guid: e62fd919d7622ee49a068b09e2f6504c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1691775986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1691775986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1943,9 +1949,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LastLine: {fileID: 726998796}
-  OpeningDialoguePath: /Resources/Dialogues/TestDialogue.txt
-  OngoingDialoguePath: /Resources/Dialogues/TestDialogue.txt
-  ClosingDialoguePath: /Resources/Dialogues/TestDialogue.txt
+  OpeningDialoguePath: Assets/Resources/Dialogues/TestDialogue.txt
+  OngoingDialoguePath: Assets/Resources/Dialogues/TestDialogue.txt
+  ClosingDialoguePath: Assets/Resources/Dialogues/TestDialogue.txt
 --- !u!114 &1876881486
 MonoBehaviour:
   m_ObjectHideFlags: 0
