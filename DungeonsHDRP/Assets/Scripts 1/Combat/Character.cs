@@ -1,8 +1,7 @@
 ﻿/**
- * Author: Jindrich Novak
+ * <Author>Jindrich Novak</Author>
 **/
 
-using UnityEngine;
 using System;
 
 public abstract class Character : Interactible
@@ -27,11 +26,13 @@ public abstract class Character : Interactible
         Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
     }
     #endregion
-
+    
+    /*
     protected virtual void Update()
     {
         if (HitPoints <= 0) this.InitiateDeathSequence();
     }
+    */
 
     //Calculates and returns the modifier value from the selected ability score
     public int GetModifier(Ability attribute)
@@ -79,10 +80,12 @@ public abstract class Character : Interactible
         {
             HitPoints -= damageSustained;
         }
+
         else
         {
             HitPoints = 0;
         }
+
         if (HitPoints <= 0)
         {
             InitiateDeathSequence();

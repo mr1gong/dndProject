@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c5e366d37a1884899c1a6245cbd9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTextComponent: {fileID: 726998796}
+  DisplayTextComponent: {fileID: 726998796}
 --- !u!1 &353359621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
