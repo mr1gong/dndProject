@@ -6,6 +6,8 @@ public class Protagonist : Combatant
 {
     protected override void InitiateDeathSequence()
     {
-        Time.timeScale = 0;
+        UIController.GetInstance().SwitchWindow("DeathSequence");
+        //_Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        PlayerMovement.MovementEnabled = false;
     }
 }

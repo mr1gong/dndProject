@@ -7,9 +7,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public UI PlayerUI;
     public LayerMask Clickable;
-    
+    public static bool MovementEnabled = true;
+    public static bool Alive = true;
+
     private NavMeshAgent navAgent;
     private Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +23,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Alive) MovementEnabled = false;
         animator.SetFloat("Speed", navAgent.velocity.magnitude);
-        if (Input.GetMouseButtonDown(1))
+        if (MovementEnabled)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 50))
+            if (Input.GetMouseButtonDown(1))
             {
-                // if(Input.GetAxis("LockMovement") == 0) {
-                {                     navAgent.SetDestination(hit.point);
-                }     
-            }           
-        }   
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, 50))
+                {
+                    // if(Input.GetAxis("LockMovement") == 0) {
+                    {
+                        navAgent.SetDestination(hit.point);
+                    }
+                }
+            }
+        }
     }
 
     public void TryPickupObject(Item item)

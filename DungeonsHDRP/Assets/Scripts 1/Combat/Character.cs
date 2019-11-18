@@ -28,6 +28,11 @@ public abstract class Character : Interactible
     }
     #endregion
 
+    protected virtual void Update()
+    {
+        if (HitPoints <= 0) this.InitiateDeathSequence();
+    }
+
     //Calculates and returns the modifier value from the selected ability score
     public int GetModifier(Ability attribute)
     {

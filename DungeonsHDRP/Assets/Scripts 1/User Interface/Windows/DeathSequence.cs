@@ -63,7 +63,8 @@ public class DeathSequence : UIElement
 
         if (_SuccessIterator >= 3)
         {
-            _Rigidbody.constraints = RigidbodyConstraints.None;
+            //_Rigidbody.constraints = RigidbodyConstraints.None;
+            PlayerMovement.MovementEnabled = true;
             UIController.GetInstance().SwitchWindow("DeathSequence");
         }
 
@@ -73,12 +74,6 @@ public class DeathSequence : UIElement
             UIController.GetInstance().SwitchWindow("DeathSequence");
             SceneManager.LoadScene("MainMenu");
         }
-    }
-
-    public void InitiateDeathSequence()
-    {
-        UIController.GetInstance().SwitchWindow("DeathSequence");
-        _Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     //Singleton-guarantee method
