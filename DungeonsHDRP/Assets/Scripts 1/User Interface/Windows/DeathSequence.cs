@@ -65,13 +65,13 @@ public class DeathSequence : UIElement
         {
             //_Rigidbody.constraints = RigidbodyConstraints.None;
             PlayerMovement.MovementEnabled = true;
-            UIController.GetInstance().SwitchWindow("DeathSequence");
+            UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.DeathSequence);
         }
 
         if (_FailIterator >= 3)
         {
             //RESET PLAYER LOAD-DATA
-            UIController.GetInstance().SwitchWindow("DeathSequence");
+            UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.DeathSequence);
             SceneManager.LoadScene("MainMenu");
         }
     }

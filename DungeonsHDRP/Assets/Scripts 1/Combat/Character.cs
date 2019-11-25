@@ -21,18 +21,21 @@ public abstract class Character : Interactible
     public int HitPoints;
     public int Initiative;
 
+    public Character Target;
+
     public enum Ability
     {
         Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
     }
     #endregion
     
-    /*
+    
     protected virtual void Update()
     {
+        base.UIUpdate();
         if (HitPoints <= 0) this.InitiateDeathSequence();
     }
-    */
+    
 
     //Calculates and returns the modifier value from the selected ability score
     public int GetModifier(Ability attribute)
@@ -71,6 +74,12 @@ public abstract class Character : Interactible
     public int MakeAbilityCheck(Ability attribute)
     {
         return Roller.d20() + GetModifier(attribute);
+    }
+
+    public bool Attack(Character target)
+    {
+        target.ReceiveDamange(1);
+        return true;
     }
 
     //This method is called whenever the character sustains damage

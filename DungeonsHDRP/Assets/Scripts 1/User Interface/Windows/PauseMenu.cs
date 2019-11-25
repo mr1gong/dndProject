@@ -30,7 +30,7 @@ public class PauseMenu : UIElement
 
     public void LaunchSettings()
     {
-        UIController.GetInstance().OpenWindow("SettingsInstance");
+        UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Settings);
     }
 
     //Closes the window and unpauses the game
@@ -45,5 +45,9 @@ public class PauseMenu : UIElement
         if (_PauseMenuInstance == null)
             _PauseMenuInstance = FindObjectOfType<PauseMenu>();
         return _PauseMenuInstance;
+    }
+
+    private void Start()
+    {
     }
 }

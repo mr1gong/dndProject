@@ -334,13 +334,13 @@ public class UI : MonoBehaviour
 
     private void CheckInput()
     {
-        if (Input.GetButtonDown("Journal"))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             ToggleWindow(0);
             //TogglePause();
         }
 
-        if (Input.GetButtonDown("Inventory"))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleWindow(1);
             //TogglePause();

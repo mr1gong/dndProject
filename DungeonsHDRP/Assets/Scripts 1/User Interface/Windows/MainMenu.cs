@@ -26,17 +26,17 @@ public class MainMenu : UIElement
 
     public void NewGame()
     {
-        UIController.GetInstance().OpenWindow("CharacterCreation");
+        UIController.GetInstance().OpenWindow(UIController.WindowNameResource.CharacterCreation);
     }
 
     public void LaunchSettings()
     {
-        UIController.GetInstance().OpenWindow("Settings");
+        UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Settings);
     }
 
     public void LaunchHelp()
     {
-        UIController.GetInstance().OpenWindow("Help");
+        UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Help);
     }
 
     public void LaunchCredits()

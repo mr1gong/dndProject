@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 #endregion
 
-public class DialogueReader : MonoBehaviour
+public class DialogueReader : UIElement
 {
     public Text DisplayTextComponent;
     private static DialogueReader _Instance;
@@ -25,7 +25,7 @@ public class DialogueReader : MonoBehaviour
     [Author("Novak", "Pre-Alpha 1.2")]
     void Update()
     {
-        int key = 0;
+        int key = 0 ;
         if (Input.GetKeyDown(KeyCode.F1)) key = 1;
         if (Input.GetKeyDown(KeyCode.F2)) key = 2;
         if (Input.GetKeyDown(KeyCode.F3)) key = 3;
@@ -50,6 +50,10 @@ public class DialogueReader : MonoBehaviour
     public void LoadDialogue(Branching branching)
     {
         _SelectedBranching = branching;
+
+        if (_SelectedBranching.DepthLevel == 0) UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Dialogue);
+        if (_SelectedBranching.Options == null) UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.Dialogue);
+
         DisplayTextComponent.text = "NPC: '" + _SelectedBranching.NpcLine + "'\n";
         int iterationIndex = 1;
         foreach (Branching option in _SelectedBranching.Options)
@@ -58,16 +62,18 @@ public class DialogueReader : MonoBehaviour
             DisplayTextComponent.text += ($"({iterationIndex}) '{option.PlayerLine}'");
             iterationIndex++;
         }
-
     }
 
-    [Author("Makovec", "Pre-Alpha 1.2")]
-    //SINGLETON?!
+    [Author("Novák", "Pre-Alpha 1.2")]
+    //Singleton-guarantee method
     public static DialogueReader GetInstance()
     {
-        if (_Instance == null) Debug.LogError("Instance not found");
-        else { return _Instance; }
-        return null;
+        if (_Instance == null)
+        {
+            _Instance = FindObjectOfType<DialogueReader>();
+        }
+        Debug.Log(_Instance);
+        return _Instance;
     }
 
     [Author("Makovec", "Pre-Alpha 1.2")]

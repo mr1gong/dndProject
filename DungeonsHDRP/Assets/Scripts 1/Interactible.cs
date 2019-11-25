@@ -11,8 +11,8 @@ public class Interactible : MonoBehaviour
     
 
     //Jindrich Code Intrusion Alert
-    public Texture2DArray IdleMode;
-    public Texture2DArray Interaction;
+    //public Texture2DArray IdleMode;
+    //public Texture2DArray Interaction;
     private CursorMode CursorMode = CursorMode.Auto;
     private Vector2 CursorOffset = new Vector2(0, 0);
     [HideInInspector]
@@ -24,7 +24,7 @@ public class Interactible : MonoBehaviour
     private MiniUIController MiniUI;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;

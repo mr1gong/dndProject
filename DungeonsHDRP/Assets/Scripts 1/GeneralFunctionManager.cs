@@ -1,4 +1,4 @@
-﻿using Assets;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,17 +24,17 @@ public class GeneralFunctionManager : MonoBehaviour
         //Menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UIController.GetInstance().OpenWindow(WindowNameResource.PauseMenu);
+            UIController.GetInstance().OpenWindow(UIController.WindowNameResource.PauseMenu);
         }
         //Journal
         if (Input.GetKeyDown(KeyCode.J))
         {
-            UIController.GetInstance().OpenWindow(WindowNameResource.Journal);
+            UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Journal);
         }
         //Inventory
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UIController.GetInstance().OpenWindow(WindowNameResource.Inventory);
+            UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Inventory);
         }
         //TODO: Settings
         //if (Input.GetAxis("Inventory") != 0) { }

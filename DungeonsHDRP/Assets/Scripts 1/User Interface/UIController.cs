@@ -1,40 +1,58 @@
-﻿using Assets;
+﻿
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [Author("Novák", "preAlpha-V0.2")]
 public class UIController : MonoBehaviour
 {
+    private bool Initialized = false;
+
+    public enum WindowNameResource
+    {
+        CharacterCreation = 1,
+        DeathSequence = 2,
+        InspectItem = 3,
+        PauseMenu = 4,
+        Inventory = 5,
+        MainMenu = 6,
+        Settings = 7,
+        Journal = 8,
+        Help = 9,
+        Dialogue = 10
+    }
+
     private static UIController manager;
-    private Dictionary<string, UIElement> WindowResolver = new Dictionary<string, UIElement>();
+    private Dictionary<int, UIElement> WindowResolver = new Dictionary<int, UIElement>();
     // Start is called before the first frame update
     void Start()
     {
-        Initialise();
+        if (!Initialized)
+        {
+            Initialise();
+        }
     }
 
     //Opens UI elements based on the string input (the element's name)
-    public void OpenWindow(string windowName)
+    public void OpenWindow(WindowNameResource windowName)
     {
-        if (WindowResolver.ContainsKey(windowName))
+        if (WindowResolver.ContainsKey((int)windowName))
         {        
         //The window which is to be opened or closed
-        UIElement window = WindowResolver[windowName];
+        UIElement window = WindowResolver[(int)windowName];
         window.SwitchState(true);
         }
         else
         {
-            throw new Exception("Window not found");
+            throw new Exception("Window not found: " + windowName);
         }
     }
 
-    public void SwitchWindow(string windowName)
+    public void SwitchWindow(WindowNameResource windowName)
     {
-        if (WindowResolver.ContainsKey(windowName))
+        if (WindowResolver.ContainsKey((int)windowName))
         {
             //The window which is to be opened or closed
-            UIElement window = WindowResolver[windowName];
+            UIElement window = WindowResolver[(int)windowName];
             window.SwitchState();
         }
         else
@@ -42,7 +60,9 @@ public class UIController : MonoBehaviour
             throw new Exception("Window not found");
         }
     }
-
+    private void Update()
+    {
+    }
 
     public static UIController GetInstance()
     {
@@ -55,23 +75,29 @@ public class UIController : MonoBehaviour
 
     private UIController()
     {
-        WindowResolver = new Dictionary<string, UIElement>();
+        WindowResolver = new Dictionary<int, UIElement>();
         manager = this;
     }
 
     private void Initialise()
     {
         //Adds the static 'instances' contained in each UI Element class to the WindowResolver Dictionary
-        WindowResolver.Add(WindowNameResource.CharacterCreation, CharacterCreation.GetInstance());
-        WindowResolver.Add(WindowNameResource.DeathSequence, DeathSequence.GetInstance());
-        WindowResolver.Add(WindowNameResource.InspectItem, InspectItem.GetInstance());
-        WindowResolver.Add(WindowNameResource.PauseMenu, PauseMenu.GetInstance());
-        WindowResolver.Add(WindowNameResource.Inventory, Inventory.GetInstance());
-        WindowResolver.Add(WindowNameResource.MainMenu, MainMenu.GetInstance());
-        WindowResolver.Add(WindowNameResource.Settings, Settings.GetInstance());
-        WindowResolver.Add(WindowNameResource.Journal, Journal.GetInstance());
-        WindowResolver.Add(WindowNameResource.Help, Help.GetInstance());
-        WindowResolver.Add(WindowNameResource.Dialogue, Dialogue.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.CharacterCreation, CharacterCreation.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.DeathSequence, DeathSequence.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.InspectItem, InspectItem.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.PauseMenu, PauseMenu.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Inventory, Inventory.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.MainMenu, MainMenu.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Settings, Settings.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Journal, Journal.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Help, Help.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Dialogue, DialogueReader.GetInstance());
+
+        foreach (var v in WindowResolver)
+        {
+            Debug.Log(v.Key);
+        }
+        Initialized = true;
     }
 }
 

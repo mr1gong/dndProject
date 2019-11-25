@@ -16,20 +16,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &5035527742609452990
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945193797681102295}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5035527742609452986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,11 +304,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5035527742229362049}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 9c8f262d4d82a45449556ce4bd93bf1f,
-        type: 3}
-      propertyPath: m_Name
-      value: TestGuy
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9c8f262d4d82a45449556ce4bd93bf1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -387,6 +368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9c8f262d4d82a45449556ce4bd93bf1f,
+        type: 3}
+      propertyPath: m_Name
+      value: TestGuy
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 9c8f262d4d82a45449556ce4bd93bf1f,
         type: 3}
