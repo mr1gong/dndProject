@@ -8,17 +8,18 @@ using UnityEngine;
 [System.Serializable]
 public class Interactible : MonoBehaviour
 {
-    
-
     //Jindrich Code Intrusion Alert
     //public Texture2DArray IdleMode;
     //public Texture2DArray Interaction;
+    public int HitPoints;
+    public int ArmourClass;
     private CursorMode CursorMode = CursorMode.Auto;
     private Vector2 CursorOffset = new Vector2(0, 0);
     [HideInInspector]
     public List<MiniUIAction> UIActionButtons = new List<MiniUIAction>();
     public Shader alwaysOnTop;
     protected float timer;
+    protected bool _IsInvincible;
     public string ExamineText = "";
     public GameObject MiniUIPrefab;
     private MiniUIController MiniUI;
@@ -37,6 +38,7 @@ public class Interactible : MonoBehaviour
         MiniUI.LoadUIActions(UIActionButtons);
         }
 
+        _IsInvincible = false;
         MiniUI.gameObject.SetActive(false);
     }
 
@@ -44,7 +46,6 @@ public class Interactible : MonoBehaviour
     void Update()
     {
         UIUpdate();
-
     }
 
     private void OnMouseEnter()
@@ -61,6 +62,28 @@ public class Interactible : MonoBehaviour
     public string GetExamined()
     {
         return ExamineText;
+    }
+
+    //This method is called whenever the character sustains damage
+    public void ReceiveDamange(int damageSustained)
+    {
+        if (!_IsInvincible)
+        {
+            HitPoints -= damageSustained;
+            if (HitPoints <= 0)
+            {
+                HitPoints = 0;
+                _IsInvincible = true;
+                InitiateDeathSequence();
+            }
+        }
+    }
+
+    //The following code is run when the character dies
+    protected virtual void InitiateDeathSequence()
+    {
+
+
     }
 
     protected void UIUpdate()

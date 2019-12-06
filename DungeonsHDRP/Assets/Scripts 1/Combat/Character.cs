@@ -16,9 +16,8 @@ public abstract class Character : Interactible
     public int Wisdom;
     public int Charisma;
 
-    public int ArmourClass;
+    //HitPoints & Armour Class are inherited from the Interactible Class.
     public int Speed;
-    public int HitPoints;
     public int Initiative;
 
     public Character Target;
@@ -29,13 +28,11 @@ public abstract class Character : Interactible
     }
     #endregion
     
-    
+    //BAD CODE: CHARACTER IS BEING BEING KILLED IN EVERY FRAME!
     protected virtual void Update()
     {
         base.UIUpdate();
-        if (HitPoints <= 0) this.InitiateDeathSequence();
     }
-    
 
     //Calculates and returns the modifier value from the selected ability score
     public int GetModifier(Ability attribute)
@@ -80,32 +77,6 @@ public abstract class Character : Interactible
     {
         target.ReceiveDamange(1);
         return true;
-    }
-
-    //This method is called whenever the character sustains damage
-    public void ReceiveDamange(int damageSustained)
-    {
-        if(HitPoints - damageSustained >= 0)
-        {
-            HitPoints -= damageSustained;
-        }
-
-        else
-        {
-            HitPoints = 0;
-        }
-
-        if (HitPoints <= 0)
-        {
-            InitiateDeathSequence();
-        }
-    }
-
-    //The following code is run when the character dies
-    protected virtual void InitiateDeathSequence()
-    {
-
-
     }
 }
 

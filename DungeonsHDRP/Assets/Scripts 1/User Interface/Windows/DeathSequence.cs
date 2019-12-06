@@ -32,6 +32,7 @@ public class DeathSequence : UIElement
     private int _SuccessIterator;
 
     private Rigidbody _Rigidbody;
+    private Protagonist _PlayerInstance;
     #endregion
 
     void Start()
@@ -40,6 +41,7 @@ public class DeathSequence : UIElement
         _FailIterator = 0;
         _SuccessIterator = 0;
         _Rigidbody = Player.GetComponent<Rigidbody>();
+        _PlayerInstance = Player.GetComponent<Protagonist>();
     }
 
     //Based on the d20 result, either the number of successes or failures rises up to the maximum of three
@@ -65,6 +67,7 @@ public class DeathSequence : UIElement
         {
             //_Rigidbody.constraints = RigidbodyConstraints.None;
             PlayerMovement.MovementEnabled = true;
+            _PlayerInstance.MakeInvincible(false);
             UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.DeathSequence);
         }
 
