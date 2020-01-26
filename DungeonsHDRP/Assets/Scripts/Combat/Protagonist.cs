@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Protagonist : Combatant
 {
+    private bool init = false;
     public void MakeInvincible(bool input)
     {
         _IsInvincible = input;
@@ -24,6 +25,14 @@ public class Protagonist : Combatant
     protected override void Update()
     {
         base.Update();
-        VitalsDisplay.HitPoints = this.HitPoints;
+        //VitalsDisplay.HitPoints = this.HitPoints;
+        //if (!init) { VitalsDisplay.GetInstance().SetDefaultHP(this.HitPoints,true); init = true; }
     }
+    public override void ReceiveDamange(int damageSustained)
+    {
+        base.ReceiveDamange(damageSustained);
+        VitalsDisplay.GetInstance().SetHitPoints(this.HitPoints*100/this.HitPoitMaximum);
+    }
+
+    
 }

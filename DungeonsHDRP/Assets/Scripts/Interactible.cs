@@ -12,6 +12,7 @@ public class Interactible : MonoBehaviour
     //public Texture2DArray IdleMode;
     //public Texture2DArray Interaction;
     public int HitPoints;
+    public int HitPoitMaximum;
     public int ArmourClass;
     private CursorMode CursorMode = CursorMode.Auto;
     private Vector2 CursorOffset = new Vector2(0, 0);
@@ -26,7 +27,7 @@ public class Interactible : MonoBehaviour
 
     // Start is called before the first frame update
     [Author("Makovec & Novak", "pre-Alpha")]
-    protected void Start()
+    protected virtual void Start()
     {
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
@@ -66,7 +67,7 @@ public class Interactible : MonoBehaviour
     }
 
     //This method is called whenever the character sustains damage
-    public void ReceiveDamange(int damageSustained)
+    public virtual void ReceiveDamange(int damageSustained)
     {
         if (!_IsInvincible)
         {

@@ -7,60 +7,54 @@ using UnityEngine.AI;
 public class Foe : Combatant
 {
     private NavMeshAgent agent;
-    public float ViewAngle = 45.0f;
-    //DO NOT CHANGE DURING RUNTIME
-    public float ViewDistance = 10f;
+    public float ViewAngle = 120.0f;
+    private SphereCollider col;
 
-    protected void Start()
+    private void Awake()
     {
-        base.Start();
+        col = GetComponent<SphereCollider>();
         agent = GetComponent<NavMeshAgent>();
     }
+
     protected override void Update()
     {
         base.Update();
-        Target = LookForTarget(ViewAngle,ViewDistance,10);
-        if(Target == null)
-        Target = LookForTarget(360, ViewDistance/4, 30);
-        if(Target!=null)
-        {
-            Attack(Target);
-            agent.SetDestination(Target.transform.position);
-        }
     }
 
-    protected Character LookForTarget(float angle, float distance, int dispersion = 10)
+
+    private void OnTriggerStay(Collider other)
     {
-        Target = null;
-        Character c = null;
-        Vector3 startPos  = transform.position; // umm, start position !
-        Vector3 targetPos = Vector3.forward; // variable for calculated end position
+        Debug.DrawRay(transform.position, other.transform.position, Color.green,0.1f);
+        //Check if the detected object is the Player
+        if (other.gameObject.tag == "Player")
+        {
+            //Get direction and angle
+            Vector3 playerDirection = other.transform.position - transform.position;
+            float angle = Vector3.Angle(playerDirection, transform.forward);
 
-        var startAngle = (int)(-angle * 0.5); // half the angle to the Left of the forward
-        var finishAngle = (int)(angle * 0.5); // half the angle to the Right of the forward
-
-        // the gap between each ray (increment)
-        var inc = (int)(angle / dispersion);
-
-        RaycastHit hit;
-
-        // step through and find each target point
-        for (int i = startAngle; i < finishAngle; i += inc ) // Angle from forward
-     {
-            targetPos = (Quaternion.Euler(0, i, 0) * transform.forward).normalized * distance;
-
-            // linecast between points
-            if (Physics.Raycast(startPos, targetPos, out hit, distance))
+            //Check if the angle is withing FOV
+            if (angle <= ViewAngle / 2)
             {
-                Debug.DrawLine(startPos,hit.transform.position);
-                
-                    c = hit.collider.gameObject.GetComponent<Character>();
-                    Debug.Log(hit.collider.gameObject.name);
+                //Check if the player is within visible range
+                RaycastHit hit;
+               
+                if (Physics.Raycast(transform.position,playerDirection.normalized,out hit, col.radius))
+                {
+                    if(hit.transform.gameObject == other.gameObject)
+                    {
+                        agent.SetDestination(other.transform.position);
+                        Debug.DrawRay(transform.position + transform.up, other.transform.position,Color.red,0.1f);
+                        if(playerDirection.magnitude <= 4f)
+                        {
+                            if (coolDownState <= 0)
+                            {
+                                Attack(other.gameObject.GetComponent<Protagonist>());
+                            }
+                        }
+                    }
+                }
+
             }
-             
-            // to show ray just for testing
-            Debug.DrawLine(startPos, targetPos, Color.green);
         }
-        return c;
     }
 }

@@ -15,6 +15,7 @@ public abstract class Character : Interactible
     public int Intelligence;
     public int Wisdom;
     public int Charisma;
+    //public int AttackRate = 1;
 
     //HitPoints & Armour Class are inherited from the Interactible Class.
     public int Speed;
@@ -71,12 +72,6 @@ public abstract class Character : Interactible
     public int MakeAbilityCheck(Ability attribute)
     {
         return Roller.d20() + GetModifier(attribute);
-    }
-
-    public bool Attack(Character target)
-    {
-        target.ReceiveDamange(1);
-        return true;
     }
 }
 
