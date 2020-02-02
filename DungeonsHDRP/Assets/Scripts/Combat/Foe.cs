@@ -42,8 +42,11 @@ public class Foe : Combatant
                 {
                     if(hit.transform.gameObject == other.gameObject)
                     {
+                        //Follow player
                         agent.SetDestination(other.transform.position);
+                        //Draw raycast
                         Debug.DrawRay(transform.position + transform.up, other.transform.position,Color.red,0.1f);
+                        //Check distance
                         if(playerDirection.magnitude <= 4f)
                         {
                             if (coolDownState <= 0)
