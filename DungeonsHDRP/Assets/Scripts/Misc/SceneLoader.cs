@@ -6,17 +6,7 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public Text LoadingText;
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
+    public string NextScene;
 
     /*private IEnumerable LoadScene(string sceneName)
     {
@@ -32,5 +22,10 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("LoadingScreen");
 
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        LoadScene(NextScene);
     }
 }

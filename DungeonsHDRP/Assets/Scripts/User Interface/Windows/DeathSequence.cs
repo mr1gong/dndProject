@@ -1,4 +1,5 @@
-﻿#region Implementations
+﻿//Author: Jindrich Novak
+#region Implementations
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -64,6 +65,7 @@ public class DeathSequence : UIElement
     {
         if (_GameOver) return;
         int roll = Roller.d20();
+        Score.text = roll.ToString(); 
         Log($"Death-Roll: {roll}");
         if (roll > 10)
         {

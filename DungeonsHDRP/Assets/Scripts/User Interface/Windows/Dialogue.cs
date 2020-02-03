@@ -7,6 +7,7 @@ public class Dialogue : UIElement
 {
     private static Dialogue _DialogueInstance;
     public Text LastLine;
+
     // Start is called before the first frame update
     void Start()
     {

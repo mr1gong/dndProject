@@ -24,6 +24,6 @@ public class InventoryInterface : MonoBehaviour
 
     public void LoadPlayerInventory(InventoryComponent inventory)
     {
-        for
+        //for
     }
 }

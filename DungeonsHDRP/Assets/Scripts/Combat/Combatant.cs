@@ -8,6 +8,7 @@ public abstract class Combatant : Character
     public float coolDownState = 0f;
     //Temporary cooldown value
     private float cooldownValue = 4.0f;
+
     protected override void Update()
     {
         base.Update();

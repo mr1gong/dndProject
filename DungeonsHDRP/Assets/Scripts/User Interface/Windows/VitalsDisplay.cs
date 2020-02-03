@@ -6,25 +6,17 @@ using UnityEngine.UI;
 public class VitalsDisplay : UIElement
 {
     public Slider HealthBar;
+    public Text ArmourClass;
+    public Text Speed;
 
     public static VitalsDisplay instance;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void SetHitPoints(int hitPointsPercentage)
     {
-
         HealthBar.value = hitPointsPercentage;
     }
+
     public void SetDefaultHP(int defaultHP, bool updateHP)
     {
         /*
@@ -44,4 +36,13 @@ public class VitalsDisplay : UIElement
         return instance;
     }
 
+    public void SetArmourClass(int AC)
+    {
+        ArmourClass.text = AC.ToString();
+    }
+
+    public void SetSpeed(int speed)
+    {
+        Speed.text = speed.ToString();
+    }
 }

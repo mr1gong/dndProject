@@ -23,9 +23,10 @@ public class Interactible : MonoBehaviour
     protected bool _IsInvincible;
     public string ExamineText = "";
     public GameObject MiniUIPrefab;
-    private MiniUIController MiniUI;
+    protected MiniUIController MiniUI;
 
     // Start is called before the first frame update
+    // Does it really have to be 'virtual'?
     [Author("Makovec & Novak", "pre-Alpha")]
     protected virtual void Start()
     {

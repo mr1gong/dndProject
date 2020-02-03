@@ -5,6 +5,27 @@ using UnityEngine;
 public class Protagonist : Combatant
 {
     private bool init = false;
+
+    protected override void Start()
+    {
+        Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
+        timer = 10000;
+
+        GameObject MiniUiPrefabObject = Instantiate(MiniUIPrefab, gameObject.transform);
+        MiniUI = MiniUiPrefabObject.GetComponent<MiniUIController>();
+
+        if (MiniUI != null && UIActionButtons != null)
+        {
+            MiniUI.LoadUIActions(UIActionButtons);
+        }
+
+        _IsInvincible = false;
+        MiniUI.gameObject.SetActive(false);
+
+        VitalsDisplay.GetInstance().SetSpeed(Speed);
+        VitalsDisplay.GetInstance().SetArmourClass(ArmourClass);
+    }
+
     public void MakeInvincible(bool input)
     {
         _IsInvincible = input;
