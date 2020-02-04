@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Misc\Author.cs" />
     <Compile Include="Assets\Scripts\Misc\Branching.cs" />
     <Compile Include="Assets\Scripts\Misc\DialogueReader.cs" />
+    <Compile Include="Assets\Scripts\Misc\LoadingScreenController.cs" />
     <Compile Include="Assets\Scripts\Misc\Quest.cs" />
     <Compile Include="Assets\Scripts\Misc\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />

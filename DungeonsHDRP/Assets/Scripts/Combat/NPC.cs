@@ -18,7 +18,6 @@ public class NPC : Character
         if (_CurrentQuest == null)
         {
             _CurrentQuest = Quests.Pop();
-        }
-        
+        }  
     }    
 }
