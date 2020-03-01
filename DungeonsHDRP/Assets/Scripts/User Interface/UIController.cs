@@ -18,7 +18,8 @@ public class UIController : MonoBehaviour
         Settings = 7,
         Journal = 8,
         Help = 9,
-        Dialogue = 10
+        Dialogue = 10,
+        VitalsDisplay = 11
     }
 
     private static UIController manager;
@@ -59,9 +60,6 @@ public class UIController : MonoBehaviour
         {
             throw new Exception("Window not found");
         }
-    }
-    private void Update()
-    {
     }
 
     public static UIController GetInstance()

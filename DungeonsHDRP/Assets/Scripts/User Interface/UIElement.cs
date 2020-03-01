@@ -40,7 +40,7 @@ public abstract class UIElement: MonoBehaviour
     }
 
     //Pauses the game if a window is opened
-    private void TogglePause()
+    protected void TogglePause()
     {
         if (Time.timeScale == 0)
         {
@@ -51,7 +51,7 @@ public abstract class UIElement: MonoBehaviour
     }
 
     //If state is true, pause, else unpause.
-    private void TogglePause(bool state)
+    protected void TogglePause(bool state)
     {
         if (!state)
         {

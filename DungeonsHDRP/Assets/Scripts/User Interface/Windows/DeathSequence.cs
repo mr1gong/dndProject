@@ -85,6 +85,7 @@ public class DeathSequence : UIElement
             //_Rigidbody.constraints = RigidbodyConstraints.None;
             PlayerMovement.MovementEnabled = true;
             _PlayerInstance.MakeInvincible(false);
+            _PlayerInstance.HitPoints = _PlayerInstance.HitPoitMaximum / 4;
             UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.DeathSequence);
         }
 
