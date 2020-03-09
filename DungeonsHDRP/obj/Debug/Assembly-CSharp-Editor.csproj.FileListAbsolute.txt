@@ -316,3 +316,6 @@ J:\GitDungeons\dndProject\DungeonsHDRP\Temp\bin\Debug\Unity.ShaderGraph.Utilitie
 J:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 J:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp-Editor.dll
 J:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp-Editor.pdb
+E:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp-Editor.csprojAssemblyReference.cache
+E:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp-Editor.dll
+E:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp-Editor.pdb

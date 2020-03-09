@@ -99,7 +99,7 @@ public class Interactible : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
 
-            if (hit.collider.gameObject == gameObject)
+            if (hit.collider.gameObject == this.gameObject)
             {
                 if (Input.GetMouseButtonDown(0))
                 {

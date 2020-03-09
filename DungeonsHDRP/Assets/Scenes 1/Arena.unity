@@ -1848,12 +1848,12 @@ PrefabInstance:
     - target: {fileID: 8318905848121468496, guid: e62fd919d7622ee49a068b09e2f6504c,
         type: 3}
       propertyPath: HitPoints
-      value: 300
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8318905848121468496, guid: e62fd919d7622ee49a068b09e2f6504c,
         type: 3}
       propertyPath: HitPoitMaximum
-      value: 300
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8318905848121468496, guid: e62fd919d7622ee49a068b09e2f6504c,
         type: 3}
@@ -1973,7 +1973,8 @@ MonoBehaviour:
   Target: {fileID: 0}
   WeaponAttack: {fileID: 0}
   coolDownState: 0
-  ViewAngle: 130
+  cooldownValue: 1
+  ViewAngle: 180
 --- !u!136 &1876881481
 CapsuleCollider:
   m_ObjectHideFlags: 0

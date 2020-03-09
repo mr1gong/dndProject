@@ -19,5 +19,10 @@ public class NPC : Character
         {
             _CurrentQuest = Quests.Pop();
         }  
-    }    
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+    }
 }

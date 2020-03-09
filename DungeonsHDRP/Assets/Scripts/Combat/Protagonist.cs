@@ -5,9 +5,11 @@ using UnityEngine;
 public class Protagonist : Combatant
 {
     private bool init = false;
+    private static Protagonist playerInstance;
 
     protected override void Start()
     {
+        playerInstance = this;
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
 
@@ -29,6 +31,15 @@ public class Protagonist : Combatant
     public void MakeInvincible(bool input)
     {
         _IsInvincible = input;
+    }
+
+    public static Protagonist GetPlayerInstance() 
+    {
+    if(playerInstance == null) 
+        {
+            playerInstance = GameObject.FindObjectOfType<Protagonist>();
+        }
+        return playerInstance;
     }
 
     public void MakeInvincible()

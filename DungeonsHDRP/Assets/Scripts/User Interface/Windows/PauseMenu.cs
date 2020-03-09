@@ -36,7 +36,8 @@ public class PauseMenu : UIElement
     //Closes the window and unpauses the game
     public void ResumeGame()
     {
-        SwitchState();
+        SwitchState(false);
+        Time.timeScale = 1;
     }
 
     //Singleton-guarantee method

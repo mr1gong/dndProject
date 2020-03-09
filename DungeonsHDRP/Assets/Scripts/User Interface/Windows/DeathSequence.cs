@@ -28,14 +28,14 @@ public class DeathSequence : UIElement
     public Toggle FailToggle2;
     #endregion
 
-    private Toggle[] _SuccessTogleArray;
+    private Toggle[] _SuccessToggleArray;
     private Toggle[] _FailToggleArray;
 
     private int _FailIterator;
     private int _SuccessIterator;
 
     private Rigidbody _Rigidbody;
-    private Protagonist _PlayerInstance;
+   
     private bool _GameOver;
     #endregion
 
@@ -45,7 +45,6 @@ public class DeathSequence : UIElement
         _FailIterator = 0;
         _SuccessIterator = 0;
         _Rigidbody = Player.GetComponent<Rigidbody>();
-        _PlayerInstance = Player.GetComponent<Protagonist>();
         _GameOver = false;
     }
 
@@ -64,13 +63,13 @@ public class DeathSequence : UIElement
     public void DeathRoll()
     {
         if (_GameOver) return;
-        int roll = Roller.d20();
+        int roll = Roller.d20()+10;
         Score.text = roll.ToString(); 
         Log($"Death-Roll: {roll}");
         if (roll > 10)
         {
             //Roll-Success Zone
-            _SuccessTogleArray[_SuccessIterator].isOn = true;
+            _SuccessToggleArray[_SuccessIterator].isOn = true;
             _SuccessIterator++;
         }
         else
@@ -82,11 +81,14 @@ public class DeathSequence : UIElement
 
         if (_SuccessIterator >= 3)
         {
+            Protagonist player = Protagonist.GetPlayerInstance();
+            Debug.Log(_SuccessIterator);
             //_Rigidbody.constraints = RigidbodyConstraints.None;
             PlayerMovement.MovementEnabled = true;
-            _PlayerInstance.MakeInvincible(false);
-            _PlayerInstance.HitPoints = _PlayerInstance.HitPoitMaximum / 4;
-            UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.DeathSequence);
+            player.MakeInvincible(false);
+            player.HitPoints = player.HitPoitMaximum / 4;
+            SwitchState(false);
+            ResetDeathSequence();
         }
 
         if (_FailIterator >= 3)
@@ -107,14 +109,28 @@ public class DeathSequence : UIElement
         return _DeathSequenceInstance;
     }
 
+    private void ResetDeathSequence() 
+    {
+        foreach (Toggle t in _FailToggleArray) 
+        {
+            t.isOn = false;
+        }
+
+        foreach (Toggle t in _SuccessToggleArray)
+        {
+            t.isOn = false;
+        }
+        _FailIterator = 0;
+        _SuccessIterator = 0;
+    }
     private void InitiateToggles()
     {
-        _SuccessTogleArray = new Toggle[3];
+        _SuccessToggleArray = new Toggle[3];
         _FailToggleArray = new Toggle[3];
 
-        _SuccessTogleArray[0] = SuccessToggle0;
-        _SuccessTogleArray[1] = SuccessToggle1;
-        _SuccessTogleArray[2] = SuccessToggle2;
+        _SuccessToggleArray[0] = SuccessToggle0;
+        _SuccessToggleArray[1] = SuccessToggle1;
+        _SuccessToggleArray[2] = SuccessToggle2;
 
         _FailToggleArray[0] = FailToggle0;
         _FailToggleArray[1] = FailToggle1;

@@ -5,9 +5,10 @@ using UnityEngine;
 public abstract class Combatant : Character
 {
     public Attack WeaponAttack;
+
     public float coolDownState = 0f;
     //Temporary cooldown value
-    private float cooldownValue = 4.0f;
+    public float cooldownValue = 4.0f;
 
     protected override void Update()
     {

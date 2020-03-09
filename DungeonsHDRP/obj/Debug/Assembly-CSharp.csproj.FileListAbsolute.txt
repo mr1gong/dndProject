@@ -302,3 +302,6 @@ J:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp.csproj.CopyComp
 J:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp.dll
 J:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp.pdb
 J:\GitDungeons\dndProject\DungeonsHDRP\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+E:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+E:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp.dll
+E:\GitDungeons\dndProject\DungeonsHDRP\obj\Debug\Assembly-CSharp.pdb
