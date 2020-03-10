@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Protagonist : Combatant
 {
     private bool init = false;
     private static Protagonist playerInstance;
+    private NavMeshAgent _agent;
+    private SphereCollider _col;
+
+
 
     protected override void Start()
     {
+        _agent = GetComponent<NavMeshAgent>();
+        _col = GetComponent<SphereCollider>();
         playerInstance = this;
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
@@ -27,7 +34,14 @@ public class Protagonist : Combatant
         VitalsDisplay.GetInstance().SetSpeed(Speed);
         VitalsDisplay.GetInstance().SetArmourClass(ArmourClass);
     }
-
+    public void SetTarget(Interactible interactible) 
+    {
+        this.Target = interactible;
+    }
+    public void StopAllAction() 
+    {
+        this.Target = null;
+    }
     public void MakeInvincible(bool input)
     {
         _IsInvincible = input;
@@ -66,5 +80,45 @@ public class Protagonist : Combatant
         VitalsDisplay.GetInstance().SetHitPoints(this.HitPoints*100/this.HitPoitMaximum);
     }
 
-    
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.DrawRay(transform.position, other.transform.position, Color.green, 0.1f);
+        //Check if the detected object is the Player
+        if (Target != null)
+        {
+            if (other.gameObject == Target.gameObject)
+            {
+                //Get direction and angle
+                Vector3 playerDirection = other.transform.position - transform.position;
+                float angle = Vector3.Angle(playerDirection, transform.forward);
+
+                //Check if the angle is withing FOV
+                if (angle <= ViewAngle / 2)
+                {
+                    //Check if the player is within visible range
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(transform.position, playerDirection.normalized, out hit, _col.radius))
+                    {
+                        if (hit.transform.gameObject == other.gameObject)
+                        {
+                            //Follow player
+                            _agent.SetDestination(other.transform.position);
+                            //Draw raycast
+                            Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
+                            //Check distance
+                            if (playerDirection.magnitude <= 4f)
+                            {
+                                if (coolDownState <= 0)
+                                {
+                                    Attack(other.gameObject.GetComponent<Protagonist>());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

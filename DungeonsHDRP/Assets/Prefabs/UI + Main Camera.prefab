@@ -85,6 +85,21 @@ MonoBehaviour:
   Target: {fileID: 0}
   WeaponAttack: {fileID: 0}
   coolDownState: 0
+  cooldownValue: 4
+  ViewAngle: 120
+--- !u!135 &1208743565741782559
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945193797681102295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2966292
+  m_Center: {x: 0, y: 0.7966292, z: 0}
 --- !u!1 &5035527740933386194
 GameObject:
   m_ObjectHideFlags: 0

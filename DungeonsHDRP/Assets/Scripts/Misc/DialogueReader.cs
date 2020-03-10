@@ -13,14 +13,10 @@ public class DialogueReader : UIElement
 
     void Start()
     {
-        
-    }
-
-    [Author ("Makovec", "Pre-Alpha 1.2")]
-    private void Awake()
-    {
         _Instance = gameObject.GetComponent<DialogueReader>();
     }
+
+    
 
     [Author("Novak", "Pre-Alpha 1.2")]
     void Update()
@@ -63,7 +59,7 @@ public class DialogueReader : UIElement
             iterationIndex++;
         }
     }
-
+    
     [Author("Novák", "Pre-Alpha 1.2")]
     //Singleton-guarantee method
     public static DialogueReader GetInstance()

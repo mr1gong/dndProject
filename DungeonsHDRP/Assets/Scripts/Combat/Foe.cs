@@ -7,8 +7,11 @@ using UnityEngine.AI;
 public class Foe : Combatant
 {
     private NavMeshAgent agent;
-    public float ViewAngle = 120.0f;
     private SphereCollider col;
+    public bool IsGuard = false;
+    private Vector3 _guardianPosition;
+    private bool _seePlayer = false;
+    public float _seePlayerCooldown = 2f;
 
     private void Awake()
     {
@@ -16,9 +19,26 @@ public class Foe : Combatant
         agent = GetComponent<NavMeshAgent>();
     }
 
+    protected override void Start()
+    {
+        _guardianPosition = gameObject.transform.position;
+        base.Start();
+    }
     protected override void Update()
     {
         base.Update();
+        if(_seePlayerCooldown >= 0) 
+        {
+            _seePlayerCooldown += Time.deltaTime;
+        }
+        else 
+        {
+            Target = null;
+        }
+        if( Target == null && IsGuard)
+        {
+            agent.SetDestination(_guardianPosition);
+        }
     }
 
 
@@ -40,22 +60,40 @@ public class Foe : Combatant
                
                 if (Physics.Raycast(transform.position,playerDirection.normalized,out hit, col.radius))
                 {
-                    if(hit.transform.gameObject == other.gameObject)
+                    if (hit.transform.gameObject == other.gameObject)
                     {
+                        _seePlayer = true;
                         //Follow player
+                        Target = other.gameObject.GetComponent<Interactible>();
                         agent.SetDestination(other.transform.position);
                         //Draw raycast
-                        Debug.DrawRay(transform.position + transform.up, other.transform.position,Color.red,0.1f);
+                        Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
                         //Check distance
-                        if(playerDirection.magnitude <= 4f)
+                        if (playerDirection.magnitude <= 4f)
                         {
                             if (coolDownState <= 0)
                             {
                                 Attack(other.gameObject.GetComponent<Protagonist>());
                             }
                         }
+                        else
+                        {
+                           
+                        }
+                    }
+                    else
+                    {
+                        _seePlayer = false;
                     }
                 }
+                else 
+                {
+                    _seePlayer = false;
+                }
+            }
+            else 
+            {
+                
             }
         }
     }

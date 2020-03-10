@@ -1700,6 +1700,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.085
       objectReference: {fileID: 0}
+    - target: {fileID: 1208743565741782559, guid: e62fd919d7622ee49a068b09e2f6504c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3945193797681102295, guid: e62fd919d7622ee49a068b09e2f6504c,
         type: 3}
       propertyPath: m_TagString
@@ -1968,13 +1973,15 @@ MonoBehaviour:
   Intelligence: 15
   Wisdom: 15
   Charisma: 15
-  Speed: 15
+  ViewAngle: 180
+  Speed: 5
   Initiative: 15
   Target: {fileID: 0}
   WeaponAttack: {fileID: 0}
   coolDownState: 0
   cooldownValue: 1
-  ViewAngle: 180
+  IsGuard: 0
+  _seePlayerCooldown: 2
 --- !u!136 &1876881481
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -15,13 +15,14 @@ public abstract class Character : Interactible
     public int Intelligence;
     public int Wisdom;
     public int Charisma;
+    public float ViewAngle = 120.0f;
     //public int AttackRate = 1;
 
     //HitPoints & Armour Class are inherited from the Interactible Class.
     public int Speed;
     public int Initiative;
 
-    public Character Target;
+    public Interactible Target;
 
     public enum Ability
     {

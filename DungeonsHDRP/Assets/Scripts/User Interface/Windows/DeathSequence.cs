@@ -63,7 +63,7 @@ public class DeathSequence : UIElement
     public void DeathRoll()
     {
         if (_GameOver) return;
-        int roll = Roller.d20()+10;
+        int roll = Roller.d20();
         Score.text = roll.ToString(); 
         Log($"Death-Roll: {roll}");
         if (roll > 10)
