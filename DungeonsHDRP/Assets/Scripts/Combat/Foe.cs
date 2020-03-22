@@ -12,6 +12,7 @@ public class Foe : Combatant
     private Vector3 _guardianPosition;
     private bool _seePlayer = false;
     public float _seePlayerCooldown = 2f;
+    public float MaxDistance = 4f;
 
     private void Awake()
     {
@@ -39,46 +40,58 @@ public class Foe : Combatant
         {
             agent.SetDestination(_guardianPosition);
         }
-    }
+
+        if ((transform.position - _guardianPosition).magnitude > MaxDistance && IsGuard)
+        {
+            agent.SetDestination(_guardianPosition);
+        }
+        }
 
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.DrawRay(transform.position, other.transform.position, Color.green,0.1f);
-        //Check if the detected object is the Player
-        if (other.gameObject.tag == "Player")
+        if ((transform.position - _guardianPosition).magnitude <= MaxDistance )
         {
-            //Get direction and angle
-            Vector3 playerDirection = other.transform.position - transform.position;
-            float angle = Vector3.Angle(playerDirection, transform.forward);
+            Debug.DrawRay(transform.position, other.transform.position, Color.green, 0.1f);
 
-            //Check if the angle is withing FOV
-            if (angle <= ViewAngle / 2)
+            //Check if the detected object is the Player
+            if (other.gameObject.tag == "Player")
             {
-                //Check if the player is within visible range
-                RaycastHit hit;
-               
-                if (Physics.Raycast(transform.position,playerDirection.normalized,out hit, col.radius))
+                //Get direction and angle
+                Vector3 playerDirection = other.transform.position - transform.position;
+                float angle = Vector3.Angle(playerDirection, transform.forward);
+                //Check if the angle is withing FOV
+                if (angle <= ViewAngle / 2)
                 {
-                    if (hit.transform.gameObject == other.gameObject)
+                    //Check if the player is within visible range
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(transform.position, playerDirection.normalized, out hit, col.radius))
                     {
-                        _seePlayer = true;
-                        //Follow player
-                        Target = other.gameObject.GetComponent<Interactible>();
-                        agent.SetDestination(other.transform.position);
-                        //Draw raycast
-                        Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
-                        //Check distance
-                        if (playerDirection.magnitude <= 4f)
+                        if (hit.transform.gameObject == other.gameObject)
                         {
-                            if (coolDownState <= 0)
+                            _seePlayer = true;
+                            //Follow player
+                            Target = other.gameObject.GetComponent<Interactible>();
+                            agent.SetDestination(other.transform.position);
+                            //Draw raycast
+                            Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
+                            //Check distance
+                            if (playerDirection.magnitude <= 4f)
                             {
-                                Attack(other.gameObject.GetComponent<Protagonist>());
+                                if (coolDownState <= 0)
+                                {
+                                    Attack(other.gameObject.GetComponent<Protagonist>());
+                                }
+                            }
+                            else
+                            {
+
                             }
                         }
                         else
                         {
-                           
+                            _seePlayer = false;
                         }
                     }
                     else
@@ -86,14 +99,10 @@ public class Foe : Combatant
                         _seePlayer = false;
                     }
                 }
-                else 
+                else
                 {
-                    _seePlayer = false;
+
                 }
-            }
-            else 
-            {
-                
             }
         }
     }

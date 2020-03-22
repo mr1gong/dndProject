@@ -61,6 +61,11 @@ public class Protagonist : Combatant
         _IsInvincible = true;
     }
 
+    public void PickUpItem(Item item) 
+    {
+        
+    }
+
     protected override void InitiateDeathSequence()
     {
         UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.DeathSequence);

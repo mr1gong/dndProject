@@ -24,6 +24,7 @@ public class Interactible : MonoBehaviour
     public string ExamineText = "";
     public GameObject MiniUIPrefab;
     protected MiniUIController MiniUI;
+    public InventoryComponent Inventory = new InventoryComponent();
 
     // Start is called before the first frame update
     // Does it really have to be 'virtual'?

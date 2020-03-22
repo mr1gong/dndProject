@@ -9,6 +9,7 @@ public class ItemViewRow : MonoBehaviour
     public Item Item;
     public Button UseButton;
     public Button EquipButton;
+    public Toggle Selector;
     private bool IsEquippable;
 
     public delegate void UseItemDelegate(Item item);

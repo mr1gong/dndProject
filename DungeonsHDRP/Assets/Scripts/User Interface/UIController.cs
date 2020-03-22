@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour
         WindowResolver.Add((int)WindowNameResource.DeathSequence, DeathSequence.GetInstance());
         WindowResolver.Add((int)WindowNameResource.InspectItem, InspectItem.GetInstance());
         WindowResolver.Add((int)WindowNameResource.PauseMenu, PauseMenu.GetInstance());
-        WindowResolver.Add((int)WindowNameResource.Inventory, Inventory.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Inventory, InventoryInterface.GetInstance());
         WindowResolver.Add((int)WindowNameResource.MainMenu, MainMenu.GetInstance());
         WindowResolver.Add((int)WindowNameResource.Settings, Settings.GetInstance());
         WindowResolver.Add((int)WindowNameResource.Journal, Journal.GetInstance());

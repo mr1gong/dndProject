@@ -14,6 +14,11 @@ public class Equippable : Item
         Hands
     }
 
+    private void Start()
+    {
+        this.Equippable = true;
+    }
+
     public EquippableType Type = EquippableType.Weapon;
     public ModifierCollection ModifierCollection { get; set; }
 

@@ -18,7 +18,7 @@ public abstract class UIElement: MonoBehaviour
     }
 
     //Negates the activity boolean
-    public void SwitchState()
+    public virtual void SwitchState()
     {
         isActive ^= true;
         Window.SetActive(isActive);
@@ -26,7 +26,7 @@ public abstract class UIElement: MonoBehaviour
     }
 
     //Opens or closes the window based on the user input
-    public void SwitchState(bool state)
+    public virtual void SwitchState(bool state)
     {
         isActive = state;
         Window.SetActive(isActive);
