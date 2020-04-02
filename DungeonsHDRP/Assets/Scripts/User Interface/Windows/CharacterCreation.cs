@@ -1,6 +1,7 @@
 ﻿#region Implementations;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 #endregion
@@ -11,11 +12,12 @@ public class CharacterCreation : UIElement
     #region Fields
     private static CharacterCreation _CharacterCreationInstance;
 
-    public Text AbilityPoints;
+    public Text ProgressionPoints;
     public Text Strength;
     public Text Dexterity;
     public Text Constitution;
     public Text Intelligence;
+    public Text Wisdom;
     public Text Charisma;
     #endregion
 
@@ -26,5 +28,154 @@ public class CharacterCreation : UIElement
             _CharacterCreationInstance = FindObjectOfType<CharacterCreation>();
         }
         return _CharacterCreationInstance;
+    }
+
+    public void IncrementStrength()
+    {
+        Debug.Log("Strength Button Pressed");
+        if (SpendPoint())
+            Increment(Strength.GetComponent<Text>());
+    }
+
+    public void IncrementDexterity()
+    {
+        Debug.Log("Dexterity Button Pressed");
+        if (SpendPoint())
+            Increment(Dexterity.GetComponent<Text>());
+    }
+
+    public void IncrementConstitution()
+    {
+        Debug.Log("Constitution Button Pressed");
+        if (SpendPoint())
+            Increment(Constitution.GetComponent<Text>());
+    }
+
+    public void IncrementIntelligence()
+    {
+        Debug.Log("Intelligence Button Pressed");
+        if (SpendPoint())
+            Increment(Intelligence.GetComponent<Text>());
+    }
+    public void IncrementWisdom()
+    {
+        Debug.Log("Wisdom Button Pressed");
+        if (SpendPoint())
+            Increment(Wisdom.GetComponent<Text>());
+    }
+
+    public void IncrementCharisma()
+    {
+        Debug.Log("Charisma Button Pressed");
+        if (SpendPoint())
+            Increment(Charisma.GetComponent<Text>());
+    }
+
+    public void DecrementStrength()
+    {
+        Debug.Log("Strength Button Pressed");
+        if (GainPoint())
+            Decrement(Strength.GetComponent<Text>());
+    }
+
+    public void DecrementDexterity()
+    {
+        Debug.Log("Dexterity Button Pressed");
+        if (GainPoint())
+            Decrement(Dexterity.GetComponent<Text>());
+    }
+
+    public void DecrementConstitution()
+    {
+        Debug.Log("Constitution Button Pressed");
+        if (GainPoint())
+            Decrement(Constitution.GetComponent<Text>());
+    }
+
+    public void DecrementIntelligence()
+    {
+        Debug.Log("Intelligence Button Pressed");
+        if (GainPoint())
+            Decrement(Intelligence.GetComponent<Text>());
+    }
+    public void DecrementWisdom()
+    {
+        Debug.Log("Wisdom Button Pressed");
+        if (GainPoint())
+            Decrement(Wisdom.GetComponent<Text>());
+    }
+
+    public void DecrementCharisma()
+    {
+        Debug.Log("Charisma Button Pressed");
+        if (GainPoint())
+            Decrement(Charisma.GetComponent<Text>());
+    }
+
+    public void QuitMainMenu()
+    {
+        SaveCharacter();
+        SceneLoader.ToLoadingScreen("Prison");
+    }
+
+    private void Decrement(Text input)
+    {
+        int value = int.Parse(input.text);
+        value--;
+        input.text = value.ToString();
+    }
+
+    //DODELEJ TO JINDRO
+    /*
+    public void DecrementX()
+    {
+        Debug.Log("X Button Pressed");
+        if (GainPoint() && X >= 10)
+            Decrement(Strength.GetComponent<Text>());
+    }
+    */
+
+
+    private void Increment(Text input)
+    {
+        int value = int.Parse(input.text);
+        value++;
+        input.text = value.ToString();
+    }
+
+    private bool SpendPoint()
+    {
+        if (int.Parse(ProgressionPoints.text) <= 0) return false;
+        Decrement(ProgressionPoints);
+        return true;
+    }
+
+    private bool GainPoint()
+    {
+        if (int.Parse(ProgressionPoints.text) >= 8) return false;
+        Increment(ProgressionPoints);
+        return true;
+    }
+
+    private void SaveCharacter()
+    {
+        File.WriteAllText("CharacterSave.txt", getParameters());
+        string getParameters()
+        {
+            string output = null;
+            output += Strength.text;
+            output += ",";
+            output += Dexterity.text;
+            output += ",";
+            output += Constitution.text;
+            output += ",";
+            output += Intelligence.text;
+            output += ",";
+            output += Wisdom.text;
+            output += ",";
+            output += Charisma.text;
+            Debug.Log("Saving: '" + output + "'");
+            return output;
+        }
     }
 }

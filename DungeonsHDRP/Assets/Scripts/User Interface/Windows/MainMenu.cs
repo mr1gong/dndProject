@@ -1,6 +1,4 @@
 ﻿#region Implementations
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 #endregion
@@ -10,19 +8,16 @@ public class MainMenu : UIElement
     #region Fields
     private static MainMenu _MainMenuInstance;
 
-    public Button ResumeButton;
     public Button NewGameButton;
     public Button SettingsButton;
     public Button HelpButton;
     public Button CreditsButton;
     public Button QuitButton;
 
-    #endregion
+    public GameObject Credits;
+    public Animator Animation;
 
-    public void ResumeGame()
-    {
-        throw new System.Exception("Unimplemented Method!");
-    }
+    #endregion
 
     public void NewGame()
     {
@@ -41,7 +36,9 @@ public class MainMenu : UIElement
 
     public void LaunchCredits()
     {
-        throw new System.Exception("Unimplemented Method!");
+        Credits.GetComponent<GameObject>();
+        Animation.SetTrigger("StartCredits");
+        Credits.SetActive(true);
     }
 
     public void Quit()
