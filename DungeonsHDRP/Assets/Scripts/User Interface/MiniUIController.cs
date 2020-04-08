@@ -31,7 +31,7 @@ public class MiniUIController : MonoBehaviour
             buttonPrefabObject.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
             Button button = buttonPrefabObject.GetComponent<Button>();
             RawImage rawImage = buttonPrefabObject.gameObject.GetComponentInChildren<RawImage>(true);
-            buttonPrefabObject.transform.Rotate(0,90,0);
+            buttonPrefabObject.transform.Rotate(0,180,0);
             button.onClick.AddListener(delegate() { miniUIAction.Event.Invoke(); });
             rawImage.texture = miniUIAction.TextureImage;
 
