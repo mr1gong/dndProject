@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes 1/Prison2.unity
+- path: Assets/Scenes 1/MainMenu/MainMenu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
