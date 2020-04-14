@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Console : UIElement
 {
     #region Fields
     private static Console _ConsoleInstance;
     public RectTransform Prime;
+    public Text Text;
+
     private bool _TransitionOut = false;
     private bool _TransitionIn = false;
 
@@ -89,5 +92,15 @@ public class Console : UIElement
         }
 
         Prime.transform.position = new Vector2(ConsoleWindow.transform.position.x - 1, 345.5f);
+    }
+
+    public void EraseMessage()
+    {
+        Text = null;
+    }
+
+    public void ChangeMessage(string message)
+    {
+        Text.text = message;
     }
 }

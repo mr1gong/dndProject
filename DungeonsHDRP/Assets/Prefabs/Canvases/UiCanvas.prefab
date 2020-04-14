@@ -6076,6 +6076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Window: {fileID: 0}
   Prime: {fileID: 2038115535132562557}
+  Text: {fileID: 1703306747220691430}
   ConsoleWindow: {fileID: 3495169030882354349}
 --- !u!1 &2546327920584954516
 GameObject:
