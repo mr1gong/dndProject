@@ -231,7 +231,7 @@ public class MainMenuDepracated : MonoBehaviour
     public void QuitMainMenu()
     {
         SaveCharacter();
-        SceneLoader.ToLoadingScreen("Prison");
+        SceneLoader.ToLoadingScreen("Prison2");
     }
 
     private void Decrement(Text input)

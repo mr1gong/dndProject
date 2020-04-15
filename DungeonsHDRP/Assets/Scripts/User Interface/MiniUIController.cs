@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class MiniUIController : MonoBehaviour
 {
     public GameObject buttonPrefab;
-
     private Canvas canvas;
     // Start is called before the first frame update
     void Start()
@@ -31,11 +30,13 @@ public class MiniUIController : MonoBehaviour
             buttonPrefabObject.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
             Button button = buttonPrefabObject.GetComponent<Button>();
             RawImage rawImage = buttonPrefabObject.gameObject.GetComponentInChildren<RawImage>(true);
-            buttonPrefabObject.transform.Rotate(0,180,0);
+            
             button.onClick.AddListener(delegate() { miniUIAction.Event.Invoke(); });
             rawImage.texture = miniUIAction.TextureImage;
 
             buttonPrefabObject.transform.SetParent(transform);
+            buttonPrefabObject.transform.rotation = transform.rotation;
+            buttonPrefabObject.transform.Rotate(0, 180, 0);
         }
     }
 

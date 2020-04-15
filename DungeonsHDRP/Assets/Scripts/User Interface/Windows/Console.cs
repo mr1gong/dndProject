@@ -9,7 +9,7 @@ public class Console : UIElement
     private static Console _ConsoleInstance;
     public RectTransform Prime;
     public Text Text;
-
+    public Vector3 _OriginCoord;
     private bool _TransitionOut = false;
     private bool _TransitionIn = false;
 
@@ -18,6 +18,8 @@ public class Console : UIElement
 
     void Start()
     {
+        Prime.localPosition = new Vector3(GetComponent<RectTransform>().anchorMax.x- GetComponent<RectTransform>().rect.width/2, Prime.localPosition.y, Prime.localPosition.z);
+        _OriginCoord = Prime.localPosition;
         _TransitionOut = false;
         _TransitionIn = false;
     }
@@ -67,31 +69,31 @@ public class Console : UIElement
         _TransitionOut = true;
     }
 
-    public void TransitionIn()
+    private void TransitionIn()
     {
         _TransitionOut = false;
-
-        if (ConsoleWindow.transform.position.x >= 750)
+        //REAL + OFFSET {CHANGE ONLY OFFSET}
+        if (Prime.localPosition.x >= _OriginCoord.x+Prime.rect.width*2f)
         {
             _TransitionIn = false;
             return;
         }
 
         //ConsoleWindow.transform.position.Set(ConsoleWindow.transform.position.x + 1, ConsoleWindow.transform.position.y, ConsoleWindow.transform.position.z);
-        Prime.transform.position = new Vector2(ConsoleWindow.transform.position.x + 1, 345.5f);
+        Prime.transform.Translate(10, 0, 0);
     }
 
-    public void TransitionOut()
+    private void TransitionOut()
     {
         _TransitionIn = false;
-
-        if (ConsoleWindow.transform.position.x <= 545.7283f)
+        //REAL + OFFSET {CHANGE ONLY OFFSET}
+        if (Prime.localPosition.x <= _OriginCoord.x)
         {
             _TransitionIn = false;
             return;
         }
 
-        Prime.transform.position = new Vector2(ConsoleWindow.transform.position.x - 1, 345.5f);
+        Prime.transform.Translate(-10, 0, 0);
     }
 
     public void EraseMessage()
@@ -102,5 +104,6 @@ public class Console : UIElement
     public void ChangeMessage(string message)
     {
         Text.text = message;
+
     }
 }
