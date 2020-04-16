@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.IO;
 
 public class Protagonist : Combatant
 {
@@ -11,6 +12,11 @@ public class Protagonist : Combatant
     private SphereCollider _col;
 
 
+    //JINDRICH CODE INTRUSION
+    void Awake()
+    {
+        LoadCharacterStats();
+    }
 
     protected override void Start()
     {
@@ -126,4 +132,21 @@ public class Protagonist : Combatant
         }
     }
 
+    private void LoadCharacterStats()
+    {
+        string rawData = File.ReadAllText("CharacterSave.txt").Trim();
+        string[] splitData = rawData.Split(',');
+        int[] parsedData = new int[splitData.Length];
+
+        for (int index = 0; index < splitData.Length; index++)
+        {
+            parsedData[index] = int.Parse(splitData[index]);
+        }
+
+        Strength = parsedData[0]; Dexterity = parsedData[1]; Constitution = parsedData[2];
+        Intelligence = parsedData[3]; Wisdom = parsedData[4]; Charisma = parsedData[5];
+
+        ArmourClass = 10; HitPoitMaximum = 12 + GetModifier(Ability.Constitution);
+        HitPoints = HitPoitMaximum;
+    }
 }

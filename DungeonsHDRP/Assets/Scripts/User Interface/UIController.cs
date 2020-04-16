@@ -1,12 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 [Author("Novák", "preAlpha-V0.2")]
 public class UIController : MonoBehaviour
 {
     private bool Initialized = false;
-
     public enum WindowNameResource
     {
         CharacterCreation = 1,
@@ -22,8 +20,9 @@ public class UIController : MonoBehaviour
         VitalsDisplay = 11
     }
 
-    private static UIController manager;
+    private static UIController _UIControllerInstance;
     private Dictionary<int, UIElement> WindowResolver = new Dictionary<int, UIElement>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +43,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
+            foreach (int key in WindowResolver.Keys) Debug.Log(key);
             throw new Exception("Window not found: " + windowName);
         }
     }
@@ -62,19 +62,28 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public static UIController GetInstance()
+    /*public static UIController GetInstance()
     {
-        if(manager != null)
+        if(_UIControllerInstance != null)
         {
-            return manager;
+            return _UIControllerInstance;
         }
         return new UIController();
+    }*/
+
+    public static UIController GetInstance()
+    {
+        if (_UIControllerInstance == null)
+        {
+            _UIControllerInstance = FindObjectOfType<UIController>();
+        }
+        return _UIControllerInstance;
     }
 
     private UIController()
     {
         WindowResolver = new Dictionary<int, UIElement>();
-        manager = this;
+        _UIControllerInstance = this;
     }
 
     private void Initialise()

@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/samplescene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   - enabled: 1
-    path: Assets/Scenes 1/MainMenu/MainMenu.unity
+    path: Assets/Scenes/Other/MainMenu.unity
     guid: c1848071011b4b04c822d2c0b254724d
   - enabled: 1
-    path: Assets/Scenes 1/LoadingScreen.unity
+    path: Assets/Scenes/Other/LoadingScreen.unity
     guid: d6be4867b8cc1494699c06cb1f879c10
   - enabled: 1
-    path: Assets/Scenes 1/Prison2.unity
+    path: Assets/Scenes/Prison2/Prison2.unity
     guid: 87a6c104461f0164084b6e3ea3e63a36
   m_configObjects: {}
