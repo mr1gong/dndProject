@@ -12,6 +12,8 @@ public class Console : UIElement
     public Vector3 _OriginCoord;
     private bool _TransitionOut = false;
     private bool _TransitionIn = false;
+    private int _TimeOut = 1000;
+    private bool _IsTimeout = false;
 
     public GameObject ConsoleWindow;
     #endregion
@@ -34,6 +36,18 @@ public class Console : UIElement
         if (_TransitionOut)
         {
             TransitionOut();
+        }
+
+        if (_TimeOut != 0)
+        {
+            _TimeOut--;
+        }
+        
+        if (_TimeOut <= 0 && _IsTimeout)
+        {
+            Debug.Log("Timeout!");
+            StartTransitionOut();
+            _IsTimeout = false;
         }
     }
 
@@ -59,9 +73,12 @@ public class Console : UIElement
     public void StartTransitionIn()
     {
         _TransitionIn = true;
-        Debug.Log($"Transitioning: {ConsoleWindow.transform.position.y}");
-        Debug.Log($"Transitioning: {ConsoleWindow.transform.position.x}");
-        Debug.Log("Transition Started");
+    }
+
+    public void StartTransitionIn(string message)
+    {
+        Text.text = message;
+        _TransitionIn = true;
     }
 
     public void StartTransitionOut()
@@ -75,6 +92,9 @@ public class Console : UIElement
         //REAL + OFFSET {CHANGE ONLY OFFSET}
         if (Prime.localPosition.x >= _OriginCoord.x+Prime.rect.width*2f)
         {
+            Debug.Log("Transition Finished");
+            _TimeOut = 1000;
+            _IsTimeout = true;
             _TransitionIn = false;
             return;
         }
@@ -85,6 +105,8 @@ public class Console : UIElement
 
     private void TransitionOut()
     {
+        _TimeOut = 0;
+        _IsTimeout = false;
         _TransitionIn = false;
         //REAL + OFFSET {CHANGE ONLY OFFSET}
         if (Prime.localPosition.x <= _OriginCoord.x)

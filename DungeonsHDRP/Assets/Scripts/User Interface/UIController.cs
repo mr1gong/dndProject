@@ -100,10 +100,11 @@ public class UIController : MonoBehaviour
         WindowResolver.Add((int)WindowNameResource.Help, Help.GetInstance());
         WindowResolver.Add((int)WindowNameResource.Dialogue, DialogueReader.GetInstance());
 
-        foreach (var v in WindowResolver)
-        {
-            Debug.Log(v.Key);
-        }
+        //foreach (var v in WindowResolver)
+        //{
+        //    Debug.Log(v.Key);
+        //}
+
         Initialized = true;
     }
 }

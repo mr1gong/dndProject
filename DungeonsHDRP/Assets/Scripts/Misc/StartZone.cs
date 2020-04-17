@@ -15,7 +15,7 @@ public class StartZone : QuestZone
 
     protected override void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"ENTERED START ZONE\n{Journal.GetInstance().CurrentObjective.text}");
+        //Debug.Log($"ENTERED START ZONE\n{Journal.GetInstance().CurrentObjective.text}");
         if (!Enabled)
         {
             return;
@@ -29,12 +29,12 @@ public class StartZone : QuestZone
         switch (ZoneFunction)
         {
             case ZoneMode.GiveBoth:
-                Debug.Log($"ENTERED START ZONE\n{Journal.GetInstance().CurrentObjective.text}");
+                //Debug.Log($"ENTERED START ZONE\n{Journal.GetInstance().CurrentObjective.text}");
                 Journal.GetInstance().ChangeMainObjective(Quest);
                 Journal.GetInstance().ChangeSecondaryObjective(SecondaryQuest);
                 return;
             case ZoneMode.RemoveBoth:
-                Debug.Log($"ENTERED START ZONE\n{Journal.GetInstance().CurrentObjective.text}");
+                //Debug.Log($"ENTERED START ZONE\n{Journal.GetInstance().CurrentObjective.text}");
                 Journal.GetInstance().ClearText(Journal.GetInstance().MainObjective);
                 Journal.GetInstance().ClearText(Journal.GetInstance().CurrentObjective);
                 return;
