@@ -16,7 +16,7 @@ public abstract class Combatant : Character
         if (coolDownState >= 0) coolDownState -= Time.deltaTime;
     }
 
-    public bool Attack(Interactible target)
+    public int Attack(Interactible target)
     {
         coolDownState = cooldownValue;
         int attackRoll = Roller.d20() + GetModifier(Ability.Strength);
@@ -25,8 +25,8 @@ public abstract class Combatant : Character
         {
             int damage = Roller.MakeRoll("3d7");//WeaponAttack.DamageFormulaOffset;
             target.ReceiveDamange(damage);
-            return true;
         }
-        return false;
+
+        return attackRoll;
     }
 }

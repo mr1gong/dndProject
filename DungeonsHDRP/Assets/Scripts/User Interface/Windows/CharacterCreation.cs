@@ -122,7 +122,7 @@ public class CharacterCreation : UIElement
     public void QuitMainMenu()
     {
         SaveCharacter();
-        SceneLoader.ToLoadingScreen("Prison");
+        SceneLoader.ToLoadingScreen("Prison2");
     }
 
     private void Decrement(Text input)

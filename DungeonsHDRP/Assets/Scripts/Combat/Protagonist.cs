@@ -42,11 +42,7 @@ public class Protagonist : Combatant
         VitalsDisplay.GetInstance().SetSpeed(Speed);
         VitalsDisplay.GetInstance().SetArmourClass(ArmourClass);
     }
-    private void LateUpdate()
-    {
-        
 
-    }
     public void SetTarget(Interactible interactible) 
     {
         this.Target = interactible;
@@ -158,7 +154,9 @@ public class Protagonist : Combatant
                             {
                                 if (coolDownState <= 0)
                                 {
-                                    Attack(other.gameObject.GetComponent<Interactible>());
+                                    //It already does deal damage along with returning the attack value
+                                    int attackRoll = Attack(other.gameObject.GetComponent<Interactible>());
+                                    RollDisplay.GetInstance().ShowRoll(attackRoll);
                                 }
                             }
                         }
@@ -182,7 +180,8 @@ public class Protagonist : Combatant
         Strength = parsedData[0]; Dexterity = parsedData[1]; Constitution = parsedData[2];
         Intelligence = parsedData[3]; Wisdom = parsedData[4]; Charisma = parsedData[5];
 
-        ArmourClass = 10; HitPoitMaximum = 12 + GetModifier(Ability.Constitution);
+        ArmourClass = 10 + GetModifier(Ability.Dexterity);
+        HitPoitMaximum = 12 + GetModifier(Ability.Constitution);
         HitPoints = HitPoitMaximum;
     }
 }

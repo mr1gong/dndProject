@@ -17,7 +17,9 @@ public class UIController : MonoBehaviour
         Journal = 8,
         Help = 9,
         Dialogue = 10,
-        VitalsDisplay = 11
+        VitalsDisplay = 11,
+        Console = 12,
+        RollDisplay = 13
     }
 
     private static UIController _UIControllerInstance;
@@ -99,6 +101,9 @@ public class UIController : MonoBehaviour
         WindowResolver.Add((int)WindowNameResource.Journal, Journal.GetInstance());
         WindowResolver.Add((int)WindowNameResource.Help, Help.GetInstance());
         WindowResolver.Add((int)WindowNameResource.Dialogue, DialogueReader.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.VitalsDisplay, VitalsDisplay.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.Console, Console.GetInstance());
+        WindowResolver.Add((int)WindowNameResource.RollDisplay, RollDisplay.GetInstance());
 
         //foreach (var v in WindowResolver)
         //{
