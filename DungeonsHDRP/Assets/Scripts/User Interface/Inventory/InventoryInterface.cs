@@ -9,7 +9,6 @@ public class InventoryInterface : UIElement
     public GameObject InventoryListViewPort;
     public Button ButtonTransfer;
     public Button ButtonDrop;
-    public Button ButtonExamine;
     public Dropdown InventorySelector;
     private InventoryComponent _playerInventoryCache;
     private InventoryComponent _targetInventoryCache;
@@ -76,24 +75,30 @@ public class InventoryInterface : UIElement
         }
     }
 
-
+    public void OpenInventory(InventoryComponent inventory)
+    {
+        LoadPlayerInventory(inventory);
+        SwitchState(true);
+    }
     public void LoadPlayerInventory(InventoryComponent inventory)
     {
-        _playerInventoryCache = inventory;
+        ResetInventoryList();
         if (inventory != null)
         {
             foreach (var v in inventory.Inventory)
             {
-                GameObject row = Instantiate(ItemRowPrefab);
-                ItemViewRow rowcomp = row.GetComponent<ItemViewRow>();
-                rowcomp.Item = v;
+                GameObject row = Instantiate(ItemRowPrefab, InventoryListViewPort.transform);
+                ItemViewRow rowcomp = row.GetComponentInChildren<ItemViewRow>();
+                rowcomp.SetItem(v);
                 rowcomp.EquipButton.interactable = true;
+
             }
         }
         else 
         {
             ResetInventoryList();
         }
+        
     }
 
     public void ReloadInventory() 

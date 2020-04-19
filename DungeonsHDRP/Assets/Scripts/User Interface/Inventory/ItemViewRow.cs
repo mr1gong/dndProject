@@ -10,6 +10,7 @@ public class ItemViewRow : MonoBehaviour
     public Button UseButton;
     public Button EquipButton;
     public Toggle Selector;
+    public Text ItemName;
     private bool IsEquippable;
 
     public delegate void UseItemDelegate(Item item);
@@ -20,13 +21,22 @@ public class ItemViewRow : MonoBehaviour
     public void SetItem(Equippable equippable)
     {
         this.Item = equippable;
+        this.ItemName.text = equippable.name;
+        this.ItemImage.sprite = equippable.ItemImage;
         this.IsEquippable = true;
         ReloadViewRow();
+    }
+
+    public void ExamineItem() 
+    {
+        Console.GetInstance().StartTransitionIn(string.Format("{0}\r\n{1}",Item.Name,Item.Description));
     }
 
     public void SetItem(Item item)
     {
         this.Item = item;
+        this.ItemName.text = item.name;
+        this.ItemImage.sprite = item.ItemImage;
         this.IsEquippable = false;
         ReloadViewRow();
         

@@ -8,8 +8,8 @@ using UnityEngine.Events;
 public class InventoryComponent : MonoBehaviour
 {
     [SerializeField]
-    public List<Item> Inventory = new List<Item>();
-    public UnityEvent PickupItemEvent = new UnityEvent();
+    public List<Item> Inventory;
+    public UnityEvent PickupItemEvent;
     public bool DestroyIfEmpty = false;
     
 
@@ -26,11 +26,11 @@ public class InventoryComponent : MonoBehaviour
 
     public void OpenInInventory() 
     {
-        InventoryInterface.GetInstance().LoadPlayerInventory(this);
+        InventoryInterface.GetInstance().OpenInventory(this);
     }
     private void Start()
     {
-        
+        PickupItemEvent.Invoke();
     }
     private void Update()
     {

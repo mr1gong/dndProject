@@ -8,14 +8,17 @@ public class Foe : Combatant
 {
     private NavMeshAgent agent;
     private SphereCollider col;
+    private Animator _animator;
     public bool IsGuard = false;
     private Vector3 _guardianPosition;
     private bool _seePlayer = false;
     public float _seePlayerCooldown = 2f;
-    public float MaxDistance = 4f;
+    public float MaxVisionDistance = 4f;
+    public float MaxMovementDistance = 4f;
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         col = GetComponent<SphereCollider>();
         agent = GetComponent<NavMeshAgent>();
     }
@@ -25,8 +28,26 @@ public class Foe : Combatant
         _guardianPosition = gameObject.transform.position;
         base.Start();
     }
+    public override void ReceiveDamange(int damageSustained)
+    {
+        base.ReceiveDamange(damageSustained);
+        
+        if(this.HitPoints <= 0) 
+        {
+            //Temporary way to dispose of dead corpses
+            Destroy(gameObject);
+        }
+    }
+
+
     protected override void Update()
     {
+
+        if (_animator != null)
+        {
+            _animator.SetFloat("Speed", agent.velocity.magnitude);
+        }
+        
         base.Update();
         if(_seePlayerCooldown >= 0) 
         {
@@ -41,16 +62,16 @@ public class Foe : Combatant
             agent.SetDestination(_guardianPosition);
         }
 
-        if ((transform.position - _guardianPosition).magnitude > MaxDistance && IsGuard)
+        if ((transform.position - _guardianPosition).magnitude > MaxMovementDistance && IsGuard)
         {
             agent.SetDestination(_guardianPosition);
         }
-        }
+    }
 
 
     private void OnTriggerStay(Collider other)
     {
-        if ((transform.position - _guardianPosition).magnitude <= MaxDistance )
+        if ((transform.position - _guardianPosition).magnitude <= MaxMovementDistance || !IsGuard)
         {
             Debug.DrawRay(transform.position, other.transform.position, Color.green, 0.1f);
 
@@ -72,21 +93,27 @@ public class Foe : Combatant
                         {
                             _seePlayer = true;
                             //Follow player
-                            Target = other.gameObject.GetComponent<Interactible>();
+                            Target = other.gameObject.GetComponent<Protagonist>();
                             agent.SetDestination(other.transform.position);
                             //Draw raycast
                             Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
                             //Check distance
-                            if (playerDirection.magnitude <= 4f)
+                            if (playerDirection.magnitude <= MaxVisionDistance)
                             {
                                 if (coolDownState <= 0)
                                 {
                                     Attack(other.gameObject.GetComponent<Protagonist>());
+                                    if(_animator != null) 
+                                    {
+                                        _animator.SetTrigger("Attack");
+                                        _animator.ResetTrigger("Attack");
+                                    }
+                                   
                                 }
+                                
                             }
                             else
                             {
-
                             }
                         }
                         else

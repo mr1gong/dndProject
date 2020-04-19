@@ -10,6 +10,8 @@ public class Protagonist : Combatant
     private static Protagonist playerInstance;
     private NavMeshAgent _agent;
     private SphereCollider _col;
+    private Interactible _target;
+    private bool _SelectionMode = false;
 
 
     //JINDRICH CODE INTRUSION
@@ -40,13 +42,20 @@ public class Protagonist : Combatant
         VitalsDisplay.GetInstance().SetSpeed(Speed);
         VitalsDisplay.GetInstance().SetArmourClass(ArmourClass);
     }
+    private void LateUpdate()
+    {
+        
+
+    }
     public void SetTarget(Interactible interactible) 
     {
         this.Target = interactible;
     }
     public void StopAllAction() 
     {
+        Debug.Log("Stopped All Action");
         this.Target = null;
+        this._SelectionMode =false;
     }
     public void MakeInvincible(bool input)
     {
@@ -84,11 +93,38 @@ public class Protagonist : Combatant
         base.Update();
         //VitalsDisplay.HitPoints = this.HitPoints;
         //if (!init) { VitalsDisplay.GetInstance().SetDefaultHP(this.HitPoints,true); init = true; }
+        if (_SelectionMode)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity, LayerMask.GetMask("Clickable")))
+                {
+                    Debug.Log("HIT" + hit.collider.gameObject.tag);
+                    GameObject hitout = hit.collider.gameObject;
+                    switch (hitout.tag)
+                    {
+                        case "Item": { _SelectionMode = false; Debug.Log("Selected Item"); break; }
+                        case "Enemy": { SetTarget(hitout.GetComponent<Interactible>()); _SelectionMode = false; Debug.Log("Selected Enemy"); break; }
+                    }
+                    _SelectionMode = false;
+                }
+            }
+        }
+        else
+        {
+
+        }
     }
     public override void ReceiveDamange(int damageSustained)
     {
         base.ReceiveDamange(damageSustained);
-        VitalsDisplay.GetInstance().SetHitPoints(this.HitPoints*100/this.HitPoitMaximum);
+        VitalsDisplay.GetInstance().SetHitPoints(this.HitPoints/this.HitPoitMaximum*100);
+    }
+
+    public void SetTargetSelectMode(bool mode) 
+    {
+        _SelectionMode = mode;
     }
 
     private void OnTriggerStay(Collider other)
@@ -100,16 +136,16 @@ public class Protagonist : Combatant
             if (other.gameObject == Target.gameObject)
             {
                 //Get direction and angle
-                Vector3 playerDirection = other.transform.position - transform.position;
-                float angle = Vector3.Angle(playerDirection, transform.forward);
+                Vector3 targetDirection = other.transform.position - transform.position;
+                float angle = Vector3.Angle(targetDirection, transform.forward);
 
                 //Check if the angle is withing FOV
                 if (angle <= ViewAngle / 2)
                 {
-                    //Check if the player is within visible range
+                    //Check if the target is within visible range
                     RaycastHit hit;
 
-                    if (Physics.Raycast(transform.position, playerDirection.normalized, out hit, _col.radius))
+                    if (Physics.Raycast(transform.position, targetDirection.normalized, out hit, _col.radius))
                     {
                         if (hit.transform.gameObject == other.gameObject)
                         {
@@ -118,11 +154,11 @@ public class Protagonist : Combatant
                             //Draw raycast
                             Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
                             //Check distance
-                            if (playerDirection.magnitude <= 4f)
+                            if (targetDirection.magnitude <= 4f)
                             {
                                 if (coolDownState <= 0)
                                 {
-                                    Attack(other.gameObject.GetComponent<Protagonist>());
+                                    Attack(other.gameObject.GetComponent<Interactible>());
                                 }
                             }
                         }
