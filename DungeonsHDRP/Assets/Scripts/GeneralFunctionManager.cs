@@ -35,6 +35,7 @@ public class GeneralFunctionManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.Inventory);
+            InventoryInterface.GetInstance().OpenInventory();
         }
 
         //RollDisplay

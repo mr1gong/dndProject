@@ -3,6 +3,7 @@
 **/
 
 using System;
+using UnityEngine;
 
 public abstract class Character : Interactible
 {
@@ -22,7 +23,7 @@ public abstract class Character : Interactible
     public int Speed;
     public int Initiative;
 
-    public Interactible Target;
+    public GameObject Target;
 
     public enum Ability
     {

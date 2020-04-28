@@ -16,23 +16,19 @@ public class Lockable : Interactible
 
             if (key == item)
             {
+                Debug.Log(key);
+                Debug.Log(item);
                 OnUnlock.Invoke();
                 lockState = 0;
 
-                if (MessageUIScript.getInstance() != null)
-                {
-                    MessageUIScript.getInstance().DisplayText("Unlocked!");
-                }
+                Console.GetInstance().StartTransitionIn("Unlocked!");
                 textResult = "Unlocked!";
                 return true;
              }  
         }
         
         textResult = "Nothing happened.";
-        if (MessageUIScript.getInstance() != null)
-        {
-            MessageUIScript.getInstance().DisplayText("Nothing happened...");
-        }
+        Console.GetInstance().StartTransitionIn("Nothing happened.");
         return false;
     }
 

@@ -8,9 +8,11 @@ public class Protagonist : Combatant
 {
     private bool init = false;
     private static Protagonist playerInstance;
+    public Animator Anim { get; private set; }
     private NavMeshAgent _agent;
     private SphereCollider _col;
     private Interactible _target;
+    private bool _ItemSelectionMode = false;
     private bool _SelectionMode = false;
 
 
@@ -22,6 +24,7 @@ public class Protagonist : Combatant
 
     protected override void Start()
     {
+        Anim = GetComponent<Animator>(); 
         _agent = GetComponent<NavMeshAgent>();
         _col = GetComponent<SphereCollider>();
         playerInstance = this;
@@ -45,7 +48,13 @@ public class Protagonist : Combatant
 
     public void SetTarget(Interactible interactible) 
     {
-        this.Target = interactible;
+        this.Target = interactible.gameObject;
+    }
+
+    public void SetTarget(Item item) 
+    {
+        this.Target = item.gameObject;
+        this._ItemSelectionMode = true;
     }
     public void StopAllAction() 
     {
@@ -152,12 +161,28 @@ public class Protagonist : Combatant
                             //Check distance
                             if (targetDirection.magnitude <= 4f)
                             {
-                                if (coolDownState <= 0)
+                                if (_ItemSelectionMode)
                                 {
-                                    //It already does deal damage along with returning the attack value
-                                    int attackRoll = Attack(other.gameObject.GetComponent<Interactible>());
-                                    RollDisplay.GetInstance().ShowRoll(attackRoll);
+                                    //Picks up item and puts it into inventory
+                                    GetComponent<InventoryComponent>().Inventory.Add(other.GetComponent<Item>().GetPickedUp());
                                 }
+                                else
+                                {
+                                    _agent.isStopped = true;
+                                    if (coolDownState <= 0)
+                                    {
+                                        //It already does deal damage along with returning the attack value
+                                        int attackRoll = Attack(other.gameObject.GetComponent<Interactible>());
+                                        Anim.Play("Armature|Attack");
+                                        RollDisplay.GetInstance().ShowRoll(attackRoll);
+
+                                    }
+                                    else
+                                    {
+                                        _agent.isStopped = false;
+                                    }
+                                }
+                                
                             }
                         }
                     }

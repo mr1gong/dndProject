@@ -47,6 +47,12 @@ public class ItemViewRow : MonoBehaviour
         this.EquipButton.interactable = IsEquippable;
     }
 
+    public void StartUsing() 
+    {
+        InventoryInterface.GetInstance().Selection = this.Item;
+        InventoryInterface.GetInstance().SwitchState(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

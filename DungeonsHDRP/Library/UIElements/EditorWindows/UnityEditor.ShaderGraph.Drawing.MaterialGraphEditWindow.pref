@@ -17,8 +17,20 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__adc6258f952cd764480f1a83e14f1321__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
   - __PanelContainer__rootVisualContainer__8a533fb38f5895d4799faf15427ce41b__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
   - __PanelContainer__rootVisualContainer__8a533fb38f5895d4799faf15427ce41b__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
+  - __PanelContainer__rootVisualContainer__d2aa94dfa3ec53e4ab15a6813092fc96__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
+  - __PanelContainer__rootVisualContainer__d2aa94dfa3ec53e4ab15a6813092fc96__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
+  - __PanelContainer__rootVisualContainer__8006bcb5871502745a0f67854c73974b__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
+  - __PanelContainer__rootVisualContainer__8006bcb5871502745a0f67854c73974b__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
+  - __PanelContainer__rootVisualContainer__e27f9e96543007f42892749067724377__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
+  - __PanelContainer__rootVisualContainer__e27f9e96543007f42892749067724377__MaterialGraphView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
   m_Values:
   - '{}'
   - '{}'
-  - '{"position":{"x":418.0,"y":93.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}}'
-  - '{"m_Version":4,"m_SelectedElementsArray":[]}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{"position":{"x":-1716.0,"y":141.60000610351563,"z":0.0},"scale":{"x":0.3249706029891968,"y":0.3249706029891968,"z":1.0}}'
+  - '{"m_Version":735,"m_SelectedElementsArray":["eaff093d-ad59-4450-82d9-0525f3910e19","f3170829-75fc-4219-912b-1d8221793d27","03883836-a49e-4580-84c1-a1d43392ef46"]}'

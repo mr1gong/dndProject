@@ -64,8 +64,7 @@ public class DoorScript : Lockable
         }
         else
         {
-            if (MessageUIScript.getInstance() != null)
-            { MessageUIScript.getInstance().DisplayText("Locked!"); }
+            Console.GetInstance().StartTransitionIn("Locked!");
         }
     }
     public void IncrementDoorState()
@@ -83,8 +82,7 @@ public class DoorScript : Lockable
         }
         else
         {
-            if (MessageUIScript.getInstance() != null)
-            { MessageUIScript.getInstance().DisplayText("Locked!"); }
+            Console.GetInstance().StartTransitionIn("Locked!");
         }
     }
 }

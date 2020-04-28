@@ -16,6 +16,10 @@ public class Foe : Combatant
     public float MaxVisionDistance = 4f;
     public float MaxMovementDistance = 4f;
 
+    private void OnDrawGizmos()
+    {
+       
+    }
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -93,7 +97,7 @@ public class Foe : Combatant
                         {
                             _seePlayer = true;
                             //Follow player
-                            Target = other.gameObject.GetComponent<Protagonist>();
+                            Target = other.gameObject;
                             agent.SetDestination(other.transform.position);
                             //Draw raycast
                             Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
@@ -110,7 +114,16 @@ public class Foe : Combatant
                                     }
                                    
                                 }
-                                
+                                if (agent.remainingDistance <= 0.5 * MaxVisionDistance) 
+                                {
+                                    agent.isStopped = true;
+                                }
+                                else 
+                                {
+                                    agent.isStopped = false;
+                                }
+
+
                             }
                             else
                             {

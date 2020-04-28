@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Shader.SetGlobalVector("Position", transform.position);
         if (!Alive) MovementEnabled = false;
         animator.SetFloat("Speed", navAgent.velocity.magnitude);
         if (MovementEnabled)
@@ -36,8 +37,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     // if(Input.GetAxis("LockMovement") == 0) {
                     {
+                        Protagonist.GetPlayerInstance().StopAllAction();
                         navAgent.SetDestination(hit.point);
                     }
+
                 }
             }
         }

@@ -14,7 +14,8 @@ public class InventoryInterface : UIElement
     private InventoryComponent _targetInventoryCache;
     public GameObject ItemRowPrefab;
     private static InventoryInterface _InventoryInstance;
-
+    public Item Selection;
+    
     public void ResetInventoryList()
     {
         ItemViewRow[] itemRows = InventoryListViewPort.GetComponentsInChildren<ItemViewRow>();
@@ -23,18 +24,25 @@ public class InventoryInterface : UIElement
             Destroy(v.gameObject);
         }
     }
-
+    
     private void Update()
     {
-        if(_targetInventoryCache == null) 
+
+        if(Selection != null) 
         {
-            this.ButtonTransfer.interactable = false;
-            this.InventorySelector.interactable = false;
-        }
-        else 
-        {
-            this.ButtonTransfer.interactable = true;
-            this.InventorySelector.interactable = true;
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity, LayerMask.GetMask("Clickable")))
+                {
+                    Debug.Log("HIT" + hit.collider.gameObject.tag+hit.collider.gameObject.name);
+                    GameObject hitout = hit.collider.gameObject;
+                    string response = "";
+                    hitout.GetComponent<Interactible>().GetItemUsedOn(Selection, out response);
+                    Console.GetInstance().StartTransitionIn(response);
+                    Selection = null;
+                }
+            }
         }
     }
 
@@ -62,25 +70,44 @@ public class InventoryInterface : UIElement
         
     }
 
+    private void Start()
+    {
+        this._playerInventoryCache = Protagonist.GetPlayerInstance().Inventory;
+    }
+
     public void SwitchSelectedInventory(int inventoryNum = 0) 
     {
         if(inventoryNum == 0) 
         {
             //Player
-            LoadPlayerInventory(_playerInventoryCache);
+            LoadInventoryToDisplay(_playerInventoryCache);
         }
         else 
         {
-            LoadPlayerInventory(_targetInventoryCache);
+            LoadInventoryToDisplay(_targetInventoryCache);
         }
     }
 
     public void OpenInventory(InventoryComponent inventory)
     {
-        LoadPlayerInventory(inventory);
+        this._targetInventoryCache = inventory;
+        LoadInventoryToDisplay(inventory);
         SwitchState(true);
+        this.InventorySelector.value = 1;
+        this.InventorySelector.interactable = true;
     }
-    public void LoadPlayerInventory(InventoryComponent inventory)
+
+    public void SwitchDisplayInventory() 
+    {
+       
+    }
+    public void OpenInventory()
+    {
+        LoadInventoryToDisplay(this._playerInventoryCache);
+        this.InventorySelector.value = 0;
+        this.InventorySelector.interactable = false;
+    }
+    public void LoadInventoryToDisplay(InventoryComponent inventory)
     {
         ResetInventoryList();
         if (inventory != null)
@@ -104,24 +131,12 @@ public class InventoryInterface : UIElement
     public void ReloadInventory() 
     {
         ResetInventoryList();
-        if(this.InventorySelector.value == 0) 
+        Debug.Log(InventorySelector.value);
+        Debug.Log(_targetInventoryCache);
+        switch (InventorySelector.value)
         {
-            LoadPlayerInventory(this._playerInventoryCache);
-        }
-        else 
-        {
-            if(this.InventorySelector.value == 1) 
-            {
-            
-                if(this._targetInventoryCache == null) 
-                {
-                    this.ResetInventoryList();
-                }
-                else 
-                {
-                    this.LoadPlayerInventory(_targetInventoryCache);
-                }
-            }
+            case 1: LoadInventoryToDisplay(this._targetInventoryCache); break;
+            default: LoadInventoryToDisplay(this._playerInventoryCache); break;
         }
     }
 
@@ -137,7 +152,7 @@ public class InventoryInterface : UIElement
     public override void SwitchState(bool state)
     {
         base.SwitchState(state);
-        if(!state) 
+        if(state == false) 
         {
             this._targetInventoryCache = null;
         }

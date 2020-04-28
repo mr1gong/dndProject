@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_FogOfWar
+  m_Shader: {fileID: -6465566751694194690, guid: e27f9e96543007f42892749067724377,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_9B23C141:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D36E582E:
+        m_Texture: {fileID: 2800000, guid: 13ebea0f5001fa34a98c2df25679a353, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D855E31F:
+        m_Texture: {fileID: 2800000, guid: 5e0c3993d7f506b45920659e7fd6332b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F1F9A31E:
+        m_Texture: {fileID: 2800000, guid: 7e16dc50f0c90e945bf341f5807b4007, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_248BEA27: 10
+    - Vector1_28088BC8: 0.9
+    - Vector1_5B6B0095: 12
+    - Vector1_6E441568: 3
+    - Vector1_8C893A38: 15
+    - Vector1_8F158690: 0.2
+    - Vector1_A16F81C: 10
+    - Vector1_C78DFBBB: 1
+    - Vector1_E3817032: 2
+    m_Colors:
+    - Color_10D21644: {r: 0, g: 0, b: 0, a: 1}
+    - Color_6533BD3: {r: 0, g: 0, b: 0, a: 0}
+    - Color_BCFE5A8A: {r: 1, g: 0.08018869, b: 0.08018869, a: 0}
+    - Color_D0BAC98B: {r: 0.764151, g: 0.08290317, b: 0.08290317, a: 0}
+    - Color_D1D6FF58: {r: 1, g: 1, b: 1, a: 1}
+    - Position: {r: 6.864116, g: 0.0049386024, b: -0.95348644, a: 0}
+    - Vector3_6ED974EE: {r: 0, g: 0, b: 0, a: 0}
+    - Vector3_E9E1414D: {r: 0, g: 0, b: 0, a: 0}
+    - _Position: {r: 0, g: 0, b: 0, a: 0}

@@ -24,6 +24,7 @@ public class Interactible : MonoBehaviour
     public string ExamineText = "";
     public GameObject MiniUIPrefab;
     protected MiniUIController MiniUI;
+    public bool Interactable = true;
     public InventoryComponent Inventory = new InventoryComponent();
 
     // Start is called before the first frame update
@@ -55,6 +56,11 @@ public class Interactible : MonoBehaviour
     private void OnMouseEnter()
     {
 
+    }
+
+    public void SetInteractable(bool mode) 
+    {
+        this.Interactable = mode;
     }
 
     public virtual bool GetItemUsedOn(Item item, out string textResult)
@@ -102,7 +108,7 @@ public class Interactible : MonoBehaviour
 
             if (hit.collider.gameObject == this.gameObject)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && Interactable)
                 {
                     timer = 0;
                     MiniUI.gameObject.SetActive(true);
