@@ -16,14 +16,27 @@ public abstract class Combatant : Character
         if (coolDownState >= 0) coolDownState -= Time.deltaTime;
     }
 
-    public int Attack(Interactible target)
+    public int Attack(Interactible target, string damageFormula = "3d7")
     {
+        int dmgModifier = 0;
+        if (Inventory != null)
+        {
+            if (Inventory.equipped != null)
+            {
+                if(Inventory.equipped.ModifierCollection.Modifiers.ContainsKey(ModifierNames.Damage))
+                dmgModifier = Inventory.equipped.ModifierCollection.Modifiers[ModifierNames.Damage];
+                Debug.Log(dmgModifier);
+            }
+        }
+
         coolDownState = cooldownValue;
         int attackRoll = Roller.d20() + GetModifier(Ability.Strength);
 
         if (target.ArmourClass < attackRoll)
         {
-            int damage = Roller.MakeRoll("3d7");//WeaponAttack.DamageFormulaOffset;
+            
+            int damage = Roller.MakeRoll(damageFormula)+dmgModifier;//WeaponAttack.DamageFormulaOffset;
+            Debug.Log(damage);
             target.ReceiveDamange(damage);
         }
 

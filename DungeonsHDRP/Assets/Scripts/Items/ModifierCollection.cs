@@ -7,9 +7,12 @@ public enum ModifierNames
     Damage,
     ArmorClass
 }
-public class ModifierCollection : MonoBehaviour
+public class ModifierCollection
 {
-    public Dictionary<string, int> Modifiers { get; set; }
+    public Dictionary<ModifierNames, int> Modifiers { get; set; }
 
-
+    public ModifierCollection() 
+    {
+        Modifiers = new Dictionary<ModifierNames, int>();
+    }
 }

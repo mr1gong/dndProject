@@ -10,11 +10,18 @@ public class Protagonist : Combatant
     private static Protagonist playerInstance;
     public Animator Anim { get; private set; }
     private NavMeshAgent _agent;
-    private SphereCollider _col;
     private Interactible _target;
     private bool _ItemSelectionMode = false;
     private bool _SelectionMode = false;
+    public float PlayerMaxViewDistance = 5f;
+    private bool dead = false;
+    public float MaxReach = 2f;
 
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, MaxReach);
+    }
 
     //JINDRICH CODE INTRUSION
     void Awake()
@@ -26,7 +33,6 @@ public class Protagonist : Combatant
     {
         Anim = GetComponent<Animator>(); 
         _agent = GetComponent<NavMeshAgent>();
-        _col = GetComponent<SphereCollider>();
         playerInstance = this;
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
@@ -48,11 +54,14 @@ public class Protagonist : Combatant
 
     public void SetTarget(Interactible interactible) 
     {
+        StopAllAction();
         this.Target = interactible.gameObject;
     }
 
     public void SetTarget(Item item) 
     {
+        StopAllAction();
+        Debug.Log("Target Item");
         this.Target = item.gameObject;
         this._ItemSelectionMode = true;
     }
@@ -61,6 +70,9 @@ public class Protagonist : Combatant
         Debug.Log("Stopped All Action");
         this.Target = null;
         this._SelectionMode =false;
+        _agent.isStopped = true;
+        _agent.isStopped = false;
+        _agent.SetDestination(transform.position);
     }
     public void MakeInvincible(bool input)
     {
@@ -95,29 +107,177 @@ public class Protagonist : Combatant
 
     protected override void Update()
     {
+        Shader.SetGlobalVector("Position", transform.position);
         base.Update();
         //VitalsDisplay.HitPoints = this.HitPoints;
         //if (!init) { VitalsDisplay.GetInstance().SetDefaultHP(this.HitPoints,true); init = true; }
         if (_SelectionMode)
         {
-            if (Input.GetMouseButtonDown(0))
+            HandleItemSelection();
+        }
+        else
+        {
+            if(Target != null) 
             {
-                RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity, LayerMask.GetMask("Clickable")))
+                if(_ItemSelectionMode) 
                 {
-                    Debug.Log("HIT" + hit.collider.gameObject.tag);
-                    GameObject hitout = hit.collider.gameObject;
-                    switch (hitout.tag)
+                    
+                    TryToPickupItem();
+                }
+                else 
+                {
+                    HandleAttack();
+                }
+              
+
+            }
+           
+        }
+
+            Anim.SetFloat("Speed", _agent.velocity.magnitude);
+           
+           
+        if (Input.GetMouseButtonDown(1))     
+        {
+            Protagonist.GetPlayerInstance().StopAllAction();
+            if (Target == null)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit, 50))
                     {
-                        case "Item": { _SelectionMode = false; Debug.Log("Selected Item"); break; }
-                        case "Enemy": { SetTarget(hitout.GetComponent<Interactible>()); _SelectionMode = false; Debug.Log("Selected Enemy"); break; }
+                        // if(Input.GetAxis("LockMovement") == 0) {
+                        {
+                            
+                            _agent.SetDestination(hit.point);
+                            Debug.Log(hit.collider.gameObject.name);
+                        }
+
                     }
-                    _SelectionMode = false;
+            
+            }
+
+            
+        }
+
+    }
+    private void HandleAttack() 
+    {
+        if(Target.GetComponent<Interactible>() != null) 
+        { if (Target.GetComponent<Interactible>().HitPoints <= 0) 
+            {
+                StopAllAction();
+            }
+        
+        }
+        
+        //Debug.Log("ATTACKING" + Target);
+        if (Target != null)
+        {
+                
+
+         
+                //Get direction and angle
+                Vector3 targetDirection = Target.transform.position - transform.position ;
+                float angle = Vector3.Angle(targetDirection, transform.forward);
+                //Debug.Log(targetDirection.magnitude);
+                //Check if the angle is withing FOV
+                if (angle <= ViewAngle / 2)
+                {
+                //Debug.Log("Anhgle" + angle + ";" + ViewAngle/2);
+                    //Check if the target is within visible range
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(transform.position, targetDirection.normalized, out hit, PlayerMaxViewDistance))
+                    {
+                        if (hit.transform.gameObject == Target.gameObject)
+                        {
+                            //Follow player
+                            _agent.SetDestination(Target.transform.position);
+                            //Draw raycast
+                            Debug.DrawRay(transform.position + transform.up, Target.transform.position, Color.red, 0.1f);
+                        //Check distance
+
+                        Debug.Log(targetDirection.magnitude+""+ MaxReach * Target.transform.localScale.magnitude);
+                        if (targetDirection.magnitude <= MaxReach * Target.transform.localScale.magnitude/2 && Target != null)
+                           
+                        {
+                            
+                            _agent.isStopped = true;
+
+
+                            if (coolDownState <= 0)
+                                    
+                            {
+                                        //It already does deal damage along with returning the attack value
+                                        int attackRoll = Attack(Target.gameObject.GetComponent<Interactible>());
+                                        Anim.Play("Armature|Attack");
+                                        RollDisplay.GetInstance().ShowRoll(attackRoll);
+
+                                    
+                            }
+                                   
+                            else
+                                   
+                            {
+
+                                   
+                            }
+                             
+
+                        
+                       
+                        }
+                        else 
+                        {
+                            _agent.isStopped = false;
+                        }
+                    }
                 }
             }
         }
         else
         {
+
+        }
+    }
+
+    private void HandleItemSelection() 
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity, LayerMask.GetMask("Clickable")))
+            {
+                Debug.Log("HIT" + hit.collider.gameObject.tag);
+                GameObject hitout = hit.collider.gameObject;
+                switch (hitout.tag)
+                {
+                    case "Item": { _SelectionMode = false; Debug.Log("Selected Item"); _SelectionMode = false; break; }
+                    case "Enemy": { SetTarget(hitout.GetComponent<Interactible>()); _SelectionMode = false; Debug.Log("Selected Enemy"); _SelectionMode = false; break; }
+                }
+                
+            }
+        }
+    }
+
+
+    private void TryToPickupItem()
+    {
+        _agent.SetDestination(Target.transform.position);
+        var targetDirection = Target.transform.position - transform.position;
+
+        if (targetDirection.magnitude <= 3f && Target != null)
+        {
+            //_agent.isStopped = true;
+            if (_ItemSelectionMode)
+            {
+                //Picks up item and puts it into inventory
+                GetComponent<InventoryComponent>().Inventory.Add(Target.GetComponent<Item>().GetPickedUp());
+                _ItemSelectionMode = false;
+                _target = null;
+            }
 
         }
     }
@@ -134,61 +294,7 @@ public class Protagonist : Combatant
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.DrawRay(transform.position, other.transform.position, Color.green, 0.1f);
-        //Check if the detected object is the Player
-        if (Target != null)
-        {
-            if (other.gameObject == Target.gameObject)
-            {
-                //Get direction and angle
-                Vector3 targetDirection = other.transform.position - transform.position;
-                float angle = Vector3.Angle(targetDirection, transform.forward);
-
-                //Check if the angle is withing FOV
-                if (angle <= ViewAngle / 2)
-                {
-                    //Check if the target is within visible range
-                    RaycastHit hit;
-
-                    if (Physics.Raycast(transform.position, targetDirection.normalized, out hit, _col.radius))
-                    {
-                        if (hit.transform.gameObject == other.gameObject)
-                        {
-                            //Follow player
-                            _agent.SetDestination(other.transform.position);
-                            //Draw raycast
-                            Debug.DrawRay(transform.position + transform.up, other.transform.position, Color.red, 0.1f);
-                            //Check distance
-                            if (targetDirection.magnitude <= 4f)
-                            {
-                                if (_ItemSelectionMode)
-                                {
-                                    //Picks up item and puts it into inventory
-                                    GetComponent<InventoryComponent>().Inventory.Add(other.GetComponent<Item>().GetPickedUp());
-                                }
-                                else
-                                {
-                                    _agent.isStopped = true;
-                                    if (coolDownState <= 0)
-                                    {
-                                        //It already does deal damage along with returning the attack value
-                                        int attackRoll = Attack(other.gameObject.GetComponent<Interactible>());
-                                        Anim.Play("Armature|Attack");
-                                        RollDisplay.GetInstance().ShowRoll(attackRoll);
-
-                                    }
-                                    else
-                                    {
-                                        _agent.isStopped = false;
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        
     }
 
     private void LoadCharacterStats()

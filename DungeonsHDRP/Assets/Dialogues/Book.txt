@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Branching xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DepthLevel>0</DepthLevel>
+  <NpcLine>INTRODUCTION TO THE DIVERSION OF THE LITTLE ONES</NpcLine>
+  <Options>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>It was a proverb established after those of an antique
+usage that whoso seeketh what he should not
+findeth what he would not ; and clear thing it is that
+the ape, for drawing on boots, was trapped by the foot.
+This also befell a beggarly handmaid, who, never having
+worn shoes to her feet, must needs wear a crown on her
+head ; but, as all wrongs meet their requital, and anon
+comes one that compensates for each and every, at last,
+having by wicked ways usurped what belonged to others,
+she was caught at the wheel, even as says the by-word,
+'The higher the height, the lower the lapse ' : and this
+shall be shown after the fashion that follows.
+It is said that once upon a time there was a king of
+the Bushy Valley that had a daughter named Zoza, and
+she, like another Zoroaster or Anacretus,* was never seen
+to smile. The afflicted father, having none other life and
+spirit than this his only daughter, left nothing undone to
+lighten her melancholy. The better to provoke from her
+a laugh, he summoned now drolls who walk upon</NpcLine>
+      <PlayerLine>*Turn to Page I*</PlayerLine>
+      <Options>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>maceheads, and then fellows who jump through circles, and
+anon boxers, and rivals of Master Roger the juggler, and
+workers of legerdemain, and anon fellows strong as
+Hercules, and now the dancing dog and the leaping old
+man, and then the ass that drinks from a tumbler and
+the bitch Lucia Conazza * : briefly, now one thing, and
+then another. But 'twas all lost time, for neither the
+remedy of Master Grillo,t nor the herb sardonion, nor a
+dig in the diaphragm would make her smile in the
+least.
+At length the unfortunate father, wishing to make a last
+attempt and not knowing what else to do, gaye orders
+to build a great fountain of oil fronting the palace gate,
+with design by so doing that the folk who crowded like
+ants passing to and fro that way should be obliged, so
+as not to soil their clothes, to skip like crickets, and
+buck-jump like goats, and scurry like hares, pushing and
+knocking one against another : thus hoping that somewhat might occur which would make his daughter laugh.
+So this fountain being built, as Zoza was standing at her
+lattice window, looking sour as vinegar, she saw an ancient
+woman coming to the fountain, and soaking up the oil
+with a sponge, filling therewith an earthen ewer she had
+brought with her ; and whilst so doing, a certain court
+page threw a stone so true to an hair that he hit the ewer
+and broke it to bits. Hereat the old woman, who was
+by no means hairy of tongue, nor held herself from
+speaking her mind, turned to the page, and thus began to
+say: 'Ah, kindchen, scatter-brains, piss-a-bed, goat-dancer,
+petticoat-catcher, hangman's rope, mongrel mule, spindleshanks, whereat if ever the fleas cough, go where a palsy</NpcLine>
+          <PlayerLine>*Turn to Page II*</PlayerLine>
+          <Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>catch thee; and may thy mammy hear the ill news t
+Never mayest thou see the first of May! May a Catalan
+lance thrust thee through! Mayest thou be touched with
+the rope and never lose a drop of blood ! A thousand
+miseries reach thee, with the rest to boot; and, in short,
+may the wind blow away thy sail, so that the seed
+may be lost, thou knave, pimp, son of a whore ! '
+The lad, who had little beard and less discretion, hearing
+this flow of abuse, repaid her with the same coin, saying,
+'Wilt thou not hold thy tongue, devil's grandam, bull'svomit, children-smotherer, turd-clout, farting crone ? '
+The old woman, hearing all the news of her household
+thus cried aloud, waxed so wroth that, losing all patience,
+she raised the curtain of her clothes, and showed a truly
+rural scene, whereof Silvio* might have said, ' Go, wake
+the eyes with the horn.' When this spectacle was beheld
+by Zoza, she fell backwards, laughing so much that she
+had well-nigh fainted. Hereupon the old woman became
+even more furious, and turning a fierce look upon Zoza,
+cried, 'Go! and mayest thou never see the bed of an husband, unless thou take the Prince of Campo Rotundo ! '
+Zoza, who heard these words, summoned the crone and
+perforce would learn if she had meant to lay a curse upo!i
+her, or only to abuse her ; and the other answered, ' Now
+thou must know that the prince I have named is a
+wonderful creature, Thaddeus hight, who, having been
+cursed by a fairy, came to the last picture of life, and was
+laid in a tomb outside the city walls, and upon his
+tombstone an inscription is graven : 'Whosoever of
+womankind will in three days fill with tears an earthen
+vessel which hangs upon an hook, she will bring him to
+life and strength, and will take him to husband.' But</NpcLine>
+              <PlayerLine>*Turn to Page III*</PlayerLine>
+              <Options>
+                <Branching>
+                  <DepthLevel>4</DepthLevel>
+                  <NpcLine>as it is impossible for two human eyes to run so much
+with weeping as to fill an earthen vessel which holds
+half a flagon, save, as I have heard recounted, it were a
+certain Jinniyah who became at Rome a fountain of
+tears, I, because I saw myself derided, have given you
+this curse, which I pray Heaven may fall upon you in
+revenge for the injury done me.' And thus saying, the
+old woman ran down the steps and went her way, being
+afeard that something might happen to her.
+Meanwhile the princess pondered over the words of the
+old woman, and meditated, and doubted, and feared, and
+at length drew from them that passion which blindeth our
+judgment and darkeneth the mind ; and she determined
+to fly from her father's house, and taking with her many
+thousand crowns and jewels, left the palace, and fared
+along until she reached the castle of a fairy, to whom
+she told her story. The fairy, taking compassion of such
+a beautiful young maiden, and desiring to help her on
+account of her youth and her great love to an unknown
+being, gave her a letter of recommendation to her own
+sister, who was also a fairy ; and taking kindly leave of
+her, presented her with a walnut, saying, 'Take this, 0
+my daughter, and keep it by thee, but open it not save
+in time of great stress.' The princess took the gift and
+the letter, and proceeding on her journey, ceased not
+wayfaring until she arrived at the castle of the second
+fairy, who also received her graciously, and well entreated
+her. And on the next morning, before taking leave, the
+fairy gave her a letter for another sister of hers, and
+presented to her a chesnut, with the same advice which
+had been given to her before. She fared on until she
+reached the castle of the third fairy, who also welcomed
+her, and entreated her kindly. The following morning,</NpcLine>
+                  <PlayerLine>*Turn to Page IV*</PlayerLine>
+                  <Options>
+                    <Branching>
+                      <DepthLevel>5</DepthLevel>
+                      <NpcLine>before her departure, the fairy presented her with an
+hazel-nut and the same injunctions as the other sisters.
+Having received these things, Zoza fared on through
+cities and villages, wilds and wolds, passing seas and rivers,
+until after seven years she arrived, tired and worn by so
+much wayfaring, at Campo Rotundo, where, before entering
+the city, she perceived a mausoleum of marble at the
+foot of a fountain where a porphyry criminal wept tears
+of crystal : and hung thereon was the earthenware flagon.
+Taking the vessel down, and putting it before her, she
+shed two rivulets of tears ri\·alling the fountain, never
+lifting her head from its mouth, so that at the end of
+two days the tears had filled it to the neck, and there
+remained only two inches more. But, wearied by so much
+stress and trouble, she was taken by a deep sleep, so that
+she lay perforce under a tent close by for well-nigh two
+hours. In the meantime a certain slave, Cricket-legs
+hight, who came often to that fountain to fill an hogshead,
+and who knew well the matter. of the inscription, which
+was spoken of everywhere, hid herself when she beheld
+Zoza weeping, awaiting that the earthen flagon should be
+nearly full, hoping by some wile to win the remainder to
+herself, and thus leave the princess with a handful of flies.
+And as she beheld her asleep, she thought the time had
+come for her advantage, and dexterously taking the earthen
+juglet, and putting her eye upon its mouth, filled it to the
+brim in a short time. Hardly was it full when the prince,
+awaking as from heavy sleep, arose from the marble sarcophagus, and threw his arms around that mass of black flesh
+and leading her to his palace, with feasts, and joyance, and
+revelry took her to wife. But no sooner did Zoza awake to find the grave open, and the juglet gone, and with
+lt all her hopes and joys, than she came ncar to unpacking</NpcLine>
+                      <PlayerLine>*Turn to Page V</PlayerLine>
+                      <Options>
+                        <Branching>
+                          <DepthLevel>6</DepthLevel>
+                          <NpcLine>the bales of her soul at the custom-house of death. At
+last, seeing that for this evil there was no remedy, and
+that she could blame nought but her own eyes which
+had watched so ill that which held her desire, she arose,
+and fared on, and entered the city.And when she heard
+of the bridal feasts of the prince and of the fine wife he
+had taken to himself, she imagined how the misfortune
+had come to pass, and said to herself, sighing, ' Alas!
+two black things have crushed me to the earth : black
+sleep and a black slave.' Then, desiring to struggle
+against death, from which e\·ery kind of animal trieth to
+defend itself, Zoza took a fine house fronting the
+prince's palace, from within which she could not behold
+the idol of her heart, but could at least look upon the
+walls of the temple which held him for whom she longed
+with excessive longing.
+Herewhile Zoza was seen one day of the days by
+Thaddeus, who had been flying until then like a moth
+around that black, hideous slave.When he beheld her,
+he became as an eagle, and held e\·er present in mind
+the beauty and comeliness of Zoza, even as it is one
+of the privileges
+form and face.
+what had taken
+of nature to be taken by a beauteous
+The slave failed not to perceive of
+place in the prince's mind, and she
+was wroth with exceeding wrath, and being with child
+by Thaddeus, threatened him, saying thus: ' If thou
+wilt not close the window, I will punish my belly and
+murder little George.' The prince, who loved his race,
+trembled like a leaf, and liked not to anger his wife, anJ
+therefore shut himself in, although it seemed to him he
+had taken the life out of his body in depriving himself
+of the sight of Zoza's beauty. The princess, perceiving
+herself deprived of the only means of beholding Thaddeus, </NpcLine>
+                          <PlayerLine>Turn to Page VI</PlayerLine>
+                          <Options>
+                            <Branching>
+                              <DepthLevel>7</DepthLevel>
+                              <NpcLine>and having lost every hope, not knowing what to do in
+this her time of need, bethought herself of the three gifts
+of the fairies, and cracking the walnut, out flew a handsome bird, the handsomest that had ever been seen in
+the world. The bird began to sing, and trill, and quaver
+at the window as no other bird had done before, and
+having been seen and heard by the slave, she could not
+rest without it, and so, calling the prince, said to him,
+' If thou wilt not get for me that bird that sings so well,
+I will punish my belly and murder little George.'
+Thaddeus, who had let himself be ridden by her, sent at
+once to the princess to ask if she would sell it. Zoza
+made answer that she was not a seller of birds, but if he
+would accept it as a gift, she would present it to him.
+The prince, desiring to please his wife on account of the
+child she would bring to light, accepted the offer ; but
+about four days after, Zoza opened the chesnut, and out
+of it stalked a fowl with twelve chicks of gold, which
+were seen by the slave upon the same window-sill, '·ho
+at once longed to have them, and sending for the prince,
+pointed to them, saying, ' If thou bring me not that fowl
+and chicks, I will punish my belly and murder little
+George' ; and Thaddeus, who allowed this bitch to
+pull him by the nose, sent again to the princess, offering her whatever she chose for such a priceless fowl, and
+he received the same answer as before : that he might have
+it as a gift, but to ask of buying it would be but lost
+time. And as he could not, and dared not, refuse,
+necessity had the best of his discretion ; and he vias
+humbled by the generosity of a woman, their liberality
+being very scarce, as they are never spoiled, not even by
+owning all the ores of India.But having passed other
+four days, Zoza opened the hazel-nut, from which came</NpcLine>
+                              <PlayerLine>*Turn to Page VII*</PlayerLine>
+                              <Options>
+                                <Branching>
+                                  <DepthLevel>8</DepthLevel>
+                                  <NpcLine>forth a doll, who was spinning gold, a most marvellous
+thing. No sooner was she put at the same window than
+the slave saw her, and sending for the prince, said to him,
+' If thou bring me not that doll, I will punish my belly
+and murder little George' ; and Thaddeus, who let his
+wife send him about as yarn-blades, by whom he was
+ridden at her pleasure and crushed by her pride, not
+having courage to send for the third time to the king's
+daughter for the doll, thought it best to go himself, remembering the old saws, 'There is no better messenger
+than thyself,' and ' Who wanteth goeth, and who wanteth
+not sendeth,' and 'who will cat fish must take it by
+the tail,' and beseeching her to forgive his boldness for
+begging these things because of the whims of a woman
+great with child, asked for the doll. Zoza, who was nigh
+a-fainting because of the cause of all her travail, hardened
+her heart, and allowed him to pray and beseech of her
+the gift of the doll, so as to have her lord ncar her and
+hear his voice, and to enjoy the light of his presence a
+little longer-he who had been stolen from her by an
+hideous slave. At last she gave him the doll, as she had
+done all the other things ; but before she handed it
+to him, she begged the doll to make the slave long to
+hear tales and stories. Thaddeus, who beheld the doll
+in his hand without spending a single crovm, felt crushed
+by so much kindness, and he offered Zoza his kingdom
+and his life in exchange for so much pleasure ; then
+returning to his palace, he gave the doll to his wife.
+No sooner did she place it in her bosom to play with
+it than it appeared as Cupid in the form of Ascanius before
+Dido, and lit a fire in her heart, and great desire to hear
+stories and tales, so that at last, fearing to lose her life on
+account of her great longing, and to give birth to a manchild</NpcLine>
+                                  <PlayerLine>*Turn to Page VIII*</PlayerLine>
+                                  <Options>
+                                    <Branching>
+                                      <DepthLevel>9</DepthLevel>
+                                      <NpcLine>who would corrupt a shipful of beggars, she sent for
+her husband, and said to him, ' If thou wilt not call folk
+to tell me stories, I will punish my belly and murder little
+George.' Thaddeus, desiring to get rid of this March
+nuisance, gave orders to the crier to publish that all the
+women of the city should come to the palace on such
+a day, and on the appointed day, at the shooting forth
+of the star Diana, which forerunneth the dawn to prepare
+the way by which the sun must pass, they should meet
+all at the same place. But the prince, unaccustomed to
+see such a crowd, and having no particular taste for the
+whims of his wife now that she longed to sec so many
+folk around her, chose only ten of the noblest in the city,
+who seemed to him the more prm·oking and full of talk.
+And there were limping Zcza, crooked Cecca, When - necked
+Meneca, long - nosed Tolla, hunchbacked Popa, flabbering
+Antonella, musty Ciulla, checkless Paola, hairless Ciommetella, and rough - hewn Giacova ; and, having written their
+  names on a paper, he discharged the others.
+Then they arose With the slave from under the daYs, and
+all fared slowly to the palace garden, where the trees and
+boughs were so Well interlaced one with another that the
+sun's rays could not penetrate underneath their leafy screen,
+and they seated themselves under a pavilion covered \dth
+a creeping vine, amiddlemost of which played a fountain.
+Grand Master of the School of Courtiers Prince Thaddeus
+thus began to say: 'There is nothing more pleasing and
+glorious in the world, 0 my noble women, than to hearken
+to the deeds of others; and not without reason did
+Aristoteles, that great philosopher, place man's greatest
+happiness in listening to pretty stories, since in hearkening
+to them care and gloom vanish, and life is lengthened.
+And with this desire doth the artisan leave his workshop.</NpcLine>
+                                      <PlayerLine>*Turn to Page IX*</PlayerLine>
+                                      <Options>
+                                        <Branching>
+                                          <DepthLevel>10</DepthLevel>
+                                          <NpcLine>the merchant his traffic, the doctor his patient, the
+druggist his business ; and they all go abroad in search of
+those clever story - tellers, whose tales can rival the best
+gazette ever written.By which reason I must excuse my
+wife, who, having become of a melancholic mood, desireth
+so much to listen to some pleasant tale: and therefore,
+if ye are willing to fulfil her wants and to catch mid - air
+also my desire, ye will be pleased in these four or five
+days that ye will remain to empty your stomachs and
+recount every day a story, such as those old women
+tell for the entertainment of the children, meeting
+always in this same site, where, after having eaten, ye
+will begin by recounting, and Will end the day by reciting
+an eclogue, and thus we will spend joyously our life, and
+all the worse for him who dieth.' Hearing these words,
+all bmvcd their heads downwards in humble assent to
+Thaddeus's command.
+In the meanwhile the tables were spread, and food was
+laid upon them, and they all began to eat ; and having
+ended, the prince made a sign to Zeza the limping that
+she should open the fire.</NpcLine>
+                                          <PlayerLine>*Turn to Page X</PlayerLine>
+                                          <Options>
+                                            <Branching>
+                                              <DepthLevel>-1</DepthLevel>
+                                              <NpcLine>. . .</NpcLine>
+                                              <PlayerLine>*Close Book*</PlayerLine>
+                                              <Options />
+                                            </Branching>
+                                          </Options>
+                                        </Branching>
+                                        <Branching>
+                                          <DepthLevel>-1</DepthLevel>
+                                          <NpcLine>. . .</NpcLine>
+                                          <PlayerLine>*Close Book*</PlayerLine>
+                                          <Options />
+                                        </Branching>
+                                      </Options>
+                                    </Branching>
+                                    <Branching>
+                                      <DepthLevel>-1</DepthLevel>
+                                      <NpcLine>. . .</NpcLine>
+                                      <PlayerLine>*Close Book*</PlayerLine>
+                                      <Options />
+                                    </Branching>
+                                  </Options>
+                                </Branching>
+                                <Branching>
+                                  <DepthLevel>-1</DepthLevel>
+                                  <NpcLine>. . .</NpcLine>
+                                  <PlayerLine>*Close Book*</PlayerLine>
+                                  <Options />
+                                </Branching>
+                              </Options>
+                            </Branching>
+                            <Branching>
+                              <DepthLevel>-1</DepthLevel>
+                              <NpcLine>. . .</NpcLine>
+                              <PlayerLine>*Close Book*</PlayerLine>
+                              <Options />
+                            </Branching>
+                          </Options>
+                        </Branching>
+                        <Branching>
+                          <DepthLevel>-1</DepthLevel>
+                          <NpcLine>. . .</NpcLine>
+                          <PlayerLine>*Close Book*</PlayerLine>
+                          <Options />
+                        </Branching>
+                      </Options>
+                    </Branching>
+                    <Branching>
+                      <DepthLevel>-1</DepthLevel>
+                      <NpcLine>. . .</NpcLine>
+                      <PlayerLine>*Close Book*</PlayerLine>
+                      <Options />
+                    </Branching>
+                  </Options>
+                </Branching>
+                <Branching>
+                  <DepthLevel>-1</DepthLevel>
+                  <NpcLine>. . .</NpcLine>
+                  <PlayerLine>*Close Book*</PlayerLine>
+                  <Options />
+                </Branching>
+              </Options>
+            </Branching>
+            <Branching>
+              <DepthLevel>-1</DepthLevel>
+              <NpcLine>. . .</NpcLine>
+              <PlayerLine>*Close Book*</PlayerLine>
+              <Options />
+            </Branching>
+          </Options>
+        </Branching>
+        <Branching>
+          <DepthLevel>-1</DepthLevel>
+          <NpcLine>. . .</NpcLine>
+          <PlayerLine>*Close Book*</PlayerLine>
+          <Options />
+        </Branching>
+      </Options>
+    </Branching>
+    <Branching>
+      <DepthLevel>-1</DepthLevel>
+      <NpcLine>. . .</NpcLine>
+      <PlayerLine>*Close Book*</PlayerLine>
+      <Options />
+    </Branching>
+  </Options>
+</Branching>

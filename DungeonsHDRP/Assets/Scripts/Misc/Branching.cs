@@ -9,6 +9,7 @@ using System.IO;
 using UnityEngine.UI;
 using static UnityEngine.Input;
 using UnityEngine;
+using System.Text;
 
 [Serializable]
 public class Branching
@@ -49,24 +50,36 @@ public class Branching
 
     //The method takes in a Text object as an arguement. The Text object reference is used in the overarching class Quest to determine where the conversation strings are to be displayed in Unity. It is a measure which had to be taken to prevent Text from being Branching-class field due to the inability of Unity objects to be serialised
 
-    [Author("Novak", "Pre-Alpha 1.2")]
-    public void SaveDialogue(string dialogueName)
+    //[Author("Novak", "Pre-Alpha 1.2")]
+    //OBSOLETE IN UNITY
+    /*public void SaveDialogue(TextAsset dialogueAsset)
     {
+        
+
+        StringBuilder sb = new StringBuilder();
+        using (var writer = new System.IO.StringWriter(sb))
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Branching));
+            serializer.Serialize(writer, this);
+            dialogueAsset.
+        }
+
+    }
+    */
+    [Author("Novak", "Pre-Alpha 1.2")]
+    public static Branching LoadDialogue(TextAsset dialogueAsset)
+    {
+        Debug.Log("Loading dialogue");
         XmlSerializer serializer = new XmlSerializer(typeof(Branching));
-        TextWriter writer = new StreamWriter(dialogueName);
-        serializer.Serialize(writer, this);
-        writer.Close();
+        using (var reader = new System.IO.StringReader(dialogueAsset.text))
+        {
+            Branching toReturn = (Branching)serializer.Deserialize(reader);
+            Debug.Log(toReturn.ToString());
+            return toReturn;
+        }
     }
 
-    [Author("Novak", "Pre-Alpha 1.2")]
-    public static Branching LoadDialogue(string dialogueName)
-    {
-        XmlSerializer serializer = new XmlSerializer(typeof(Branching));
-        FileStream fileStream = new FileStream(dialogueName, FileMode.OpenOrCreate);
-        Branching toReturn = (Branching)serializer.Deserialize(fileStream);
-        fileStream.Close();
-        return toReturn;
-    }
+
 }
 
 #region Temporary

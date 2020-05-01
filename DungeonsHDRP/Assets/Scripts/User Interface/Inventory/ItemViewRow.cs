@@ -32,6 +32,11 @@ public class ItemViewRow : MonoBehaviour
         Console.GetInstance().StartTransitionIn(string.Format("{0}\r\n{1}",Item.Name,Item.Description));
     }
 
+    public void Equip() 
+    {
+        InventoryInterface.GetInstance().Equip(Item);
+    }
+
     public void SetItem(Item item)
     {
         this.Item = item;

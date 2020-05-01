@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Branching xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DepthLevel>0</DepthLevel>
+  <NpcLine>HEY, STOP RIGHT THERE!</NpcLine>
+  <_Options>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>The dog barks, that's for sure, but does he also bite? If you thought escaping that rusty cell means something, oh, let me correct you right there, kiddo. It means less than your miserable life to me. </NpcLine>
+      <PlayerLine>Move out of my way or face the consequences, old man!</PlayerLine>
+      <_Options>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>GO AHEAD! Kill me! Since the Gods have forsaken us in the Times of Troubles, I have nothing to live for anyway! Take that rusty sword and kill me. My only wish is that my death will be enough to condemn you to the enternal torments in Nessus itself! I don't think I'll wait for long to see that happen, not with those spiders prawling around...</NpcLine>
+          <PlayerLine>You and your old wizened arse can go and burn in the Ninehells for all I care. Step aside or die, fool!</PlayerLine>
+          <_Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>Don't even try it, boy. I honestly hope those eight-legged beasts rip your limbs off, one at a time.</NpcLine>
+              <PlayerLine>Look, you! I...</PlayerLine>
+              <_Options />
+            </Branching>
+          </_Options>
+        </Branching>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>Well, this 'old man' has been around these caverns for two-dozen winters. I know my way around criminal scum like yourself. Want to prove that you have more to you that that big mouth? Pick up that sword and show me you've got more balls than my bitch of a wife. There are some overgrown spiders ahead, slay them and gain your freedom. I shan't stand in your way this 'old man' is too tired to care if you're dead, here, or free.</NpcLine>
+          <PlayerLine>Oh, you're tougher than you seem, old man</PlayerLine>
+          <_Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>I will, son... I will... Escape and lead a good life. Do it for the 'old man'.</NpcLine>
+              <PlayerLine>Thank you, old man. You shall not be forgotten.</PlayerLine>
+              <_Options />
+            </Branching>
+          </_Options>
+        </Branching>
+      </_Options>
+    </Branching>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>Huh, you're not like the rest of the scum rotting in the dungeon. There is something about you, I can tell... you're young and still know nothing of this world.</NpcLine>
+      <PlayerLine>Rest your voice, old man. I mean you no harm. All I'm after is my freedom. Please, I beseech you most earnestly, step aside.</PlayerLine>
+      <_Options>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>Look, kiss-arse, I don't have time for your empty words. You and your dead Gods can go and drown yourselves in the lake of your own patheticity. Pick up that sword, kill those spiders or let them eat you. I don't care.</NpcLine>
+          <PlayerLine>An old, wise man like yourself must surely see that someone like me couldn't have truly committed a crime so heinous to deserve a lifetime in this place! Help me, I beg of you! the Gods shall surely reward you for your good heart.</PlayerLine>
+          <_Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>Don't even try it, boy. I honestly hope those eight-legged beasts rip your limbs off, one at a time.</NpcLine>
+              <PlayerLine>Look, you! I...</PlayerLine>
+              <_Options />
+            </Branching>
+          </_Options>
+        </Branching>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>Though I have seen many say things alike to your own words, there is something different about you... unlike them you feel... genuine. Take my sword. It hasn't tasted blood since the Battle of Wildmen's Aid. I understand... I haven't always been a good man either. Fight your way to freedom through these caverns. They are infested with giant spiders but it's nothing a fellow of your proportions shouldn't manage. At their end you shall find an entrance to the library of the Witherqueen. Brace yourself, good man.</NpcLine>
+          <PlayerLine>I may have done some horrible things, but there is no one in the world deserving of this place, of this fate, help me, old man I beseech you. I'm not going to make some elaborate lies about how this all is a big misuderstanding. I have killed him. He was indirectly responsible for the death of a woman I loved. I'm more honest than I have ever been when I say I wish nothing more than travelling back in time and sparing him. I deserve the worst the Ninehells have to offer, but not this... help me, I beg of you!</PlayerLine>
+          <_Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>I will, son... I will... Escape and lead a good life. Do it for the 'old man'.</NpcLine>
+              <PlayerLine>Thank you, old man. You shall not be forgotten.</PlayerLine>
+              <_Options />
+            </Branching>
+          </_Options>
+        </Branching>
+      </_Options>
+    </Branching>
+  </_Options>
+</Branching>

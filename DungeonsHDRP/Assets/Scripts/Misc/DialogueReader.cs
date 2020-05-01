@@ -35,7 +35,7 @@ public class DialogueReader : UIElement
         if (Input.GetKeyDown(KeyCode.F11)) key = 11;
         if (Input.GetKeyDown(KeyCode.F12)) key = 12;
 
-        if(key != 0)
+        if(key > 0)
         {
             LoadDialogue(_SelectedBranching.Options[key-1]);
         }
@@ -45,8 +45,11 @@ public class DialogueReader : UIElement
     [Author("Makovec & Novak", "Pre-Alpha 1.2")]
     public void LoadDialogue(Branching branching)
     {
+
         _SelectedBranching = branching;
 
+        Debug.Log(_SelectedBranching);
+        Debug.Log(UIController.GetInstance());
         if (_SelectedBranching.DepthLevel == 0) UIController.GetInstance().OpenWindow(UIController.WindowNameResource.Dialogue);
         if (_SelectedBranching.Options == null) UIController.GetInstance().SwitchWindow(UIController.WindowNameResource.Dialogue);
 
@@ -60,6 +63,8 @@ public class DialogueReader : UIElement
         }
     }
     
+
+
     [Author("Novák", "Pre-Alpha 1.2")]
     //Singleton-guarantee method
     public static DialogueReader GetInstance()

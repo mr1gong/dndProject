@@ -32,11 +32,13 @@ public class Interactible : MonoBehaviour
     [Author("Makovec & Novak", "pre-Alpha")]
     protected virtual void Start()
     {
+
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
 
         GameObject MiniUiPrefabObject = Instantiate(MiniUIPrefab, gameObject.transform);
         MiniUI = MiniUiPrefabObject.GetComponent<MiniUIController>();
+        
 
         if (MiniUI != null && UIActionButtons != null)
         {
@@ -45,6 +47,8 @@ public class Interactible : MonoBehaviour
 
         _IsInvincible = false;
         MiniUI.gameObject.SetActive(false);
+        MiniUI.transform.position = transform.position;
+        MiniUI.gameObject.GetComponent<RectTransform>().transform.localScale.Scale(new Vector3(1 / transform.localScale.x, 1 / transform.localScale.y, 1 / transform.localScale.z));
     }
 
     // Update is called once per frame
@@ -60,6 +64,7 @@ public class Interactible : MonoBehaviour
 
     public void SetInteractable(bool mode) 
     {
+        if (mode == false) MiniUI.gameObject.SetActive(false);
         this.Interactable = mode;
     }
 
@@ -98,7 +103,12 @@ public class Interactible : MonoBehaviour
 
     protected void UIUpdate()
     {
+
+       
+
+
         if (MiniUI != null) MiniUI.transform.LookAt(Camera.main.transform);
+        
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -117,6 +127,7 @@ public class Interactible : MonoBehaviour
 
             else
             {
+
                 timer += Time.deltaTime;
             }
         }

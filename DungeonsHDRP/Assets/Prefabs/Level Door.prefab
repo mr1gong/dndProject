@@ -33,7 +33,8 @@ MonoBehaviour:
           m_CallState: 2
   alwaysOnTop: {fileID: 4800000, guid: e3df8d9c826b9324f9cfb654f936ee62, type: 3}
   ExamineText: 
-  MiniUIPrefab: {fileID: 0}
+  MiniUIPrefab: {fileID: 4209269022190126010, guid: 92f8ac29a871e8a4abaa6f1f7db425a5,
+    type: 3}
   Interactable: 0
   Inventory: {fileID: 0}
   Keys:
@@ -163,7 +164,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451343612572638, guid: 4277c84f4eb45414089869ec9eed16a9, type: 3}
       propertyPath: m_Name
-      value: Level Door
+      value: door
       objectReference: {fileID: 0}
     - target: {fileID: 1451343612572638, guid: 4277c84f4eb45414089869ec9eed16a9, type: 3}
       propertyPath: m_StaticEditorFlags

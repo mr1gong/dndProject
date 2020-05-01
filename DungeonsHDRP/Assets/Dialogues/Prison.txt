@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Branching xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DepthLevel>0</DepthLevel>
+  <NpcLine>Ye finally awake? Took ye long enough.</NpcLine>
+  <Options>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>Relax, muscles. Ye ain't goin' nowhere. See them walls?</NpcLine>
+      <PlayerLine>WHAT'S HAPPENENING?! Where am I? Answer me at once, crook!</PlayerLine>
+      <Options>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>Stop shouting, muscles, you're giving a headache! Look, the key out of this cell is in the haystack. But trust me, muscles, you won't be making it far...</NpcLine>
+          <PlayerLine>What the hells you talking about, southern prick? Am I in . . . in jail? THAT GUY STARTED THE FIGHT! HE WAS ASKING FOR IT! It's not my problem he had the skull like an eggshell.</PlayerLine>
+          <Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>Ye'll see soon enough... I hope they devour you slowly...</NpcLine>
+              <PlayerLine>What do you mean?</PlayerLine>
+              <Options />
+            </Branching>
+          </Options>
+        </Branching>
+      </Options>
+    </Branching>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>Relax, muscles. Ye ain't goin' nowhere. See them walls?</NpcLine>
+      <PlayerLine>By the Gods' grace, what is this place? Sir, don't hurt me, please! I have five little rascals to feed and a loving wife probably worried sick for me right now! Mercy!</PlayerLine>
+      <Options>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>Stop shouting, muscles, you're giving a headache! Look, the key out of this cell is in the haystack. But trust me, muscles, you won't be making it far...</NpcLine>
+          <PlayerLine>What the hells you talking about, southern prick? Am I in . . . in jail? THAT GUY STARTED THE FIGHT! HE WAS ASKING FOR IT! It's not my problem he had the skull like an eggshell.</PlayerLine>
+          <Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>Ye'll see soon enough... I hope they devour you slowly...</NpcLine>
+              <PlayerLine>What do you mean?</PlayerLine>
+              <Options />
+            </Branching>
+          </Options>
+        </Branching>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>RELAX! The key out is under the haystack. Don't get excited about your precious preedom. Ye're not making it far.</NpcLine>
+          <PlayerLine>Alright, take a deep breath... I'm sure we can figure something out! Look at them bars! They're all rusty, we could wrestle them outta them hinges!</PlayerLine>
+          <Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>There are spiders out there. Giant eight-legged guardians of this vault. Many have tried to escape . . . and all failed. Good luck, muscles. You may need it. May Tymora be on yer side!</NpcLine>
+              <PlayerLine>What do you mean?</PlayerLine>
+              <Options />
+            </Branching>
+          </Options>
+        </Branching>
+      </Options>
+    </Branching>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>Relax, muscles. Ye ain't goin' nowhere. See them walls?</NpcLine>
+      <PlayerLine>. . . my head . . . where am I? . . . I remember nothing of the last night . . . I was, at the Yawning Portal Inn, I . . .Godsdamned, no . . . that cannot be . . . I . . . I killed the man . . .</PlayerLine>
+      <Options>
+        <Branching>
+          <DepthLevel>2</DepthLevel>
+          <NpcLine>RELAX! The key out is under the haystack. Don't get excited about your precious preedom. Ye're not making it far.</NpcLine>
+          <PlayerLine>Alright, take a deep breath... I'm sure we can figure something out! Look at them bars! They're all rusty, we could wrestle them outta them hinges!</PlayerLine>
+          <Options>
+            <Branching>
+              <DepthLevel>3</DepthLevel>
+              <NpcLine>There are spiders out there. Giant eight-legged guardians of this vault. Many have tried to escape . . . and all failed. Good luck, muscles. You may need it. May Tymora be on yer side!</NpcLine>
+              <PlayerLine>What do you mean?</PlayerLine>
+              <Options />
+            </Branching>
+          </Options>
+        </Branching>
+      </Options>
+    </Branching>
+  </Options>
+</Branching>

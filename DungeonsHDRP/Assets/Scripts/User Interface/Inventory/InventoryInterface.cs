@@ -15,7 +15,11 @@ public class InventoryInterface : UIElement
     public GameObject ItemRowPrefab;
     private static InventoryInterface _InventoryInstance;
     public Item Selection;
-    
+
+    public Image EquippedImage;
+    public Image EquippedImage2;
+
+
     public void ResetInventoryList()
     {
         ItemViewRow[] itemRows = InventoryListViewPort.GetComponentsInChildren<ItemViewRow>();
@@ -24,7 +28,40 @@ public class InventoryInterface : UIElement
             Destroy(v.gameObject);
         }
     }
-    
+    public void Equip(Item item) 
+    {
+        Protagonist.GetPlayerInstance().Inventory.Equip(item);
+        
+        if(Protagonist.GetPlayerInstance().Inventory.equipped != null) 
+        {
+            EquippedImage.sprite = Protagonist.GetPlayerInstance().Inventory.equipped.ItemImage;
+        }
+        else { EquippedImage.sprite = null; }
+
+        if (Protagonist.GetPlayerInstance().Inventory.equipped2 != null)
+        {
+            EquippedImage2.sprite = Protagonist.GetPlayerInstance().Inventory.equipped2.ItemImage;
+        }
+        else { EquippedImage2.sprite = null; }
+
+
+    }
+
+    public void Unequip(int slot) 
+    {
+        if(slot == 1) 
+        {
+            EquippedImage.sprite = null;
+            Protagonist.GetPlayerInstance().Inventory.Unequip(1);
+        }
+        if(slot == 2) 
+        {
+            EquippedImage2.sprite = null;
+            Protagonist.GetPlayerInstance().Inventory.Unequip(2);
+        }
+    }
+       
+
     private void Update()
     {
 

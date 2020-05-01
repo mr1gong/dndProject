@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <Branching xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Branching>
+    <DepthLevel>0</DepthLevel>
+    <NpcLine>Are you mad?! You can't go in there! It's a suicide!</NpcLine>
+    <PlayerLine>Why you waiting out here, old man? Let's break out!</PlayerLine>
+    <Options>
+      <Branching>
+        <DepthLevel>1</DepthLevel>
+        <NpcLine>Suit yourself, die!</NpcLine>
+        <PlayerLine>Move aside, coward!</PlayerLine>
+        <Options />
+      </Branching>
+      <Branching>
+        <DepthLevel>1</DepthLevel>
+        <NpcLine>This ain't Scooby-Doo...</NpcLine>
+        <PlayerLine>Sure sounds scary. Let's go investigate, gang!</PlayerLine>
+        <Options />
+      </Branching>
+    </Options>
+  </Branching>
+  <Branching>
+    <DepthLevel>1</DepthLevel>
+    <NpcLine>Suit yourself, die!</NpcLine>
+    <PlayerLine>Move aside, coward!</PlayerLine>
+    <Options />
+  </Branching>
+  <Branching>
+    <DepthLevel>1</DepthLevel>
+    <NpcLine>This ain't Scooby-Doo...</NpcLine>
+    <PlayerLine>Sure sounds scary. Let's go investigate, gang!</PlayerLine>
+    <Options />
+  </Branching>
+</Branching>

@@ -13,8 +13,22 @@ public class DoorScript : Lockable
     public float Speed = 1.0f;
     public int index = 0;
     private bool beingHandled = false;
-    
+
     // Update is called once per frame
+
+    public override void Unlock()
+    {
+
+        base.Unlock();
+        if (this.lockState != 0)
+        {
+            foreach (var v in linkedDoors)
+            {
+                v.Unlock();
+            }
+        }
+    }
+
     void Update()
     {
         UIUpdate();

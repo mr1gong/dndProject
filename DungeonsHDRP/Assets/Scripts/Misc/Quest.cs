@@ -1,6 +1,7 @@
 ﻿//Author: Jindrich Novak
 
 #region Implementations
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 #endregion
@@ -8,29 +9,31 @@ using UnityEngine.UI;
 public class Quest : MonoBehaviour
 {
     public Text LastLine;
-    public string OpeningDialoguePath;
-    public string OngoingDialoguePath;
-    public string ClosingDialoguePath;
+    public TextAsset OpeningDialoguePath;
+  //  public TextAsset OngoingDialoguePath;
+   // public TextAsset ClosingDialoguePath;
 
     private Branching _OpeningDialogue;
-    private Branching _OngoingDialogue;
-    private Branching _ClosingDialogue;
+  //  private Branching _OngoingDialogue;
+    //private Branching _ClosingDialogue;
 
     private Item _Reward;
-    private bool _IsOngoing;
-    private bool _IsFinished;
+   // private bool _IsOngoing;
+   // private bool _IsFinished;
 
     [Author("Novak", "Pre-Alpha 1.2")]
     void Start()
     {
+        Debug.Log("Init Quest");
         InitialiseBranchings();
-        _IsOngoing = false;
-        _IsFinished = false;
+        //_IsOngoing = false;
+       // _IsFinished = false;
     }
 
     [Author("Novak", "Pre-Alpha 1.2")]
     public void Talk()
     {        
+        /*
             if (_IsFinished)
             {
                 Debug.Log("IsFinished");
@@ -45,6 +48,7 @@ public class Quest : MonoBehaviour
             DialogueReader.GetInstance().LoadDialogue(_OngoingDialogue);
             return;
             }
+            */
             Debug.Log("IsNormal");
             DialogueReader.GetInstance().LoadDialogue(_OpeningDialogue);
     }
@@ -52,8 +56,9 @@ public class Quest : MonoBehaviour
     [Author("Novak", "Pre-Alpha 1.2")]
     private void InitialiseBranchings()
     {
+        Debug.Log("Init Quest");
         _OpeningDialogue = Branching.LoadDialogue(OpeningDialoguePath);
-        _OngoingDialogue = Branching.LoadDialogue(OngoingDialoguePath);
-        _ClosingDialogue = Branching.LoadDialogue(ClosingDialoguePath);
+        //_OngoingDialogue = Branching.LoadDialogue(OngoingDialoguePath);
+       // _ClosingDialogue = Branching.LoadDialogue(ClosingDialoguePath);
     }
 }

@@ -18,8 +18,8 @@ public class Lockable : Interactible
             {
                 Debug.Log(key);
                 Debug.Log(item);
-                OnUnlock.Invoke();
-                lockState = 0;
+
+                Unlock();
 
                 Console.GetInstance().StartTransitionIn("Unlocked!");
                 textResult = "Unlocked!";
@@ -32,8 +32,9 @@ public class Lockable : Interactible
         return false;
     }
 
-    public void Unlock()
+    public virtual void Unlock()
     {
+        OnUnlock.Invoke();
         lockState = 0;
     } 
 }

@@ -117,10 +117,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 7
+  m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 400, y: 400}
+  m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
@@ -136,5 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f6f31cbb14e9e4eaaf8b0465dd64b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scale: 0.0075
   buttonPrefab: {fileID: 1094261143668391474, guid: dd75f4b02c1dab348b3a44f08cb5064a,
     type: 3}

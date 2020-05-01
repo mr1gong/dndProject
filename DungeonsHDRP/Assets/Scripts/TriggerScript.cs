@@ -14,6 +14,7 @@ public class TriggerScript : MonoBehaviour
   
         if ((!triggered) || Multiple)
         {
+            Debug.Log("Trigg");
             Trigger.Invoke();
             triggered = true;
         }

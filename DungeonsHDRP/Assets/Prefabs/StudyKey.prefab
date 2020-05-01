@@ -162,7 +162,18 @@ MonoBehaviour:
   ItemImage: {fileID: 0}
   OnPickup:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6467737611371582728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +209,7 @@ MonoBehaviour:
   ExamineText: Exit Keys
   MiniUIPrefab: {fileID: 4209269022190126010, guid: 92f8ac29a871e8a4abaa6f1f7db425a5,
     type: 3}
+  Interactable: 1
   Inventory: {fileID: 0}
 --- !u!1 &6467737611530720685
 GameObject:

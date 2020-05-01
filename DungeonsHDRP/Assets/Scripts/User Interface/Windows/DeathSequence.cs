@@ -15,6 +15,7 @@ public class DeathSequence : UIElement
     public GameObject Player;
     public Text Score;
     public Button Button;
+    public Text DeathDisplay;
 
     #region Success Toggles
     public Toggle SuccessToggle0;
@@ -94,7 +95,10 @@ public class DeathSequence : UIElement
         if (_FailIterator >= 3)
         {
             //RESET PLAYER LOAD-DATA
+            SwitchState(false);
             Dirge.Play();
+            DeathDisplay.gameObject.SetActive(true);
+            Protagonist.GetPlayerInstance().gameObject.GetComponent<Animator>().SetTrigger("Death");
             _GameOver = true;
         }
     }

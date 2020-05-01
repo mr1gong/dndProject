@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Branching xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DepthLevel>0</DepthLevel>
+  <PlayerLine>NPC greeting</PlayerLine>
+  <Options>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>die, virgin</NpcLine>
+      <PlayerLine>i hate u, npc bitch</PlayerLine>
+      <Options />
+    </Branching>
+    <Branching>
+      <DepthLevel>1</DepthLevel>
+      <NpcLine>lol, no</NpcLine>
+      <PlayerLine>wanna be gf?</PlayerLine>
+      <Options />
+    </Branching>
+  </Options>
+</Branching>
