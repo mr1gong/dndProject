@@ -36,6 +36,7 @@ public class Protagonist : Combatant
         playerInstance = this;
         Canvas.GetDefaultCanvasMaterial().shader = alwaysOnTop;
         timer = 10000;
+        Time.timeScale = 1;
 
         GameObject MiniUiPrefabObject = Instantiate(MiniUIPrefab, gameObject.transform);
         MiniUI = MiniUiPrefabObject.GetComponent<MiniUIController>();

@@ -18,15 +18,16 @@ public class DoorScript : Lockable
 
     public override void Unlock()
     {
-
+        int s = lockState;
         base.Unlock();
-        if (this.lockState != 0)
+        if (s != 0)
         {
             foreach (var v in linkedDoors)
             {
                 v.Unlock();
             }
         }
+
     }
 
     void Update()
@@ -58,11 +59,7 @@ public class DoorScript : Lockable
             
         }
 
-        foreach (DoorScript door in linkedDoors)
-        {
-            door.lockState = lockState;
-
-        }
+     
     }
     
     public void SetDoorState(int i)

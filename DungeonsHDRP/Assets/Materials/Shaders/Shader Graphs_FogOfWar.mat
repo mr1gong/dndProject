@@ -54,7 +54,7 @@ Material:
     - Color_BCFE5A8A: {r: 1, g: 0.08018869, b: 0.08018869, a: 0}
     - Color_D0BAC98B: {r: 0.764151, g: 0.08290317, b: 0.08290317, a: 0}
     - Color_D1D6FF58: {r: 1, g: 1, b: 1, a: 1}
-    - Position: {r: -15.36, g: 0.008303627, b: -5.81, a: 0}
+    - Position: {r: -6.4311047, g: 0, b: 23.78729, a: 0}
     - Vector3_6ED974EE: {r: 0, g: 0, b: 0, a: 0}
     - Vector3_E9E1414D: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0, g: 0, b: 0, a: 0}
